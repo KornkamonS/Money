@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Money Money</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="CountDownDay">CountDown: 0 Day</string>
+    <string name="Target">Target</string>
+    <string name="Income">รายรับ</string>
+    <string name="Outcome">รายจ่าย</string>
+
+    <string name="TotaDayUse">เงินที่ใช้ได้ในวันนี้</string>
+    <string name="ToDayTotal">0</string>
+    <string name="unit">บาท</string>
+    <string name="Home">Home</string>
+</resources>
