@@ -14,4 +14,10 @@
     <string name="ToDayTotal">0</string>
     <string name="unit">บาท</string>
     <string name="Home">Home</string>
+    <string name="LearningType">Learning</string>
+    <string name="CameraType">Camera</string>
+    <string name="Gift">Gift</string>
+    <string name="TechonoType">Technology</string>
+    <string name="MusicType">Music</string>
+    <string name="AddType">Other</string>
 </resources>

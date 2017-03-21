@@ -11,12 +11,15 @@
     <TableLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:animationCache="false"
         android:gravity="bottom|center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TableRow
             android:layout_width="match_parent"
@@ -24,67 +27,125 @@
             android:layout_weight="0.1"
             android:gravity="center">
 
-            <ImageButton
-                android:id="@+id/TypeMusic"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_margin="20sp"
-                android:layout_weight="0.3"
-                android:background="@android:color/holo_orange_dark"
-                app:srcCompat="@android:drawable/stat_sys_headset" />
 
-            <ImageButton
-                android:id="@+id/TypeCamera"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_margin="20sp"
-                android:layout_weight="0.3"
-                android:background="@android:color/holo_orange_dark"
-                app:srcCompat="@android:drawable/ic_menu_camera" />
+            <RadioGroup
+                android:id="@+id/Type"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/TypeLearn"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_margin="20sp"
-                android:layout_weight="0.3"
-                android:background="@android:color/holo_orange_dark"
-                app:srcCompat="@android:drawable/ic_menu_edit" />
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-        </TableRow>
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="0sp"
-            android:layout_weight="0.1"
-            android:gravity="center">
+                        <LinearLayout
+                            android:layout_width="100sp"
+                            android:layout_height="100sp"
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/TypeBook"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_margin="20sp"
-                android:layout_weight="0.3"
-                android:background="@android:color/holo_orange_dark"
-                app:srcCompat="@android:drawable/ic_dialog_map" />
+                            <RadioButton
+                                android:id="@+id/TypeLearning"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/type_camera"
+                                android:gravity="center"
+                                android:text="@string/LearningType" />
+                        </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/TypeTime"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_margin="20sp"
-                android:layout_weight="0.3"
-                android:background="@android:color/holo_orange_dark"
-                app:srcCompat="@android:drawable/ic_menu_recent_history" />
+                        <LinearLayout
+                            android:layout_width="100sp"
+                            android:layout_height="100sp"
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/TypeAdd"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_margin="20sp"
-                android:layout_weight="0.3"
-                android:background="@android:color/holo_orange_dark"
-                app:srcCompat="@android:drawable/ic_input_add" />
+                            <RadioButton
+                                android:id="@+id/TypeCamera"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@mipmap/ic_launcher"
+                                android:gravity="center"
+                                android:text="@string/CameraType" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="100sp"
+                            android:layout_height="100sp"
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/TypeGift"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@mipmap/ic_launcher"
+                                android:gravity="center"
+                                android:text="@string/Gift" />
+                        </LinearLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="100sp"
+                            android:layout_height="100sp"
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/TypeTechno"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@mipmap/ic_launcher"
+                                android:gravity="center"
+                                android:text="@string/TechonoType" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="100sp"
+                            android:layout_height="100sp"
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/TypeMusic"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@mipmap/ic_launcher"
+                                android:gravity="center"
+                                android:text="@string/MusicType" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="100sp"
+                            android:layout_height="100sp"
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/AddType"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@mipmap/ic_launcher"
+                                android:gravity="center"
+                                android:text="@string/AddType" />
+                        </LinearLayout>
+                    </TableRow>
+                </TableLayout>
+            </RadioGroup>
 
         </TableRow>
 
@@ -124,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:hint="Target"/>
+                    android:hint="Target" />
             </LinearLayout>
 
         </TableRow>
@@ -165,8 +226,8 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
-                    android:inputType="numberDecimal"
-                    android:hint="00.00"/>
+                    android:hint="10.00"
+                    android:inputType="numberDecimal" />
             </LinearLayout>
 
             <LinearLayout
@@ -224,8 +285,8 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:gravity="center"
-                    android:inputType="numberDecimal"
-                    android:hint="0"/>
+                    android:hint="30"
+                    android:inputType="numberDecimal" />
             </LinearLayout>
 
             <LinearLayout

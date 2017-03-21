@@ -12,12 +12,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\TunasanG\.android\build-cache\5ff6b2482477601ae690c35f1771f00c8c2c40b4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4e9e33f79bbfe098701a327234eead9703f558c5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\TunasanG\.android\build-cache\72f708fe0233c67f136e56470edfb6da39d552da\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4d6569059e421e91c166f87e987651f28fa25cc0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\TunasanG\Documents\Money\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
         <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_6d20728198763bb731ad21a9ac39290344c1a953\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\TunasanG\.android\build-cache\0a56d1d2d681902535486d94211293af1a43d21f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ab5ffa98d64f1c63f809e8911e57bc00c6404043\classes.dex" />
     </item>
 
 </items>

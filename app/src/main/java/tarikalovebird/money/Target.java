@@ -15,7 +15,7 @@ public class Target
       private final String KEY_Name = "TARGET";
       private final String KEY_Price = "PRICE";
       private final String KEY_Day ="DAY";
-      private final String KEY_Pic="PIC";
+      private final String KEY_Type="TYPE";
 
 
 
@@ -23,19 +23,16 @@ public class Target
       private SharedPreferences.Editor dbEditTarget;
 
 
-      public  Target(Context context) {
+        public  Target(Context context) {
             dbTarget = context.getSharedPreferences(KEY_Name, Context.MODE_PRIVATE);
             dbEditTarget = dbTarget.edit();
         }
-
-        public boolean setNameTarget(String name)
-        {
+        public boolean setNameTarget(String name){
             if(!name.isEmpty())
                 dbEditTarget.putString(KEY_Name,name);
             else dbEditTarget.putString(KEY_Name,"Target");
             return dbEditTarget.commit();
         }
-
         public boolean setTargetPrice(float p) {
 
             if(p==0)
@@ -70,6 +67,7 @@ public class Target
         {
             return dbTarget.getFloat(KEY_Price,0);
         }
+        //public String
 
 }
 
