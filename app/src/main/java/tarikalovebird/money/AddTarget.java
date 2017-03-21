@@ -12,7 +12,10 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.security.spec.ECField;
@@ -29,12 +32,16 @@ public class AddTarget extends Activity{
     private EditText targetDay;
     private Button okbut;
     private Button cancelbut;
+    private RadioGroup typegroup;
+    private RadioButton typeselect;
+
     public Target t;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addtarget);
 
+        typegroup=(RadioGroup) findViewById(R.id.Type);
         targetName=(EditText) findViewById(R.id.TargetName);
         targetPrice=(EditText)findViewById(R.id.TargetPrice);
         targetDay=(EditText)findViewById(R.id.DayTargey) ;
@@ -70,9 +77,11 @@ public class AddTarget extends Activity{
                     FLAG=false;
                 }
                if(FLAG){
-                    FLAG=t.setNameTarget(targetName.getText().toString());
-                    FLAG=t.setTargetDay(Integer.parseInt(targetDay.getText().toString()));
-                    FLAG=t.setTargetPrice(Float.parseFloat(targetDay.getText().toString()));
+
+                   FLAG=t.setNameTarget(targetName.getText().toString());
+                   FLAG=t.setTargetDay(Integer.parseInt(targetDay.getText().toString()));
+                   FLAG=t.setTargetPrice(Float.parseFloat(targetDay.getText().toString()));
+                   FLAG=t.setTargetType(typegroup.getCheckedRadioButtonId());
                     if(!FLAG){
                         Error.setMessage("Save Target Error");
                         Error.show();
@@ -82,7 +91,7 @@ public class AddTarget extends Activity{
                         setResult(RESULT_OK, returnIntent);
                         finish();
                     }
-                }
+             }
             }
         });
         cancelbut.setOnClickListener(new View.OnClickListener() {

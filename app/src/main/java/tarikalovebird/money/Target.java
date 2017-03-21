@@ -33,6 +33,10 @@ public class Target
             else dbEditTarget.putString(KEY_Name,"Target");
             return dbEditTarget.commit();
         }
+        public boolean setTargetType(int type){
+                dbEditTarget.putInt(KEY_Type,type);
+            return dbEditTarget.commit();
+        }
         public boolean setTargetPrice(float p) {
 
             if(p==0)
@@ -67,7 +71,8 @@ public class Target
         {
             return dbTarget.getFloat(KEY_Price,0);
         }
-        //public String
+        public int getTargetType(){
+            return dbTarget.getInt(KEY_Type,0);}
 
 }
 

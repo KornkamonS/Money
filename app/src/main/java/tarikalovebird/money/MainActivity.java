@@ -49,6 +49,14 @@ public class MainActivity extends AppCompatActivity
             }
         }) ;
 
+        /*targetBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), AddTarget.class);
+                startActivity(i);
+            }
+        }) ;*/
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -66,6 +74,24 @@ public class MainActivity extends AppCompatActivity
                 //Update List
                 t.setText(target.getTargetName());
                 day.setText(target.getCountDown());
+                int idpic=0;
+                 switch ( target.getTargetType())
+                {
+                    case R.id.TypeFood: targetBut.setBackgroundResource(R.drawable.type_food);
+                        break;
+                    case R.id.TypeGift:targetBut.setBackgroundResource(R.drawable.type_gift);
+                        break;
+                    case R.id.TypeLearning:targetBut.setBackgroundResource(R.drawable.type_learning);
+                        break;
+                    case R.id.TypeMusic:targetBut.setBackgroundResource(R.drawable.type_music);
+                        break;
+                    case R.id.TypeTechno: targetBut.setBackgroundResource(R.drawable.type_techno);
+                        break;
+                    case R.id.AddType: targetBut.setBackgroundResource(R.drawable.type_add);
+                        break;
+                    default: targetBut.setBackgroundResource(R.drawable.ic_menu_gallery);
+                }
+
             }
             if (resultCode == RESULT_CANCELED) {
                 //Do nothing?
@@ -78,6 +104,7 @@ public class MainActivity extends AppCompatActivity
         super.onResume();
         //Refresh your stuff here
         t.setText(target.getTargetName());
+        day.setText(target.getCountDown());
     }*/
     @Override
     public void onBackPressed() {
