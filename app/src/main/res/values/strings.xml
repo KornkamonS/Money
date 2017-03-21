@@ -9,15 +9,16 @@
     <string name="Target">Target</string>
     <string name="Income">รายรับ</string>
     <string name="Outcome">รายจ่าย</string>
-
     <string name="TotaDayUse">เงินที่ใช้ได้ในวันนี้</string>
     <string name="ToDayTotal">0</string>
     <string name="unit">บาท</string>
     <string name="Home">Home</string>
+
     <string name="LearningType">Learning</string>
     <string name="FoodType">Food</string>
     <string name="Gift">Gift</string>
     <string name="TechonoType">Technology</string>
     <string name="MusicType">Music</string>
     <string name="AddType">Other</string>
+
 </resources>
