@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,6 +24,11 @@ import java.util.jar.Attributes;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public static final String KEY_DRAWABLE_ID = "drawableId";
+
+    private String[] mDrawerTitle = {"Cover", "Guitar", "Bass", "Drum"};
+
     private ImageButton targetBut;
     private TextView t;
     private Target target;
@@ -49,13 +56,13 @@ public class MainActivity extends AppCompatActivity
             }
         }) ;
 
-        /*targetBut.setOnClickListener(new View.OnClickListener() {
+        targetBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), AddTarget.class);
                 startActivity(i);
             }
-        }) ;*/
+        }) ;
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -98,6 +105,7 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }//onActivityResult
+
     /*@Override
     public void onResume()
     {  // After a pause OR at startup
@@ -145,8 +153,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_Home) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_Income) {
+            /*Intent i = new Intent(getApplicationContext(), IncomeActivity.class);
+            startActivity(i);*/
 
         } else if (id == R.id.nav_Outcom) {
 
