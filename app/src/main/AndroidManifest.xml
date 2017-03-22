@@ -21,11 +21,7 @@
         </activity>
         <activity
             android:name=".AddTarget"
-            android:label="@string/Target" />
-
-        <activity
-            android:name=".IncomeActivity"
-            android:label="@string/title_activity_income"
+            android:label="@string/title_activity_add_target"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
