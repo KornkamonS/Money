@@ -28,6 +28,7 @@
     <string name="title_activity_income_table">Income</string>
     <string name="title_activity_outcome_table">Outcome</string>
     <string name="title_activity_summary_table">Summary</string>
+    <string name="title_activity_taget_detail">Target</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

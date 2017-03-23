@@ -33,6 +33,10 @@
         <activity
             android:name=".Summary_table"
             android:label="@string/title_activity_summary_table"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TagetDetail"
+            android:label="@string/title_activity_taget_detail"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

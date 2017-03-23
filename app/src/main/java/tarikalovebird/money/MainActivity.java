@@ -1,14 +1,7 @@
 package tarikalovebird.money;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,24 +10,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import java.util.jar.Attributes;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final String KEY_DRAWABLE_ID = "drawableId";
-
-    private String[] mDrawerTitle = {"Cover", "Guitar", "Bass", "Drum"};
-
     private static final int ADDTARGATRESULT=1;
     private static final int INCOMERESULT=2;
     private static final int OUTCOMERESULT=3;
-
+    private String[] mDrawerTitle = {"Cover", "Guitar", "Bass", "Drum"};
     private Button outcomeBut;
     private ImageButton targetBut;
     private TextView t;
@@ -49,20 +38,19 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        target = new Target(this);
+
         targetBut = (ImageButton) findViewById(R.id.imageTargetBut);
         t=(TextView) findViewById(R.id.nameTarget);
         day=(TextView) findViewById(R.id.CoundownDay) ;
-        target=new Target(this);
-        t.setText(target.getTargetName());
-        day.setText(target.getCountDown());
         incomeBut = (Button) findViewById(R.id.IncomeBut);
         outcomeBut = (Button) findViewById(R.id.OutcomeBut);
 
         targetBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), AddTarget.class);
-                startActivityForResult(i, ADDTARGATRESULT);
+                Intent i = new Intent(getApplicationContext(), TagetDetail.class);
+                startActivity(i);
             }
         }) ;
         /*incomeBut.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +76,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    /*protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ADDTARGATRESULT) {
 
             if(resultCode == RESULT_OK){
@@ -136,16 +124,39 @@ public class MainActivity extends AppCompatActivity
                 //Do nothing?
             }
         }
-    }//onActivityResult
+    }//onActivityResult*/
 
-    /*@Override
+    @Override
     public void onResume()
     {  // After a pause OR at startup
         super.onResume();
         //Refresh your stuff here
         t.setText(target.getTargetName());
         day.setText(target.getCountDown());
-    }*/
+
+        switch (target.getTargetType()) {
+            case R.id.TypeFood:
+                targetBut.setBackgroundResource(R.drawable.type_food);
+                break;
+            case R.id.TypeGift:
+                targetBut.setBackgroundResource(R.drawable.type_gift);
+                break;
+            case R.id.TypeLearning:
+                targetBut.setBackgroundResource(R.drawable.type_learning);
+                break;
+            case R.id.TypeMusic:
+                targetBut.setBackgroundResource(R.drawable.type_music);
+                break;
+            case R.id.TypeTechno:
+                targetBut.setBackgroundResource(R.drawable.type_techno);
+                break;
+            case R.id.AddType:
+                targetBut.setBackgroundResource(R.drawable.type_add);
+                break;
+            default:
+                targetBut.setBackgroundResource(R.drawable.ic_menu_gallery);
+        }
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
