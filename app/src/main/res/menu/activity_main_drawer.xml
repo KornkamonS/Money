@@ -3,21 +3,29 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_Home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Home" />
+            android:title="@string/Home" />
         <item
-            android:id="@+id/nav_income"
+            android:id="@+id/nav_Income"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Income" />
+            android:title="@string/Income" />
         <item
-            android:id="@+id/nav_outcome"
+            android:id="@+id/nav_Outcom"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Outcome" />
+            android:title="@string/Outcome" />
         <item
-            android:id="@+id/nav_summary"
+            android:id="@+id/nav_Summary"
             android:icon="@drawable/ic_menu_manage"
-            android:title="summary" />
+            android:title="สรุป" />
+        <item
+            android:id="@+id/nav_TIPs"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="TIPs" />
+        <item
+            android:id="@+id/nav_Noti"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="ตั้งค่าการแจ้งเตือน" />
     </group>
 
     <item android:title="Communicate">

@@ -1,19 +1,32 @@
 package tarikalovebird.money;
 
+
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.VoiceInteractor;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class AddTarget extends AppCompatActivity {
+
+import java.security.spec.ECField;
+
+/**
+ * Created by TunasanG on 15/3/2560.
+ */
+
+public class AddTarget extends Activity{
+
+
     private EditText targetPrice;
     private EditText targetName;
     private EditText targetDay;
@@ -23,13 +36,10 @@ public class AddTarget extends AppCompatActivity {
     private RadioButton typeselect;
 
     public Target t;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_target);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_addtarget);
 
         typegroup=(RadioGroup) findViewById(R.id.Type);
         targetName=(EditText) findViewById(R.id.TargetName);
@@ -66,12 +76,12 @@ public class AddTarget extends AppCompatActivity {
                     targetDay.setError("Day must be an Integer");
                     FLAG=false;
                 }
-                if(FLAG){
+               if(FLAG){
 
-                    FLAG=t.setNameTarget(targetName.getText().toString());
-                    FLAG=t.setTargetDay(Integer.parseInt(targetDay.getText().toString()));
-                    FLAG=t.setTargetPrice(Float.parseFloat(targetDay.getText().toString()));
-                    FLAG=t.setTargetType(typegroup.getCheckedRadioButtonId());
+                   FLAG=t.setNameTarget(targetName.getText().toString());
+                   FLAG=t.setTargetDay(Integer.parseInt(targetDay.getText().toString()));
+                   FLAG=t.setTargetPrice(Float.parseFloat(targetDay.getText().toString()));
+                   FLAG=t.setTargetType(typegroup.getCheckedRadioButtonId());
                     if(!FLAG){
                         Error.setMessage("Save Target Error");
                         Error.show();
@@ -81,7 +91,7 @@ public class AddTarget extends AppCompatActivity {
                         setResult(RESULT_OK, returnIntent);
                         finish();
                     }
-                }
+             }
             }
         });
         cancelbut.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +103,6 @@ public class AddTarget extends AppCompatActivity {
             }
         });
 
-    }
 
+    }
 }
