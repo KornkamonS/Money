@@ -2,130 +2,13 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\e963c86211ea8ea15b96a2794939d24d5ac835d2\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_7529c912cc024140e81568dfcf1fc22b886bb9b6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\463bf651ea57929ab4c76318ee15a083d270901e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_953c8f0ee12af09aa464dd0bc70433c8220ed257.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\a0bc359812adde9ecdccdf53d1bf0514a0711eb0\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="518768f3200963fbfec652f498da2c9d39245234">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_1888b95d249b7f4da7eb344423521404d3b923fc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\72f708fe0233c67f136e56470edfb6da39d552da\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_4d6569059e421e91c166f87e987651f28fa25cc0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\5ff6b2482477601ae690c35f1771f00c8c2c40b4\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_4e9e33f79bbfe098701a327234eead9703f558c5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\7c341f0d20f6c2097ebb90f56c07116319b9c872\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="93c10d68ab5ea070f15782ae6d3a28d1f1d8f45e">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_4726ee16326541ccfbd8b83a93cd623ed384851d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\dac493ff400e3cbb2f7bc5f689581504bb0369c8\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_0e6e93f3be8d6bf33882e517897c038b2b4a6b6d.jar" />
-    </item>
-    <item
         is-multidex="true"
         jar="C:\Users\TunasanG\Documents\Money\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="1327cd769a825d9a1164bee3dcf9493497a25d22">
+        sha1="393226e068a0147f2ef165867020856e26535635">
         <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3378d6235633f0efd8cfe9d318939895841eeffd\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.0\support-annotations-25.3.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="dd84903d2e1af25a6081ef9038ad863cb14ca3a0">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\support-annotations-25.3.0_4ea778e303a58e40285fa4e416c4c255a39f148f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\a57e1ca9bc7b0b601d54e7681aada0d4e543d717\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="425c7b17887e5c3f8cbdf67ba171bc246f29b42c">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_309d845eec7a91a9ac224964f728255a854f9a10.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\d0842318c1f4ad62e0f6a8fe2ba82f9db2d47887\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="5cc5ef8347a6bafa14556cbd35230aa9b3431bb0">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_cd72d236086790273fefa73c7302ee657d9a5351.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\0e4d662d4d27fe9d09dd645b86721bf60b33c238\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_0d7de4c44da177f0ae6a6718b38f1123b56cebab.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\0a56d1d2d681902535486d94211293af1a43d21f\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e51c2f662bb72419632af5192553c37e33890a99">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_ab5ffa98d64f1c63f809e8911e57bc00c6404043.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\TunasanG\.android\build-cache\1da3a088617c8ff76f55d415ba4b5424f40d0c92\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="93c1199fcb0a34b980e6fff8350daff62e696ec2">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\pre-dexed\debug\classes_fabba1dad7a4c6711d0fef7b4d35a8853188f81b.jar" />
     </item>
     <item
         is-multidex="true"

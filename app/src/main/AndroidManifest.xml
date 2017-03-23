@@ -22,10 +22,17 @@
         <activity
             android:name=".AddTarget"
             android:label="@string/Target" />
-
         <activity
-            android:name=".IncomeActivity"
-            android:label="@string/title_activity_income"
+            android:name=".Income_table"
+            android:label="@string/title_activity_income_table"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Outcome_table"
+            android:label="@string/title_activity_outcome_table"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Summary_table"
+            android:label="@string/title_activity_summary_table"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

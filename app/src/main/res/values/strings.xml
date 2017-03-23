@@ -25,6 +25,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_income">IncomeActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_income_table">Income</string>
+    <string name="title_activity_outcome_table">Outcome</string>
+    <string name="title_activity_summary_table">Summary</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

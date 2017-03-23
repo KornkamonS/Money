@@ -28,8 +28,8 @@
             android:orientation="vertical">
 
             <TableLayout
-                android:layout_width="420sp"
-                android:layout_height="600sp"
+                android:layout_width="wrap_content"
+                android:layout_height="550dp"
                 android:animationCache="false"
                 android:gravity="bottom|center"
                 android:orientation="vertical"
@@ -48,11 +48,11 @@
 
 
                     <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
@@ -60,34 +60,34 @@
                                 android:id="@+id/Type"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:gravity="center"
+                                android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
                                 <RadioButton
                                     android:id="@+id/TypeFood"
-                                    android:button="@null"
                                     android:layout_width="150dp"
                                     android:layout_height="150dp"
                                     android:background="@drawable/type_food"
+                                    android:button="@null"
                                     android:padding="10sp"
                                     android:text="@string/FoodType" />
 
                                 <RadioButton
                                     android:id="@+id/TypeLearning"
-                                    android:button="@null"
                                     android:layout_width="150dp"
                                     android:layout_height="150dp"
                                     android:background="@drawable/type_gift"
+                                    android:button="@null"
                                     android:gravity="center"
                                     android:padding="10sp" />
 
                                 <RadioButton
                                     android:id="@+id/TypeGift"
-                                    android:button="@null"
                                     android:layout_width="150dp"
                                     android:layout_height="150dp"
                                     android:layout_weight="1"
                                     android:background="@drawable/type_gift"
+                                    android:button="@null"
                                     android:gravity="center"
                                     android:padding="10sp"
                                     android:text="@string/Gift" />
@@ -96,9 +96,9 @@
                                     android:id="@+id/TypeMusic"
                                     android:layout_width="150dp"
                                     android:layout_height="150dp"
-                                    android:button="@null"
                                     android:layout_weight="1"
                                     android:background="@drawable/type_music"
+                                    android:button="@null"
                                     android:gravity="center"
                                     android:padding="10sp"
                                     android:text="@string/MusicType" />
@@ -107,20 +107,20 @@
                                     android:id="@+id/TypeTechno"
                                     android:layout_width="150dp"
                                     android:layout_height="150dp"
-                                    android:button="@null"
                                     android:layout_weight="1"
                                     android:background="@drawable/type_techno"
+                                    android:button="@null"
                                     android:gravity="center"
                                     android:padding="10sp"
                                     android:text="@string/TechonoType" />
 
                                 <RadioButton
                                     android:id="@+id/AddType"
-                                    android:button="@null"
                                     android:layout_width="150dp"
                                     android:layout_height="150dp"
                                     android:layout_weight="1"
                                     android:background="@drawable/type_add"
+                                    android:button="@null"
                                     android:gravity="center"
                                     android:padding="10sp"
                                     android:text="@string/AddType" />

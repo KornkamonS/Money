@@ -31,7 +31,7 @@
             <TableLayout
 
                 android:layout_width="400dp"
-                android:layout_height="500dp"
+                android:layout_height="600dp"
                 android:layout_marginTop="8dp"
                 android:layout_weight="5.18"
                 android:gravity="bottom"
@@ -73,8 +73,8 @@
 
                     <ImageButton
                         android:id="@+id/imageTargetBut"
-                        android:layout_width="275dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="175dp"
+                        android:layout_height="175dp"
                         app:srcCompat="@drawable/ic_menu_gallery" />
 
                 </TableRow>

@@ -17,10 +17,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.jar.Attributes;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -29,10 +31,16 @@ public class MainActivity extends AppCompatActivity
 
     private String[] mDrawerTitle = {"Cover", "Guitar", "Bass", "Drum"};
 
+    private static final int ADDTARGATRESULT=1;
+    private static final int INCOMERESULT=2;
+    private static final int OUTCOMERESULT=3;
+
+    private Button outcomeBut;
     private ImageButton targetBut;
     private TextView t;
     private Target target;
     private TextView day;
+    private Button incomeBut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,23 +55,30 @@ public class MainActivity extends AppCompatActivity
         target=new Target(this);
         t.setText(target.getTargetName());
         day.setText(target.getCountDown());
+        incomeBut = (Button) findViewById(R.id.IncomeBut);
+        outcomeBut = (Button) findViewById(R.id.OutcomeBut);
 
         targetBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), AddTarget.class);
-                startActivityForResult(i, 1);
+                startActivityForResult(i, ADDTARGATRESULT);
             }
         }) ;
-
-        targetBut.setOnClickListener(new View.OnClickListener() {
+        /*incomeBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), AddTarget.class);
-                startActivity(i);
+                Intent i = new Intent(getApplicationContext(), Income.class);
+                startActivityForResult(i, INCOMERESULT);
             }
-        }) ;
-
+        }) ;*/
+        /*outcomeBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Outcome.class);
+                startActivityForResult(i, OUTCOMERESULT);
+            }
+        }) ;*/
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -74,8 +89,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        if (requestCode == 1) {
+        if (requestCode == ADDTARGATRESULT) {
 
             if(resultCode == RESULT_OK){
                 //Update List
@@ -99,6 +113,24 @@ public class MainActivity extends AppCompatActivity
                     default: targetBut.setBackgroundResource(R.drawable.ic_menu_gallery);
                 }
 
+            }
+            if (resultCode == RESULT_CANCELED) {
+                //Do nothing?
+            }
+        }
+        if (requestCode == INCOMERESULT)
+        {
+            if(resultCode == RESULT_OK){
+                //refresh page
+            }
+            if (resultCode == RESULT_CANCELED) {
+                //Do nothing?
+            }
+        }
+        if (requestCode == OUTCOMERESULT)
+        {
+            if(resultCode == RESULT_OK){
+                //refresh page
             }
             if (resultCode == RESULT_CANCELED) {
                 //Do nothing?
@@ -155,13 +187,15 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_Home) {
 
         } else if (id == R.id.nav_Income) {
-            /*Intent i = new Intent(getApplicationContext(), IncomeActivity.class);
-            startActivity(i);*/
+            Intent i = new Intent(getApplicationContext(), Income_table.class);
+            startActivity(i);
 
         } else if (id == R.id.nav_Outcom) {
-
+            Intent i = new Intent(getApplicationContext(), Outcome_table.class);
+            startActivity(i);
         } else if (id == R.id.nav_Summary) {
-
+            Intent i = new Intent(getApplicationContext(), Summary_table.class);
+            startActivity(i);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
