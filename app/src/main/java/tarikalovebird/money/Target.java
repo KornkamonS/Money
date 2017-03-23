@@ -2,9 +2,6 @@ package tarikalovebird.money;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.text.TextUtils;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by TunasanG on 20/3/2560.
@@ -23,7 +20,7 @@ public class Target
       private SharedPreferences.Editor dbEditTarget;
 
 
-        public  Target(Context context) {
+        public Target(Context context) {
             dbTarget = context.getSharedPreferences(KEY_Name, Context.MODE_PRIVATE);
             dbEditTarget = dbTarget.edit();
         }
