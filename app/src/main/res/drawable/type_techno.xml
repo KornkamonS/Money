@@ -1,8 +1,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:drawable="@drawable/ic_menu_share"
+    <item android:drawable="@drawable/techno1"
         android:state_checked="true"/>
-    <item android:drawable="@drawable/ic_menu_send"
+    <item android:drawable="@drawable/techno"
         android:state_checked="false"/>
 
 </selector>

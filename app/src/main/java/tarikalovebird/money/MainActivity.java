@@ -19,11 +19,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static final String KEY_DRAWABLE_ID = "drawableId";
     private static final int ADDTARGATRESULT=1;
     private static final int INCOMERESULT=2;
     private static final int OUTCOMERESULT=3;
-    private String[] mDrawerTitle = {"Cover", "Guitar", "Bass", "Drum"};
     private Button outcomeBut;
     private ImageButton targetBut;
     private TextView t;
@@ -76,37 +74,18 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-    /*protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ADDTARGATRESULT) {
 
             if(resultCode == RESULT_OK){
                 //Update List
-                t.setText(target.getTargetName());
-                day.setText(target.getCountDown());
-                int idpic=0;
-                 switch ( target.getTargetType())
-                {
-                    case R.id.TypeFood: targetBut.setBackgroundResource(R.drawable.type_food);
-                        break;
-                    case R.id.TypeGift:targetBut.setBackgroundResource(R.drawable.type_gift);
-                        break;
-                    case R.id.TypeLearning:targetBut.setBackgroundResource(R.drawable.type_learning);
-                        break;
-                    case R.id.TypeMusic:targetBut.setBackgroundResource(R.drawable.type_music);
-                        break;
-                    case R.id.TypeTechno: targetBut.setBackgroundResource(R.drawable.type_techno);
-                        break;
-                    case R.id.AddType: targetBut.setBackgroundResource(R.drawable.type_add);
-                        break;
-                    default: targetBut.setBackgroundResource(R.drawable.ic_menu_gallery);
-                }
-
+                PrintPage();
             }
             if (resultCode == RESULT_CANCELED) {
                 //Do nothing?
             }
         }
-        if (requestCode == INCOMERESULT)
+        /*if (requestCode == INCOMERESULT)
         {
             if(resultCode == RESULT_OK){
                 //refresh page
@@ -114,8 +93,8 @@ public class MainActivity extends AppCompatActivity
             if (resultCode == RESULT_CANCELED) {
                 //Do nothing?
             }
-        }
-        if (requestCode == OUTCOMERESULT)
+        }*/
+        /*if (requestCode == OUTCOMERESULT)
         {
             if(resultCode == RESULT_OK){
                 //refresh page
@@ -123,40 +102,16 @@ public class MainActivity extends AppCompatActivity
             if (resultCode == RESULT_CANCELED) {
                 //Do nothing?
             }
-        }
+        }*/
     }//onActivityResult*/
 
-    @Override
+    /*@Override
     public void onResume()
     {  // After a pause OR at startup
         super.onResume();
         //Refresh your stuff here
-        t.setText(target.getTargetName());
-        day.setText(target.getCountDown());
 
-        switch (target.getTargetType()) {
-            case R.id.TypeFood:
-                targetBut.setBackgroundResource(R.drawable.type_food);
-                break;
-            case R.id.TypeGift:
-                targetBut.setBackgroundResource(R.drawable.type_gift);
-                break;
-            case R.id.TypeLearning:
-                targetBut.setBackgroundResource(R.drawable.type_learning);
-                break;
-            case R.id.TypeMusic:
-                targetBut.setBackgroundResource(R.drawable.type_music);
-                break;
-            case R.id.TypeTechno:
-                targetBut.setBackgroundResource(R.drawable.type_techno);
-                break;
-            case R.id.AddType:
-                targetBut.setBackgroundResource(R.drawable.type_add);
-                break;
-            default:
-                targetBut.setBackgroundResource(R.drawable.ic_menu_gallery);
-        }
-    }
+    }*/
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -220,5 +175,27 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void PrintPage()
+    {
+        /*t.setText(target.getTargetName());
+        day.setText(target.getCountDown());
+        switch ( target.getTargetType())
+        {
+            case R.id.TypeLearning: targetBut.setBackgroundResource(R.drawable.type_book);
+                break;
+            case R.id.TypeGift:targetBut.setBackgroundResource(R.drawable.type_gift);
+                break;
+            case R.id.TypeToy:targetBut.setBackgroundResource(R.drawable.type_toy);
+                break;
+            case R.id.TypeMusic:targetBut.setBackgroundResource(R.drawable.type_music);
+                break;
+            case R.id.TypeTechno: targetBut.setBackgroundResource(R.drawable.type_techno);
+                break;
+            case R.id.AddType: targetBut.setBackgroundResource(R.drawable.type_add);
+                break;
+            default: targetBut.setBackgroundResource(R.drawable.ic_menu_gallery);
+        }*/
     }
 }

@@ -3,35 +3,38 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
+
+    <!--Home page string-->
     <string name="CountDownDay">CountDown: 0 Day</string>
     <string name="Target">Target</string>
     <string name="Income">รายรับ</string>
     <string name="Outcome">รายจ่าย</string>
     <string name="TotaDayUse">เงินที่ใช้ได้ในวันนี้</string>
     <string name="ToDayTotal">0</string>
-    <string name="unit">บาท</string>
+    <string name="unit"> บาท</string>
     <string name="Home">Home</string>
 
+    <!--Type add target page string-->
     <string name="LearningType">Learning</string>
     <string name="FoodType">Food</string>
     <string name="Gift">Gift</string>
-    <string name="TechonoType">Technology</string>
+    <string name="TechnoType">Technology</string>
     <string name="MusicType">Music</string>
     <string name="AddType">Other</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_income">IncomeActivity</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="title_activity_income">Income</string>
     <string name="title_activity_income_table">Income</string>
     <string name="title_activity_outcome_table">Outcome</string>
     <string name="title_activity_summary_table">Summary</string>
     <string name="title_activity_taget_detail">Target</string>
 
-
-    <!-- TODO: Remove or change this placeholder text -->
-
+    <!-- Target Detail page-->
+    <string name="target_price">Target Price : </string>
+    <string name="start_date">วันที่เริ่มต้นเก็บเงิน : </string>
+    <string name="rest">จำนวนเงินที่ต้องเก็บอีก : </string>
+    <string name="title_activity_add__target">Target</string>
 
 </resources>

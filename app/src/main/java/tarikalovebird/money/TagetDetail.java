@@ -7,25 +7,28 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+
 public class TagetDetail extends AppCompatActivity {
 
     private static final int PROGRESS = 0x1;
-
+    private static final int ADDTARGET=999;
     private ProgressBar mProgress;
     private Target target;
     private Handler mHandler = new Handler();
+    private TextView summarytext;
     private TextView total;
     private TextView dalay;
     private TextView startdate;
     private TextView targetP;
     private TextView targetN;
     private ImageView targetPic;
+    private TextView percenttext;
+    private TextView unit3;
+    private String per;
     private float percent = 0;
     private int summary = 70;//Must be decrease with total summary
 
@@ -37,48 +40,73 @@ public class TagetDetail extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         target = new Target(this);
-        targetP = (TextView) findViewById(R.id.targetPrice);
-        total = (TextView) findViewById(R.id.totaltarget);
-        targetN = (TextView) findViewById(R.id.targetName);
-        startdate = (TextView) findViewById(R.id.startDatetext);
-        mProgress = (ProgressBar) findViewById(R.id.progressBar);
-        targetPic = (ImageView) findViewById(R.id.targetpicc);
+        targetP = (TextView) findViewById(R.id.DetialtargetPrice);
+        total = (TextView) findViewById(R.id.Detialtotaltarget);
+        targetN = (TextView) findViewById(R.id.DetialtargetName);
+        startdate = (TextView) findViewById(R.id.DetialstartDatetext);
+        mProgress = (ProgressBar) findViewById(R.id.DetialprogressBar);
+        targetPic = (ImageView) findViewById(R.id.Detialtargetpicc);
+        summarytext = (TextView) findViewById(R.id.Detialhave);
+        percenttext = (TextView) findViewById(R.id.DetialPercent);
+        unit3=(TextView) findViewById(R.id.Detialunit3) ;
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), AddTarget.class);
-                startActivity(i);
+                Intent i = new Intent(getApplicationContext(), Add_Target.class);
+                startActivityForResult(i,ADDTARGET);
             }
         });
+
+        printPage();
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == ADDTARGET) {
 
-    @Override
-    public void onResume() {  // After a pause OR at startup
-        super.onResume();
-        //Refresh your stuff here
+            if(resultCode == RESULT_OK){
+                printPage();
+            }
+            if (resultCode == RESULT_CANCELED) {
+                //Do nothing?
+            }
+        }
 
-        targetN.setText(target.getTargetName());
-        targetP.setText("Target Price : " + target.getTargetPrice() + " บาท");
-        startdate.setText("วันที่เริ่มต้นเก็บเงิน : " + target.getSTARTdate());
-        total.setText("จำนวนเงินที่ต้องเก็บ : " + String.valueOf((target.getTargetPrice() - summary)) + " บาท");
+    }
+    private void printPage()
+    {
+        float rest =target.getTargetPrice() - summary;
+        String Rest=String.valueOf(rest);
+        if(rest<=0)        {
+            Rest="Successful!!";
+            unit3.setVisibility(View.INVISIBLE);
+        }else unit3.setVisibility(View.VISIBLE);
+
         percent = ((summary / target.getTargetPrice()) * 100);
         if (percent > 100) percent = 100;
+        per=String.valueOf((int)percent)+" %";
 
-        ProgressBarAnimation anim = new ProgressBarAnimation(mProgress, 0, percent);
+        targetN.setText(target.getTargetName());
+        targetP.setText(String.valueOf(target.getTargetPrice()));
+        startdate.setText(target.getSTARTdate());
+        total.setText(Rest);
+        summarytext.setText(String.valueOf(summary));
+        percenttext.setText(per);
+
+
+        MyAnimation.ProgressBarAnimation anim = new MyAnimation.ProgressBarAnimation(mProgress, 0, percent);
         anim.setDuration(1000);
         mProgress.startAnimation(anim);
 
-        switch (target.getTargetType()) {
-            case R.id.TypeFood:
-                targetPic.setImageResource(R.drawable.type_food);
+        /*switch (target.getTargetType()) {
+            case R.id.TypeLearning:
+                targetPic.setImageResource(R.drawable.type_book);
                 break;
             case R.id.TypeGift:
                 targetPic.setImageResource(R.drawable.type_gift);
                 break;
-            case R.id.TypeLearning:
-                targetPic.setImageResource(R.drawable.type_learning);
+            case R.id.TypeToy:
+                targetPic.setImageResource(R.drawable.type_toy);
                 break;
             case R.id.TypeMusic:
                 targetPic.setImageResource(R.drawable.type_music);
@@ -91,27 +119,13 @@ public class TagetDetail extends AppCompatActivity {
                 break;
             default:
                 targetPic.setImageResource(R.drawable.ic_menu_gallery);
-        }
+        }*/
     }
 
-    public class ProgressBarAnimation extends Animation {
-        private ProgressBar progressBar;
-        private float from;
-        private float to;
-
-        public ProgressBarAnimation(ProgressBar progressBar, float from, float to) {
-            super();
-            this.progressBar = progressBar;
-            this.from = from;
-            this.to = to;
+    /* @Override
+    public void onResume() {  // After a pause OR at startup
+        super.onResume();
+        //Refresh your stuff here
         }
-
-        @Override
-        protected void applyTransformation(float interpolatedTime, Transformation t) {
-            super.applyTransformation(interpolatedTime, t);
-            float value = from + (to - from) * interpolatedTime;
-            progressBar.setProgress((int) value);
-        }
-
-    }
+    }*/
 }
