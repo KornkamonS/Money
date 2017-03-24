@@ -60,6 +60,7 @@ public class TagetDetail extends AppCompatActivity {
         });
 
         printPage();
+
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ADDTARGET) {
@@ -71,6 +72,14 @@ public class TagetDetail extends AppCompatActivity {
                 //Do nothing?
             }
         }
+
+    }
+    @Override
+    public void onBackPressed() {
+        Intent returnIntent = new Intent();
+        setResult(RESULT_OK, returnIntent);
+        finish();
+        super.onBackPressed();
 
     }
     private void printPage()
@@ -98,7 +107,7 @@ public class TagetDetail extends AppCompatActivity {
         anim.setDuration(1000);
         mProgress.startAnimation(anim);
 
-        /*switch (target.getTargetType()) {
+        switch (target.getTargetType()) {
             case R.id.TypeLearning:
                 targetPic.setImageResource(R.drawable.type_book);
                 break;
@@ -118,8 +127,8 @@ public class TagetDetail extends AppCompatActivity {
                 targetPic.setImageResource(R.drawable.type_add);
                 break;
             default:
-                targetPic.setImageResource(R.drawable.ic_menu_gallery);
-        }*/
+                targetPic.setImageResource(R.mipmap.ic_launcher_round);
+        }
     }
 
     /* @Override
@@ -127,5 +136,7 @@ public class TagetDetail extends AppCompatActivity {
         super.onResume();
         //Refresh your stuff here
         }
+
+
     }*/
 }

@@ -2,6 +2,7 @@ package tarikalovebird.money;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity
     private static final int INCOMERESULT=2;
     private static final int OUTCOMERESULT=3;
     private Button outcomeBut;
-    private ImageButton targetBut;
+    private ImageView pic;
     private TextView t;
     private Target target;
     private TextView day;
@@ -38,19 +40,22 @@ public class MainActivity extends AppCompatActivity
 
         target = new Target(this);
 
-        targetBut = (ImageButton) findViewById(R.id.imageTargetBut);
         t=(TextView) findViewById(R.id.nameTarget);
         day=(TextView) findViewById(R.id.CoundownDay) ;
         incomeBut = (Button) findViewById(R.id.IncomeBut);
         outcomeBut = (Button) findViewById(R.id.OutcomeBut);
+        pic = (ImageView) findViewById(R.id.Hometarget_pic);
 
-        targetBut.setOnClickListener(new View.OnClickListener() {
+        PrintPage();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.imageTargetBut);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), TagetDetail.class);
-                startActivity(i);
+                startActivityForResult(i,ADDTARGATRESULT);
             }
-        }) ;
+        });
         /*incomeBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -179,23 +184,23 @@ public class MainActivity extends AppCompatActivity
 
     private void PrintPage()
     {
-        /*t.setText(target.getTargetName());
+        t.setText(target.getTargetName());
         day.setText(target.getCountDown());
         switch ( target.getTargetType())
         {
-            case R.id.TypeLearning: targetBut.setBackgroundResource(R.drawable.type_book);
+            case R.id.TypeLearning: pic.setImageResource(R.drawable.type_book);
                 break;
-            case R.id.TypeGift:targetBut.setBackgroundResource(R.drawable.type_gift);
+            case R.id.TypeGift:pic.setImageResource(R.drawable.type_gift);
                 break;
-            case R.id.TypeToy:targetBut.setBackgroundResource(R.drawable.type_toy);
+            case R.id.TypeToy:pic.setImageResource(R.drawable.type_toy);
                 break;
-            case R.id.TypeMusic:targetBut.setBackgroundResource(R.drawable.type_music);
+            case R.id.TypeMusic:pic.setImageResource(R.drawable.type_music);
                 break;
-            case R.id.TypeTechno: targetBut.setBackgroundResource(R.drawable.type_techno);
+            case R.id.TypeTechno: pic.setImageResource(R.drawable.type_techno);
                 break;
-            case R.id.AddType: targetBut.setBackgroundResource(R.drawable.type_add);
+            case R.id.AddType: pic.setImageResource(R.drawable.type_add);
                 break;
-            default: targetBut.setBackgroundResource(R.drawable.ic_menu_gallery);
-        }*/
+            default: pic.setImageResource(R.mipmap.ic_launcher_round);
+        }
     }
 }
