@@ -24,43 +24,45 @@
         app:layout_constraintVertical_bias="0.044">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="120dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <ImageView
                         android:id="@+id/def2"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="90dp"
+                        android:layout_margin="10dp"
                         app:srcCompat="@drawable/addd" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/outcome_Id"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/outcome_type"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
@@ -69,20 +71,20 @@
                     android:visibility="gone" />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="45dp"
                         android:layout_weight="0.29"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/outcome_name"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="50dp"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
@@ -93,8 +95,9 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:layout_gravity="left"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -105,7 +108,8 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:id="@+id/textView10"
+                            android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_weight="0.29"
                             android:gravity="center_vertical"
@@ -122,7 +126,7 @@
 
                         <TextView
                             android:id="@+id/outcome_amount"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_gravity="left"
                             android:layout_weight="1"
@@ -138,19 +142,20 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
+                    android:layout_gravity="left"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="200dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_weight="0.29"
                         android:orientation="vertical">
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_weight="0.29"
                             android:gravity="center_vertical"
@@ -160,14 +165,14 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="0.29"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/outcome_period"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
                             android:layout_weight="1"
@@ -186,8 +191,4 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 </android.support.constraint.ConstraintLayout>
