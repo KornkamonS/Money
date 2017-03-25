@@ -23,6 +23,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import outcome_db.Outcome_data;
+import outcome_db.Outcome_metaData;
+
 public class Add_Outcome extends AppCompatActivity{
 
     private ActionBar a ;
@@ -100,18 +103,33 @@ public class Add_Outcome extends AppCompatActivity{
                 }
                 if(FLAG){
 
-                    String expense_name = ExpenseName.getText().toString();
+                    Outcome_data outcome_data = new Outcome_data(getApplicationContext());
+                    Outcome_metaData outcome = new Outcome_metaData();
+                    String spintext=spin.getSelectedItem().toString();
+
+                    if(spintext!="Day") {
+
+                        outcome.name = ExpenseName.getText().toString();
+                        outcome.amount = (Float.parseFloat(ExpensePrice.getText().toString()));
+                        outcome.type = typegroup.getCheckedRadioButtonId();
+                        outcome.period=spintext;
+                        outcome_data.insert(outcome);
+                        Toast.makeText(getApplicationContext(),"insert income",Toast.LENGTH_SHORT).show();
+                    }
+
+                    /*String expense_name = ExpenseName.getText().toString();
                     float expense_price = (Float.parseFloat(ExpensePrice.getText().toString()));
                     int expense_type = typegroup.getCheckedRadioButtonId();
-                    String expense_period = spin.getSelectedItem().toString();
+                    String expense_period = spin.getSelectedItem().toString();*/
 
-                        /*Toast.makeText(getApplicationContext(), String.valueOf(mDay),Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), String.valueOf(mMonth),Toast.LENGTH_LONG).show();
+                    //  Toast.makeText(getApplicationContext(), String.valueOf(mDay),Toast.LENGTH_LONG).show();
+                         /*Toast.makeText(getApplicationContext(), String.valueOf(mMonth),Toast.LENGTH_LONG).show();
                         Toast.makeText(getApplicationContext(),  String.valueOf(mYear),Toast.LENGTH_LONG).show();*/
                     //Toast.makeText(getApplicationContext(),  String.valueOf(income_price), Toast.LENGTH_LONG).show();
                     //Toast.makeText(getApplicationContext(),  income_name, Toast.LENGTH_LONG).show();
-                    Toast.makeText(getApplicationContext(),  "Type"+String.valueOf(expense_type), Toast.LENGTH_LONG).show();
-                    Toast.makeText(getApplicationContext(), "Period"+ expense_period, Toast.LENGTH_LONG).show();
+                    /*Toast.makeText(getApplicationContext(),  "Type"+String.valueOf(expense_type), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Period"+ expense_period, Toast.LENGTH_LONG).show();*/
+
                     Intent returnIntent = new Intent();
                     setResult(RESULT_OK, returnIntent);
                     finish();
