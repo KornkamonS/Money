@@ -97,8 +97,7 @@ public class Add_Target extends AppCompatActivity {
     {
         if(!a)
         {
-            Error.setMessage("Save Target Error");
-            Error.show();
+            Toast.makeText(getApplicationContext(),"Save Target Error",Toast.LENGTH_SHORT).show();
             onRestart();
         }
     }
