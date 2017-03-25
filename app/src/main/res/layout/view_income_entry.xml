@@ -1,70 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="30dp">
-
-    </TableRow>
+    <LinearLayout
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:orientation="horizontal"></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:orientation="horizontal"></LinearLayout>
 
         <TextView
             android:id="@+id/income_Id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:visibility="visible"
+            android:visibility="gone"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="243dp" />
 
-        <TextView
-            android:id="@+id/income_name"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="243dp" />
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/income_amount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingLeft="6dip"
-            android:paddingTop="6dip"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="162dp" />
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.29"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/income_period"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="162dp" />
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.29"
+                    android:gravity="center_vertical"
+                    android:text="NAME"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/income_type"
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.29"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/income_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="TextView"
+                    android:textSize="40px"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="243dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="81dp" />
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.29"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.29"
+                    android:gravity="center_vertical"
+                    android:text="AMOUNT"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.29"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/income_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="6dip"
+                    android:paddingTop="6dip"
+                    android:textSize="40px"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="162dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.29"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.29"
+                    android:gravity="center_vertical"
+                    android:text="PERIOD"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.29"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/income_period"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="TextView"
+                    android:textSize="40px"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="162dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.29"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.29"
+                    android:gravity="center_vertical"
+                    android:text="TYPE"
+                    android:textSize="40px"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.29"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/income_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="TextView"
+                    android:textSize="40px"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="81dp" />
+
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 
-</TableLayout>
+</LinearLayout>
