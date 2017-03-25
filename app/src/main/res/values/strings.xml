@@ -36,5 +36,6 @@
     <string name="start_date">วันที่เริ่มต้นเก็บเงิน : </string>
     <string name="rest">จำนวนเงินที่ต้องเก็บอีก : </string>
     <string name="title_activity_add__target">Target</string>
+    <string name="title_activity_add__income">Income</string>
 
 </resources>

@@ -38,7 +38,14 @@
         <activity
             android:name=".Add_Target"
             android:label="@string/title_activity_add__target"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Add_Income"
+            android:label="@string/title_activity_add__income"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".myCalendarView"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity
@@ -56,13 +57,13 @@ public class MainActivity extends AppCompatActivity
                 startActivityForResult(i,ADDTARGATRESULT);
             }
         });
-        /*incomeBut.setOnClickListener(new View.OnClickListener() {
+        incomeBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Income.class);
+                Intent i = new Intent(getApplicationContext(), Add_Income.class);
                 startActivityForResult(i, INCOMERESULT);
             }
-        }) ;*/
+        }) ;
         /*outcomeBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,15 +91,18 @@ public class MainActivity extends AppCompatActivity
                 //Do nothing?
             }
         }
-        /*if (requestCode == INCOMERESULT)
+        if (requestCode == INCOMERESULT)
         {
             if(resultCode == RESULT_OK){
                 //refresh page
+                Toast.makeText(this, "Income",
+                        Toast.LENGTH_LONG).show();
+                PrintPage();
             }
             if (resultCode == RESULT_CANCELED) {
                 //Do nothing?
             }
-        }*/
+        }
         /*if (requestCode == OUTCOMERESULT)
         {
             if(resultCode == RESULT_OK){
@@ -182,8 +186,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void PrintPage()
-    {
+    private void PrintPage() {
         t.setText(target.getTargetName());
         day.setText(target.getCountDown());
         switch ( target.getTargetType())

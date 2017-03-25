@@ -56,7 +56,8 @@
                                 <RadioButton
                                     android:id="@+id/TypeLearning"
                                     style="@style/AddType"
-                                    android:background="@drawable/type_book" />
+                                    android:background="@drawable/type_book"
+                                    android:checked="true"/>
 
                                 <RadioButton
                                     android:id="@+id/TypeToy"
@@ -226,7 +227,7 @@
                             android:ems="10"
                             android:gravity="center"
                             android:hint="30"
-                            android:inputType="numberDecimal" />
+                            android:inputType="number" />
                     </LinearLayout>
 
                     <LinearLayout

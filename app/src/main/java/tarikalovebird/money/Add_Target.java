@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class Add_Target extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class Add_Target extends AppCompatActivity {
     private Button cancelbut;
     private RadioGroup typegroup;
     private RadioButton typeselect;
+    private AlertDialog.Builder Error ;
 
      public Target t;
     @Override
@@ -40,7 +42,7 @@ public class Add_Target extends AppCompatActivity {
 
         t=new Target(this);
 
-        final AlertDialog.Builder Error = new AlertDialog.Builder(this);
+        Error = new AlertDialog.Builder(this);
         Error.setTitle("Error! ");
         Error.setIcon(android.R.drawable.btn_dialog);
         Error.setPositiveButton("Close", null);
@@ -50,12 +52,12 @@ public class Add_Target extends AppCompatActivity {
             public void onClick(View v) {
 
                 boolean FLAG=true;
-                if(targetDay.getText().toString().isEmpty()){
+                if(targetDay.getText().toString().isEmpty()||Integer.parseInt(targetDay.getText().toString())<=0){
 
                     targetDay.setError("Please input Day");
                     FLAG=false;
                 }
-                if(targetPrice.getText().toString().isEmpty()){
+                if(targetPrice.getText().toString().isEmpty()||Integer.parseInt(targetPrice.getText().toString())<=0){
 
                     targetPrice.setError("Please input Price");
                     FLAG=false;
@@ -65,19 +67,19 @@ public class Add_Target extends AppCompatActivity {
                     FLAG=false;
                 }
                 if(FLAG){
-                    FLAG=t.setNameTarget(targetName.getText().toString());
-                    FLAG=t.setTargetDay(Integer.parseInt(targetDay.getText().toString()));
-                    FLAG=t.setTargetPrice(Float.parseFloat(targetDay.getText().toString()));
-                    FLAG=t.setTargetType(typegroup.getCheckedRadioButtonId());
-                    if(!FLAG){
+                    Notierror(t.setNameTarget(targetName.getText().toString()));
+                    Notierror(t.setTargetDay(Integer.parseInt(targetDay.getText().toString())));
+                    Notierror(t.setTargetPrice(Float.parseFloat(targetDay.getText().toString())));
+                    Notierror(t.setTargetType(typegroup.getCheckedRadioButtonId()));
+                   /* if(!FLAG){
                         Error.setMessage("Save Target Error");
                         Error.show();
                     }
-                    else{
+                    else{*/
                         Intent returnIntent = new Intent();
                         setResult(RESULT_OK, returnIntent);
                         finish();
-                    }
+                    //}
                 }
             }
         });
@@ -91,5 +93,13 @@ public class Add_Target extends AppCompatActivity {
         });
 
     }
-
+    private void Notierror(boolean a)
+    {
+        if(!a)
+        {
+            Error.setMessage("Save Target Error");
+            Error.show();
+            onRestart();
+        }
+    }
 }
