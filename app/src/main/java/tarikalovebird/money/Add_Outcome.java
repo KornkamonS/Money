@@ -114,21 +114,8 @@ public class Add_Outcome extends AppCompatActivity{
                         outcome.type = typegroup.getCheckedRadioButtonId();
                         outcome.period=spintext;
                         outcome_data.insert(outcome);
-                        Toast.makeText(getApplicationContext(),"insert income",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"insert Expense",Toast.LENGTH_SHORT).show();
                     }
-
-                    /*String expense_name = ExpenseName.getText().toString();
-                    float expense_price = (Float.parseFloat(ExpensePrice.getText().toString()));
-                    int expense_type = typegroup.getCheckedRadioButtonId();
-                    String expense_period = spin.getSelectedItem().toString();*/
-
-                    //  Toast.makeText(getApplicationContext(), String.valueOf(mDay),Toast.LENGTH_LONG).show();
-                         /*Toast.makeText(getApplicationContext(), String.valueOf(mMonth),Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(),  String.valueOf(mYear),Toast.LENGTH_LONG).show();*/
-                    //Toast.makeText(getApplicationContext(),  String.valueOf(income_price), Toast.LENGTH_LONG).show();
-                    //Toast.makeText(getApplicationContext(),  income_name, Toast.LENGTH_LONG).show();
-                    /*Toast.makeText(getApplicationContext(),  "Type"+String.valueOf(expense_type), Toast.LENGTH_LONG).show();
-                    Toast.makeText(getApplicationContext(), "Period"+ expense_period, Toast.LENGTH_LONG).show();*/
 
                     Intent returnIntent = new Intent();
                     setResult(RESULT_OK, returnIntent);

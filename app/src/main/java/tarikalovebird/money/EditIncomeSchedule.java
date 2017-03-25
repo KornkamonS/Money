@@ -35,21 +35,12 @@ public class EditIncomeSchedule extends Activity {
         }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1) {
-
-            if(resultCode == RESULT_OK){
-                print();
-            }
-            if (resultCode == RESULT_CANCELED) {
-                //Do nothing?
-            }
-        }
+        print();
 
     }
     void print()
     {
         Income_data repo = new Income_data(this);
-
         List<String> incomeList =  repo.getIncomeList();
 
         ArrayList<Income_detial> arrayOfIncome = new ArrayList<Income_detial>();

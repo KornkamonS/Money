@@ -18,7 +18,6 @@ import tarikalovebird.money.R;
 public class OutcomeDayFragment extends Fragment {
 
 
-    private Button a;
     private View myview;
     public OutcomeDayFragment() {
         // Required empty public constructor
@@ -30,14 +29,7 @@ public class OutcomeDayFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         myview= inflater.inflate(R.layout.fragment_outcome_day, container, false);
-        a = (Button) myview.findViewById(R.id.editoutcomesche);
-        a.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(),EditOutcomeSchedule.class);
-                startActivity(i);
-            }
-        });
+
         return myview;
     }
 

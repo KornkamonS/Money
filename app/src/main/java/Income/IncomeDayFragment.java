@@ -18,7 +18,7 @@ import tarikalovebird.money.R;
 public class IncomeDayFragment extends Fragment {
 
     View myview;
-    private Button incomesche;
+
     public IncomeDayFragment() {
         // Required empty public constructor
     }
@@ -29,15 +29,7 @@ public class IncomeDayFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         myview=inflater.inflate(R.layout.fragment_income_day,container,false);
-        incomesche= (Button) myview.findViewById(R.id.editincomesche);
 
-        incomesche.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), EditIncomeSchedule.class);
-                startActivity(i);
-            }
-        });
         return myview;
     }
 

@@ -1,5 +1,6 @@
 package tarikalovebird.money;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -56,6 +57,8 @@ public class Outcome_table extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent i = new Intent(this, EditOutcomeSchedule.class);
+            startActivity(i);
             return true;
         }
 

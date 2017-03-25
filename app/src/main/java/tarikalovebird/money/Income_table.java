@@ -1,5 +1,6 @@
 package tarikalovebird.money;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -56,6 +57,8 @@ public class Income_table extends AppCompatActivity {
 
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent i = new Intent(this, EditIncomeSchedule.class);
+            startActivity(i);
             return true;
         }
 
