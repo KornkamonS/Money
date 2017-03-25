@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f653e421-293c-434d-b2e5-c7baeae3c7d8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tarikalovebird/money/Add_Target.java" afterPath="$PROJECT_DIR$/app/src/main/java/tarikalovebird/money/Add_Target.java" />
     </list>
     <ignored path="Money.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -2708,7 +2707,14 @@
       <option name="project" value="LOCAL" />
       <updated>1490441116612</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add DB and list_view_adepter  2">
+      <created>1490441690799</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1490441690800</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
