@@ -61,15 +61,16 @@ public class Income_edit_item extends AppCompatActivity {
         Income_data income = new Income_data(this);
         Income_metaData incomeMetaData=new Income_metaData();
         incomeMetaData=income.getIncomeById(_Income_id);
-
+        
         IncomeName.setText(incomeMetaData.name);
         IncomePrice.setText(String.valueOf(incomeMetaData.amount));
 
+        String myString = incomeMetaData.period;
+        ArrayAdapter myAdap = (ArrayAdapter) spin.getAdapter();
+        int spinnerPosition = myAdap.getPosition(myString);
+        spin.setSelection(spinnerPosition);
+
         typegroup.check(incomeMetaData.type);
-        if(incomeMetaData.period=="Month")
-        {
-            spin.setSelection(1);
-        }else spin.setSelection(0);
 
         OkBut.setOnClickListener(new View.OnClickListener() {
             @Override

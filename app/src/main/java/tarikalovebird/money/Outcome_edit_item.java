@@ -62,11 +62,13 @@ public class Outcome_edit_item extends AppCompatActivity {
         OutcomeName.setText(outcomeMetaData.name);
         OutcomePrice.setText(String.valueOf(outcomeMetaData.amount));
 
+        String myString = outcomeMetaData.period;
+        ArrayAdapter myAdap = (ArrayAdapter) spin.getAdapter();
+        int spinnerPosition = myAdap.getPosition(myString);
+        spin.setSelection(spinnerPosition);
+
         typegroup.check(outcomeMetaData.type);
-        if(outcomeMetaData.period=="Month")
-        {
-            spin.setSelection(1);
-        }else spin.setSelection(0);
+
 
         OkBut.setOnClickListener(new View.OnClickListener() {
             @Override

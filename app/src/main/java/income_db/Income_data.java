@@ -108,7 +108,7 @@ public class Income_data {
             do {
                 income.income_ID =cursor.getInt(cursor.getColumnIndex(Income_metaData.KEY_ID));
                 income.name =cursor.getString(cursor.getColumnIndex(Income_metaData.KEY_Name));
-                income.amount  =cursor.getInt(cursor.getColumnIndex(Income_metaData.KEY_Amount));
+                income.amount  =cursor.getFloat(cursor.getColumnIndex(Income_metaData.KEY_Amount));
                 income.period =cursor.getString(cursor.getColumnIndex(Income_metaData.KEY_Period));
                 income.type =cursor.getInt(cursor.getColumnIndex(Income_metaData.KEY_Type));
 

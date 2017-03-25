@@ -94,7 +94,7 @@ public class Add_Income extends AppCompatActivity {
                 public void onClick(View v) {
 
                     boolean FLAG=true;
-                    if(IncomePrice.getText().toString().isEmpty()){
+                    if(IncomePrice.getText().toString().isEmpty()||Float.parseFloat(IncomePrice.getText().toString())==0){
 
                         IncomePrice.setError("Please input Price");
                         FLAG=false;

@@ -108,7 +108,7 @@ public class Outcome_data {
             do {
                 outcome.outcome_ID =cursor.getInt(cursor.getColumnIndex(Outcome_metaData.KEY_ID));
                 outcome.name =cursor.getString(cursor.getColumnIndex(Outcome_metaData.KEY_Name));
-                outcome.amount  =cursor.getInt(cursor.getColumnIndex(Outcome_metaData.KEY_Amount));
+                outcome.amount  =cursor.getFloat(cursor.getColumnIndex(Outcome_metaData.KEY_Amount));
                 outcome.period =cursor.getString(cursor.getColumnIndex(Outcome_metaData.KEY_Period));
                 outcome.type =cursor.getInt(cursor.getColumnIndex(Outcome_metaData.KEY_Type));
 

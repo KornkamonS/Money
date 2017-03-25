@@ -44,7 +44,7 @@ public class Income_adepter extends ArrayAdapter<Income_detial>{
         {
             case R.id.gift: Typetext="Gift"; break;
             case R.id.salary: Typetext="Salary"; break;
-            case R.id.sale:  Typetext="Bussiness"; break;
+            case R.id.sale:  Typetext="Business"; break;
             case R.id.add: Typetext="Other"; break;
         }
 

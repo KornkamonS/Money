@@ -96,7 +96,7 @@ public class Add_Outcome extends AppCompatActivity{
             public void onClick(View v) {
 
                 boolean FLAG=true;
-                if(ExpensePrice.getText().toString().isEmpty()){
+                if(ExpensePrice.getText().toString().isEmpty()||Float.parseFloat(ExpensePrice.getText().toString())==0){
 
                     ExpensePrice.setError("Please input amount of money");
                     FLAG=false;
