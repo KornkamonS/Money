@@ -107,11 +107,29 @@ public class Add_Outcome extends AppCompatActivity{
                     Outcome_metaData outcome = new Outcome_metaData();
                     String spintext=spin.getSelectedItem().toString();
 
+                    String Typetext="Other";
+                    int typeid=typegroup.getCheckedRadioButtonId();
+                    switch (typeid)
+                    {
+                        case R.id.gift2: Typetext="Gift"; break;
+                        case R.id.oil: Typetext="Petrol"; break;
+                        case R.id.home:  Typetext="Rents"; break;
+                        case R.id.elect: Typetext="Bill"; break;
+                        case R.id.shop:  Typetext="Shopping"; break;
+                        case R.id.entertain: Typetext="Entertain"; break;
+                        case R.id.pen:  Typetext="Stationery"; break;
+                        case R.id.study: Typetext="Learning"; break;
+                        case R.id.add2: Typetext="Other"; break;
+                    }
+
                     if(spintext!="Day") {
 
-                        outcome.name = ExpenseName.getText().toString();
+                        if(!ExpenseName.getText().toString().isEmpty())
+                            outcome.name = ExpenseName.getText().toString();
+                        else outcome.name=Typetext;
+
                         outcome.amount = (Float.parseFloat(ExpensePrice.getText().toString()));
-                        outcome.type = typegroup.getCheckedRadioButtonId();
+                        outcome.type = typeid;
                         outcome.period=spintext;
                         outcome_data.insert(outcome);
                         Toast.makeText(getApplicationContext(),"insert Expense",Toast.LENGTH_SHORT).show();

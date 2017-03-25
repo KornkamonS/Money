@@ -38,33 +38,20 @@ public class Income_adepter extends ArrayAdapter<Income_detial>{
         tvName.setText(income.name);
         tvID.setText(income.id);
         tvPeriod.setText(income.peroid);
-        tvType.setText(income.type);
+        String Typetext="Other";
+        int typeid=Integer.parseInt(income.type);
+        switch (typeid)
+        {
+            case R.id.gift: Typetext="Gift"; break;
+            case R.id.salary: Typetext="Salary"; break;
+            case R.id.sale:  Typetext="Bussiness"; break;
+            case R.id.add: Typetext="Other"; break;
+        }
+
+        tvType.setText(Typetext);
         tvAmount.setText(income.amount);
         // Return the completed view to render on screen
         return convertView;
     }
 
 }
-/*public class UsersAdapter extends ArrayAdapter<User> {
-    public UsersAdapter(Context context, ArrayList<User> users) {
-       super(context, 0, users);
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-       // Get the data item for this position
-       User user = getItem(position);
-       // Check if an existing view is being reused, otherwise inflate the view
-       if (convertView == null) {
-          convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_user, parent, false);
-       }
-       // Lookup view for data population
-       TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
-       TextView tvHome = (TextView) convertView.findViewById(R.id.tvHome);
-       // Populate the data into the template view using the data object
-       tvName.setText(user.name);
-       tvHome.setText(user.hometown);
-       // Return the completed view to render on screen
-       return convertView;
-   }
-}*/

@@ -100,14 +100,28 @@ public class Add_Income extends AppCompatActivity {
                         FLAG=false;
                     }
                     if(FLAG){
+                        String Typetext="Other";
+                        int typeid=typegroup.getCheckedRadioButtonId();
+                        switch (typeid)
+                        {
+                            case R.id.gift: Typetext="Gift"; break;
+                            case R.id.salary: Typetext="Salary"; break;
+                            case R.id.sale:  Typetext="Bussiness"; break;
+                            case R.id.add: Typetext="Other"; break;
+                        }
+
                         Income_data income_data = new Income_data(getApplicationContext());
                         Income_metaData income = new Income_metaData();
                         String spintext=spin.getSelectedItem().toString();
 
                         if(spintext!="Day") {
-                            income.name = IncomeName.getText().toString();
+
+                            if(!IncomeName.getText().toString().isEmpty())
+                                income.name = IncomeName.getText().toString();
+                            else income.name=Typetext;
+
                             income.amount = (Float.parseFloat(IncomePrice.getText().toString()));
-                            income.type = typegroup.getCheckedRadioButtonId();
+                            income.type = typeid;
                             income.period=spintext;
                             income_data.insert(income);
                             Toast.makeText(getApplicationContext(),"insert income",Toast.LENGTH_SHORT).show();

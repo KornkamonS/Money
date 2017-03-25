@@ -25,6 +25,7 @@ public class myCalendarView extends Activity {
         mYear=Calendar.YEAR;
         mDay=Calendar.DAY_OF_MONTH;
         calendar.setOnDateChangeListener(mDateSetListener);
+        calendar.setMaxDate(System.currentTimeMillis());
         setContentView(calendar);
 
     }

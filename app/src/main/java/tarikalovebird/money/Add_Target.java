@@ -14,6 +14,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 public class Add_Target extends AppCompatActivity {
 
     private EditText targetPrice;
@@ -69,17 +71,18 @@ public class Add_Target extends AppCompatActivity {
                 if(FLAG){
                     Notierror(t.setNameTarget(targetName.getText().toString()));
                     Notierror(t.setTargetDay(Integer.parseInt(targetDay.getText().toString())));
-                    Notierror(t.setTargetPrice(Float.parseFloat(targetDay.getText().toString())));
+                    Notierror(t.setTargetPrice(Float.parseFloat(targetPrice.getText().toString())));
                     Notierror(t.setTargetType(typegroup.getCheckedRadioButtonId()));
-                   /* if(!FLAG){
-                        Error.setMessage("Save Target Error");
-                        Error.show();
-                    }
-                    else{*/
-                        Intent returnIntent = new Intent();
-                        setResult(RESULT_OK, returnIntent);
-                        finish();
-                    //}
+
+                    final Calendar c = Calendar.getInstance();
+
+                    Notierror(t.setTargetYear(c.get(Calendar.YEAR)));
+                    Notierror(t.setTargetMonth(c.get(Calendar.MONTH)+1));
+                    Notierror(t.setTargetDay(c.get(Calendar.DAY_OF_MONTH)));
+
+                    Intent returnIntent = new Intent();
+                    setResult(RESULT_OK, returnIntent);
+                    finish();
                 }
             }
         });

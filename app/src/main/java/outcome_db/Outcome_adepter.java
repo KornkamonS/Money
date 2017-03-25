@@ -39,7 +39,23 @@ public class Outcome_adepter extends ArrayAdapter<Outcome_detail> {
         tvName.setText(outcome.name);
         tvID.setText(outcome.id);
         tvPeriod.setText(outcome.peroid);
-        tvType.setText(outcome.type);
+
+        String Typetext="Other";
+        int typeid=Integer.parseInt(outcome.type);
+        switch (typeid)
+        {
+            case R.id.gift2: Typetext="Gift"; break;
+            case R.id.oil: Typetext="Petrol"; break;
+            case R.id.home:  Typetext="Rents"; break;
+            case R.id.elect: Typetext="Bill"; break;
+            case R.id.shop:  Typetext="Shopping"; break;
+            case R.id.entertain: Typetext="Entertain"; break;
+            case R.id.pen:  Typetext="Stationery"; break;
+            case R.id.study: Typetext="Learning"; break;
+            case R.id.add2: Typetext="Other"; break;
+        }
+
+        tvType.setText(Typetext);
         tvAmount.setText(outcome.amount);
         // Return the completed view to render on screen
         return convertView;
