@@ -5,4 +5,6 @@
     <color name="colorAccent">#ff5d55</color>
     <color name="gr">#3bc65b</color>
     <color name="bg">#fafafa</color>
+    <color name="del">#ef7728</color>
+    <color name="edit">#0ac33b</color>
 </resources>

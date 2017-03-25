@@ -13,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,13 +63,13 @@ public class MainActivity extends AppCompatActivity
                 startActivityForResult(i, INCOMERESULT);
             }
         }) ;
-        /*outcomeBut.setOnClickListener(new View.OnClickListener() {
+        outcomeBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Outcome.class);
+                Intent i = new Intent(getApplicationContext(), Add_Outcome.class);
                 startActivityForResult(i, OUTCOMERESULT);
             }
-        }) ;*/
+        }) ;
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -103,7 +102,7 @@ public class MainActivity extends AppCompatActivity
                 //Do nothing?
             }
         }
-        /*if (requestCode == OUTCOMERESULT)
+        if (requestCode == OUTCOMERESULT)
         {
             if(resultCode == RESULT_OK){
                 //refresh page
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity
             if (resultCode == RESULT_CANCELED) {
                 //Do nothing?
             }
-        }*/
+        }
     }//onActivityResult*/
 
     /*@Override
