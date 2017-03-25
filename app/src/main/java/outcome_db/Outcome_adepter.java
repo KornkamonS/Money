@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -33,29 +34,28 @@ public class Outcome_adepter extends ArrayAdapter<Outcome_detail> {
         TextView tvName = (TextView) convertView.findViewById(R.id.outcome_name);
         TextView tvAmount = (TextView) convertView.findViewById(R.id.outcome_amount);
         TextView tvPeriod = (TextView) convertView.findViewById(R.id.outcome_period);
-        TextView tvType = (TextView) convertView.findViewById(R.id.outcome_type);
+        ImageView tvType = (ImageView) convertView.findViewById(R.id.def2);
 
         // Populate the data into the template view using the data object
         tvName.setText(outcome.name);
         tvID.setText(outcome.id);
         tvPeriod.setText(outcome.peroid);
 
-        String Typetext="Other";
         int typeid=Integer.parseInt(outcome.type);
         switch (typeid)
         {
-            case R.id.gift2: Typetext="Gift"; break;
-            case R.id.oil: Typetext="Petrol"; break;
-            case R.id.home:  Typetext="Rents"; break;
-            case R.id.elect: Typetext="Bill"; break;
-            case R.id.shop:  Typetext="Shopping"; break;
-            case R.id.entertain: Typetext="Entertain"; break;
-            case R.id.pen:  Typetext="Stationery"; break;
-            case R.id.study: Typetext="Learning"; break;
-            case R.id.add2: Typetext="Other"; break;
+            case R.id.gift2: tvType.setImageResource(R.drawable.food1); break;
+            case R.id.oil: tvType.setImageResource(R.drawable.oil1); break;
+            case R.id.home:  tvType.setImageResource(R.drawable.home1); break;
+            case R.id.elect: tvType.setImageResource(R.drawable.elec1); break;
+            case R.id.shop:  tvType.setImageResource(R.drawable.shop1); break;
+            case R.id.entertain: tvType.setImageResource(R.drawable.entertain1); break;
+            case R.id.pen:  tvType.setImageResource(R.drawable.pen1); break;
+            case R.id.study: tvType.setImageResource(R.drawable.study1); break;
+            case R.id.add2: tvType.setImageResource(R.drawable.addd1); break;
         }
 
-        tvType.setText(Typetext);
+
         tvAmount.setText(outcome.amount);
         // Return the completed view to render on screen
         return convertView;

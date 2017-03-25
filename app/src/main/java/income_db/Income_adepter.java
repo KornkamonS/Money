@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -32,23 +33,23 @@ public class Income_adepter extends ArrayAdapter<Income_detial>{
         TextView tvName = (TextView) convertView.findViewById(R.id.income_name);
         TextView tvAmount = (TextView) convertView.findViewById(R.id.income_amount);
         TextView tvPeriod = (TextView) convertView.findViewById(R.id.income_period);
-        TextView tvType = (TextView) convertView.findViewById(R.id.income_type);
+        ImageView tvType = (ImageView) convertView.findViewById(R.id.def1);
 
         // Populate the data into the template view using the data object
         tvName.setText(income.name);
         tvID.setText(income.id);
         tvPeriod.setText(income.peroid);
-        String Typetext="Other";
+
         int typeid=Integer.parseInt(income.type);
         switch (typeid)
         {
-            case R.id.gift: Typetext="Gift"; break;
-            case R.id.salary: Typetext="Salary"; break;
-            case R.id.sale:  Typetext="Business"; break;
-            case R.id.add: Typetext="Other"; break;
+            case R.id.gift: tvType.setImageResource(R.drawable.gifts1); break;
+            case R.id.salary: tvType.setImageResource(R.drawable.salary1); break;
+            case R.id.sale:  tvType.setImageResource(R.drawable.sale1); break;
+            case R.id.add: tvType.setImageResource(R.drawable.add1); break;
         }
 
-        tvType.setText(Typetext);
+
         tvAmount.setText(income.amount);
         // Return the completed view to render on screen
         return convertView;
