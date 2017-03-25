@@ -55,6 +55,10 @@
             android:name=".Add_Outcome"
             android:label="@string/title_activity_add__outcome"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".EditOutcomeSchedule"
+            android:label="@string/title_activity_add__outcome"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
