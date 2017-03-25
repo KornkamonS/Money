@@ -72,7 +72,7 @@ public class Add_Outcome extends AppCompatActivity{
         spinlist.add ( "Year" );
         ArrayAdapter< String > dataAdapter = new ArrayAdapter < String > ( this, android.R.layout.simple_spinner_item, spinlist );
 
-        typegroup=(RadioGroup) findViewById(R.id.select);
+        typegroup=(RadioGroup) findViewById(R.id.TypeExp);
         ExpenseName=(EditText) findViewById(R.id.expenseName);
         ExpensePrice=(EditText)findViewById(R.id.expensePrice);
         OkBut=(Button)findViewById(R.id.expenseOk);
