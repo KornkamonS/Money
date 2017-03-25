@@ -5,38 +5,60 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/income_Id"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:visibility="visible" />
-
-    <TextView
-        android:id="@+id/income_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/income_amount"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="6dip"
-        android:paddingTop="6dip"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        tools:ignore="RtlSymmetry" />
+        <TextView
+            android:id="@+id/income_Id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="243dp" />
 
-    <TextView
-        android:id="@+id/income_period"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        <TextView
+            android:id="@+id/income_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="243dp" />
 
-    <TextView
-        android:id="@+id/income_type"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        <TextView
+            android:id="@+id/income_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="6dip"
+            android:paddingTop="6dip"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="162dp" />
+
+        <TextView
+            android:id="@+id/income_period"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="162dp" />
+
+        <TextView
+            android:id="@+id/income_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="81dp" />
+
+    </LinearLayout>
 
 </LinearLayout>

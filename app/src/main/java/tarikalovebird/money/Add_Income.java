@@ -26,7 +26,7 @@ import income_db.Income_metaData;
 
 public class Add_Income extends AppCompatActivity {
 
-    private ActionBar a ;
+
     private EditText IncomeName;
     private EditText IncomePrice;
     private Button OkBut;
@@ -79,10 +79,10 @@ public class Add_Income extends AppCompatActivity {
             OkBut=(Button)findViewById(R.id.incomeOk);
             CancelBut=(Button)findViewById(R.id.incomeCancel);
             spin = ( Spinner ) this.findViewById ( R.id.incomeSpin );
+            spin.setAdapter ( dataAdapter );
 
             aa=new Get_datefromCalender(this);
 
-            spin.setAdapter ( dataAdapter );
 
             spin.setSelection(0);
             Error.setTitle("Error! ");
@@ -112,18 +112,7 @@ public class Add_Income extends AppCompatActivity {
                             income_data.insert(income);
                             Toast.makeText(getApplicationContext(),"insert income",Toast.LENGTH_SHORT).show();
                         }
-                        /*String income_name = IncomeName.getText().toString();
-                        float income_price = (Float.parseFloat(IncomePrice.getText().toString()));
-                        int income_type = typegroup.getCheckedRadioButtonId();
-                        String income_period = spin.getSelectedItem().toString();
 
-                        Toast.makeText(getApplicationContext(), String.valueOf(mDay),Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), String.valueOf(mMonth),Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(),  String.valueOf(mYear),Toast.LENGTH_LONG).show();
-                        //Toast.makeText(getApplicationContext(),  String.valueOf(income_price), Toast.LENGTH_LONG).show();
-                        //Toast.makeText(getApplicationContext(),  income_name, Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(),  "Type"+String.valueOf(income_type), Toast.LENGTH_LONG).show();
-                        Toast.makeText(getApplicationContext(), "Period"+ income_period, Toast.LENGTH_LONG).show();*/
                         Intent returnIntent = new Intent();
                         setResult(RESULT_OK, returnIntent);
                         finish();

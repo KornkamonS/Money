@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,6 @@ public class Income_data {
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-
         values.put(Income_metaData.KEY_Name, income.name);
         values.put(Income_metaData.KEY_Amount,income.amount);
         values.put(Income_metaData.KEY_Period, income.period);

@@ -35,11 +35,11 @@ public class Income_adepter extends ArrayAdapter<Income_detial>{
         TextView tvType = (TextView) convertView.findViewById(R.id.income_type);
 
         // Populate the data into the template view using the data object
-        tvName.setText("name "+income.name);
-        tvID.setText("id "+income.id);
-        tvPeriod.setText("period "+income.peroid);
-        tvType.setText("type "+income.type);
-        tvAmount.setText("amount "+income.amount);
+        tvName.setText(income.name);
+        tvID.setText(income.id);
+        tvPeriod.setText(income.peroid);
+        tvType.setText(income.type);
+        tvAmount.setText(income.amount);
         // Return the completed view to render on screen
         return convertView;
     }

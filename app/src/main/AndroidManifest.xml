@@ -47,6 +47,10 @@
             android:name=".myCalendarView"
             android:theme="@style/AppTheme" />
         <activity android:name=".EditIncomeSchedule" />
+        <activity
+            android:name=".Income_edit_item"
+            android:label="@string/title_activity_income_edit_item"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -31,12 +31,26 @@ public class EditIncomeSchedule extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_income_schedule);
+         print();
+        }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+
+            if(resultCode == RESULT_OK){
+                print();
+            }
+            if (resultCode == RESULT_CANCELED) {
+                //Do nothing?
+            }
+        }
+
+    }
+    void print()
+    {
         Income_data repo = new Income_data(this);
 
         List<String> incomeList =  repo.getIncomeList();
-        //String a=studentList.get(1).get("id");
-        //Toast.makeText(this,a,Toast.LENGTH_SHORT).show();
 
         ArrayList<Income_detial> arrayOfIncome = new ArrayList<Income_detial>();
         Income_adepter adapter = new Income_adepter(this, arrayOfIncome);
@@ -49,21 +63,20 @@ public class EditIncomeSchedule extends Activity {
 
             }
             ListView lv = (ListView) findViewById(R.id.incomelist);
-             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-               @Override
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                   Toast.makeText(getApplicationContext(),String.valueOf(position),Toast.LENGTH_SHORT).show();
-                  /*  income_id = (TextView) view.findViewById(R.id.income_Id);
+
+                    income_id = (TextView) view.findViewById(R.id.income_Id);
                     String incomeId = income_id.getText().toString();
-                    Intent objIndent = new Intent(getApplicationContext(),Income_Detial.class);
-                    objIndent.putExtra("income_Id", Integer.parseInt( incomeId));
-                    startActivity(objIndent);*/
+                    Intent objIndent = new Intent(getApplicationContext(),Income_edit_item.class);
+                    objIndent.putExtra("income_Id", Integer.parseInt(incomeId));
+                    startActivityForResult(objIndent,1);
+
                 }
             });
 
             lv.setAdapter(adapter);
-
-
         }
     }
 }

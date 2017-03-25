@@ -40,5 +40,6 @@
     <string name="title_income_list">IncomeList</string>
     <string name="title_income_detail">Income Detail</string>
     <string name="title_activity_income__detial">Income Detial</string>
+    <string name="title_activity_income_edit_item">Income_edit_item</string>
 
 </resources>
