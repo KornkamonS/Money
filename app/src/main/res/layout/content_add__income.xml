@@ -179,7 +179,7 @@
                                 android:background="@android:drawable/editbox_background"
                                 android:ems="10"
                                 android:gravity="center"
-                                android:inputType="numberSigned"
+                                android:inputType="numberDecimal"
                                 android:textColor="@color/colorPrimaryDark" />
                         </LinearLayout>
 
