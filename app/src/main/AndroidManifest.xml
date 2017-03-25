@@ -42,10 +42,11 @@
         <activity
             android:name=".Add_Income"
             android:label="@string/title_activity_add__income"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".myCalendarView"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".EditIncomeSchedule" />
     </application>
 
 </manifest>

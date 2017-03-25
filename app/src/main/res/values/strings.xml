@@ -37,5 +37,8 @@
     <string name="rest">จำนวนเงินที่ต้องเก็บอีก : </string>
     <string name="title_activity_add__target">Target</string>
     <string name="title_activity_add__income">Income</string>
+    <string name="title_income_list">IncomeList</string>
+    <string name="title_income_detail">Income Detail</string>
+    <string name="title_activity_income__detial">Income Detial</string>
 
 </resources>
