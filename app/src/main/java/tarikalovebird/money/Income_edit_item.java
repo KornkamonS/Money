@@ -1,9 +1,11 @@
 package tarikalovebird.money;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -31,11 +33,13 @@ public class Income_edit_item extends AppCompatActivity {
     private Button CancelBut;
     private RadioGroup typegroup;
     private Spinner spin;
-
+    private AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_income_edit_item);
+
+        builder=  new AlertDialog.Builder(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -112,12 +116,29 @@ public class Income_edit_item extends AppCompatActivity {
         DeleteBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Income_data repo = new Income_data(getApplicationContext());
-                repo.delete(_Income_id);
-                Toast.makeText(getApplicationContext(), "Income Record Deleted", Toast.LENGTH_SHORT);
-                Intent returnIntent = new Intent();
-                setResult(RESULT_OK, returnIntent);
-                finish();
+
+
+                builder.setMessage("Are you sure want to DELETE")
+                        .setCancelable(false)
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // fire an intent go to your next activity
+                                Income_data repo = new Income_data(getApplicationContext());
+                                repo.delete(_Income_id);
+                                Toast.makeText(getApplicationContext(), "Income Record Deleted", Toast.LENGTH_SHORT);
+                                Intent returnIntent = new Intent();
+                                setResult(RESULT_OK, returnIntent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+
             }
         });
     }

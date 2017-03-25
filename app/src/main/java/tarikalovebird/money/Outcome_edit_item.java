@@ -1,7 +1,9 @@
 package tarikalovebird.money;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -28,6 +30,7 @@ public class Outcome_edit_item extends AppCompatActivity {
     private Button CancelBut;
     private RadioGroup typegroup;
     private Spinner spin;
+    private AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class Outcome_edit_item extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        builder=  new AlertDialog.Builder(this);
         List< String > spinlist = new ArrayList< String >( );
         spinlist.add ( "Month" );
         spinlist.add ( "Year" );
@@ -111,13 +115,28 @@ public class Outcome_edit_item extends AppCompatActivity {
         DeleteBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Outcome_data repo = new Outcome_data(getApplicationContext());
-                repo.delete(_Outcome_id);
-                Toast.makeText(getApplicationContext(), "Outcome Record Deleted", Toast.LENGTH_SHORT);
 
-                Intent returnIntent = new Intent();
-                setResult(RESULT_OK, returnIntent);
-                finish();
+                builder.setMessage("Are you sure want to DELETE")
+                        .setCancelable(false)
+                        .setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Outcome_data repo = new Outcome_data(getApplicationContext());
+                                repo.delete(_Outcome_id);
+                                Toast.makeText(getApplicationContext(), "Outcome Record Deleted", Toast.LENGTH_SHORT);
+
+                                Intent returnIntent = new Intent();
+                                setResult(RESULT_OK, returnIntent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+
             }
         });
     }
