@@ -7,4 +7,6 @@
     <color name="bg">#fafafa</color>
     <color name="del">#ef7728</color>
     <color name="edit">#0ac33b</color>
+    <color name="out">#060cbf</color>
+    <color name="in">#ec0043</color>
 </resources>
