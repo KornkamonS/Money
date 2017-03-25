@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +38,7 @@ public class EditOutcomeSchedule extends Activity {
 
         ArrayList<Outcome_detail> arrayOfOutcome = new ArrayList<Outcome_detail>();
         Outcome_adepter adapter = new Outcome_adepter(this, arrayOfOutcome);
-
+        ListView lv = (ListView) findViewById(R.id.outcomelist);
         if(outcomeList.size()!=0) {
             for(int i=0;i<outcomeList.size();i++)
             {
@@ -47,7 +46,7 @@ public class EditOutcomeSchedule extends Activity {
                 adapter.add(newOutcome);
 
             }
-            ListView lv = (ListView) findViewById(R.id.outcomelist);
+
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -59,9 +58,9 @@ public class EditOutcomeSchedule extends Activity {
                 }
             });
 
-            lv.setAdapter(adapter);
 
 
         }
+        lv.setAdapter(adapter);
     }
 }

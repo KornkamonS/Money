@@ -1,23 +1,14 @@
 package tarikalovebird.money;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONArray;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import income_db.Income_adepter;
@@ -45,6 +36,7 @@ public class EditIncomeSchedule extends Activity {
 
         ArrayList<Income_detial> arrayOfIncome = new ArrayList<Income_detial>();
         Income_adepter adapter = new Income_adepter(this, arrayOfIncome);
+        ListView lv = (ListView) findViewById(R.id.incomelist);
 
         if(incomeList.size()!=0) {
             for(int i=0;i<incomeList.size();i++)
@@ -53,7 +45,7 @@ public class EditIncomeSchedule extends Activity {
                 adapter.add(newIncome);
 
             }
-            ListView lv = (ListView) findViewById(R.id.incomelist);
+
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -69,5 +61,10 @@ public class EditIncomeSchedule extends Activity {
 
             lv.setAdapter(adapter);
         }
+        lv.setAdapter(adapter);
+        /*else{
+            print();
+        }*/
+
     }
 }
