@@ -107,11 +107,10 @@
                         <TextView
                             android:id="@+id/editname"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="24dp"
                             android:layout_gravity="center"
-                            android:layout_weight="1.39"
                             android:gravity="center_vertical|center"
-                            android:text="NAME"
+                            android:text="ชื่อ"
                             android:textColor="#000000"
                             android:textSize="55px" />
 
