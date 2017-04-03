@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity
 
     private void PrintPage() {
         t.setText(target.getTargetName());
-        day.setText(target.getCountDown());
+        day.setText(target.getCountDown().toString());
         switch ( target.getTargetType())
         {
             case R.id.TypeLearning: pic.setImageResource(R.drawable.type_book);

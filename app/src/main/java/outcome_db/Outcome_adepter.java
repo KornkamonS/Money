@@ -55,13 +55,8 @@ public class Outcome_adepter extends ArrayAdapter<Outcome_detail> {
             case R.id.add2: tvType.setImageResource(R.drawable.addd1); break;
         }
 
-
         tvAmount.setText(outcome.amount);
         // Return the completed view to render on screen
         return convertView;
     }
-
-
-
-
 }

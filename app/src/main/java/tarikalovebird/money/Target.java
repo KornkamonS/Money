@@ -84,7 +84,7 @@ public class Target
 
         public String getCountDown()
         {
-            return "CountDown: "+getTargetDay()+" Days";
+            return "CountDown: "+String.valueOf(getTargetDay())+" Days";
         }
         public String getTargetName()
         {
