@@ -68,7 +68,7 @@ public class Add_Target extends AppCompatActivity {
                 }
                 if(FLAG){
                     Notierror(t.setNameTarget(targetName.getText().toString()));
-                    Notierror(t.setTargetDay(Integer.parseInt(targetDay.getText().toString())));
+                    Notierror(t.setTargetCountDownDay(Integer.parseInt(targetDay.getText().toString())));
                     Notierror(t.setTargetPrice(Float.parseFloat(targetPrice.getText().toString())));
                     Notierror(t.setTargetType(typegroup.getCheckedRadioButtonId()));
 

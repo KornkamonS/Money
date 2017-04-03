@@ -54,8 +54,16 @@ public class Target
             return dbEditTarget.commit();
             }
         }
+        public boolean setTargetCountDownDay(int d)        {
+            if (d == 0)
+                return false;
+            else {
 
-    public boolean setTargetMonth(int d) {
+                dbEditTarget.putInt(KEY_Day, d);
+                return dbEditTarget.commit();
+            }
+        }
+        public boolean setTargetMonth(int d) {
         if (d == 0)
             return false;
         else {
@@ -64,8 +72,7 @@ public class Target
             return dbEditTarget.commit();
         }
     }
-
-    public boolean setTargetYear(int d) {
+        public boolean setTargetYear(int d) {
         if (d == 0)
             return false;
         else {
@@ -74,16 +81,14 @@ public class Target
             return dbEditTarget.commit();
         }
     }
-
-    public boolean setStartDate(int year, int month, int day) {
+        public boolean setStartDate(int year, int month, int day) {
         dbEditTarget.putInt(KEY_STARTYear, year);
         dbEditTarget.putInt(KEY_STARTMonth, month);
         dbEditTarget.putInt(KEY_STARTDay, day);
         return dbEditTarget.commit();
     }
 
-        public String getCountDown()
-        {
+        public String getCountDown() {
             return "CountDown: "+String.valueOf(getTargetDay())+" Days";
         }
         public String getTargetName()
@@ -100,20 +105,16 @@ public class Target
         }
         public int getTargetType(){
             return dbTarget.getInt(KEY_Type,0);}
-
-    public String getSTARTdate() {
+        public String getSTARTdate() {
         return String.valueOf(getSTARTday()) + "-" + String.valueOf(getSTARTmonth()) + "-" + String.valueOf(getSTARTyear());
     }
-
-    public int getSTARTyear() {
+        public int getSTARTyear() {
         return dbTarget.getInt(KEY_STARTYear, 0);
     }
-
-    public int getSTARTmonth() {
+        public int getSTARTmonth() {
         return dbTarget.getInt(KEY_STARTMonth, 0);
     }
-
-    public int getSTARTday() {
+        public int getSTARTday() {
         return dbTarget.getInt(KEY_STARTDay, 0);
     }
 
