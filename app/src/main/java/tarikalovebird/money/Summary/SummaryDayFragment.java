@@ -15,8 +15,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jjoe64.graphview.DefaultLabelFormatter;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.ValueDependentColor;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
+import com.jjoe64.graphview.series.BarGraphSeries;
+import com.jjoe64.graphview.series.DataPoint;
+
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import tarikalovebird.money.Get_datefromCalender;
@@ -37,6 +45,7 @@ public class SummaryDayFragment extends Fragment {
     private int mDay;
     static final int CALENDAR_VIEW_ID = 1;
     private Get_datefromCalender aa;
+
     public SummaryDayFragment() {
         // Required empty public constructor
     }
@@ -45,12 +54,9 @@ public class SummaryDayFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         myView= inflater.inflate(R.layout.fragment_summary_day, container, false);
 
         dateBut = (Button) myView.findViewById(R.id.seldate);
-
-        // add a click listener to the button
         dateBut.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), myCalendarView.class);
@@ -58,15 +64,11 @@ public class SummaryDayFragment extends Fragment {
             }
         });
 
-        // get the current date
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH)+1;
         mDay = c.get(Calendar.DAY_OF_MONTH);
-
-        // display the current date
         updateCurrentDate();
-
         aa=new Get_datefromCalender(getActivity());
 
         print();
@@ -75,16 +77,23 @@ public class SummaryDayFragment extends Fragment {
     void print()
     {
         Report_data repo = new Report_data(getContext());
-        List<String> reportList =  repo.getReportList();
+        List<String> reportList =  repo.getReportListbyDate(mDay,mMonth,mYear);
 
         ArrayList<Report_detail> arrayOfReport = new ArrayList<Report_detail>();
         Report_adepter adapter = new Report_adepter(getActivity(), arrayOfReport);
         ListView lv = (ListView) myView.findViewById(R.id.listR);
-        Toast.makeText(getActivity(),String.valueOf(reportList.size()),Toast.LENGTH_SHORT).show();
+        DataPoint[] values = new DataPoint[reportList.size()];
+        String[] xlabel= new String[reportList.size()];
         if(reportList.size()!=0) {
             for(int i=0;i<reportList.size();i++)
             {
                 Report_detail newReport = new Report_detail(reportList.get(i));
+                //Date x = new Date(Integer.parseInt(newReport.year),Integer.parseInt(newReport.month),Integer.parseInt(newReport.day));
+
+                float y = Integer.parseInt(newReport.amount)*Integer.parseInt(newReport.inorout);
+                DataPoint v = new DataPoint(i, y);
+                xlabel[i]=newReport.name;
+                values[i] = v;
                 adapter.add(newReport);
             }
 
@@ -102,6 +111,38 @@ public class SummaryDayFragment extends Fragment {
             lv.setAdapter(adapter);
         }
         lv.setAdapter(adapter);
+
+        GraphView graph = (GraphView) myView.findViewById(R.id.graph);
+        BarGraphSeries<DataPoint> series = new BarGraphSeries<DataPoint>(values);
+        series.setSpacing(20);
+
+        StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+        staticLabelsFormatter.setHorizontalLabels(xlabel);
+        graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+
+        series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
+            @Override
+            public int get(DataPoint data) {
+                if(data.getY()>=0)
+                    return getContext().getResources().getColor(R.color.in);
+                else return getContext().getResources().getColor(R.color.out);
+            }
+        });
+
+        // set manual X bounds
+        graph.getViewport().setXAxisBoundsManual(true);
+        graph.getViewport().setMinX(0);
+        graph.getViewport().setMaxX(reportList.size()+1);
+        // enable scaling and scrolling
+        graph.getViewport().setScalable(true);
+        graph.getViewport().setScalableY(true);
+
+        series.setDrawValuesOnTop(true);
+        series.setValuesOnTopSize(40);
+
+        series.setValuesOnTopColor(getContext().getResources().getColor(R.color.colorPrimaryDark));
+
+        graph.addSeries(series);
     }
 
     private void updateCurrentDate() {
@@ -124,6 +165,7 @@ public class SummaryDayFragment extends Fragment {
 
                     Bundle bundle = data.getExtras();
                     dateBut.setText(bundle.getString("dateSelected"));
+                    print();
                     break;
                 }
         }

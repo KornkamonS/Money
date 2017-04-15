@@ -12,19 +12,17 @@
         android:orientation="vertical">
         <Button
             android:id="@+id/seldate"
-
+            android:layout_margin="10dp"
             android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:background="@color/bg"
             android:gravity="center"
             android:textColorLink="@color/colorPrimaryDark" />
-        <TextView
-            android:id="@+id/textView9"
+        <com.jjoe64.graphview.GraphView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:gravity="center_vertical|center"
-            android:text="summary_day" />
+            android:layout_height="200dip"
+            android:id="@+id/graph" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -38,7 +36,7 @@
                 <ListView
                     android:id="@+id/listR"
                     android:layout_width="match_parent"
-                    android:layout_height="351dp" />
+                    android:layout_height="286dp" />
             </LinearLayout>
         </ScrollView>
 

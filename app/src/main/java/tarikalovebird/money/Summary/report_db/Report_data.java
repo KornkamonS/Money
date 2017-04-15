@@ -11,6 +11,17 @@ import java.util.List;
 public class Report_data {
     private Report_table_dbHelper dbHelper;
 
+    private String selectall="SELECT  " +
+            Report_metaData.KEY_ID + "," +
+            Report_metaData.KEY_Name + "," +
+            Report_metaData.KEY_Amount + "," +
+            Report_metaData.KEY_Day + "," +
+            Report_metaData.KEY_Month + "," +
+            Report_metaData.KEY_Year + "," +
+            Report_metaData.KEY_InorOut + "," +
+            Report_metaData.KEY_Type +
+            " FROM " + Report_metaData.TABLE;
+
     public Report_data(Context context){dbHelper = new Report_table_dbHelper(context);}
 
     public int insert(Report_metaData report)
@@ -58,55 +69,17 @@ public class Report_data {
     }
 
     public List<String> getReportList() {
-
-        List<String> report = new ArrayList<String>();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.query
                 (Report_metaData.TABLE, null, null, null, null, null, null);
-
-        if (cursor != null) {
-            cursor.moveToFirst();
-        }
-            /*
-            * 0:id
-            * 1:name
-            * 2:amount
-            * 3:day
-            * 4:month
-            * 5:year
-            * 6:inorout
-            * 7:type*/
-        while(!cursor.isAfterLast()) {
-
-            report.add(cursor.getLong(0) + "/" +
-                    cursor.getString(1) + "/" +
-                    cursor.getString(2) + "/" +
-                    cursor.getString(3) + "/" +
-                    cursor.getString(4) + "/" +
-                    cursor.getString(5) + "/" +
-                    cursor.getString(6) + "/" +
-                    cursor.getString(7));
-
-            cursor.moveToNext();
-        }
-
+        List<String> report=getList(cursor);
         db.close();
         return report;
     }
 
     public Report_metaData getReportById(int Id){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String selectQuery =  "SELECT  " +
-                Report_metaData.KEY_ID + "," +
-                Report_metaData.KEY_Name + "," +
-                Report_metaData.KEY_Amount + "," +
-                Report_metaData.KEY_Day + "," +
-                Report_metaData.KEY_Month + "," +
-                Report_metaData.KEY_Year + "," +
-                Report_metaData.KEY_InorOut + "," +
-                Report_metaData.KEY_Type +
-                " FROM " + Report_metaData.TABLE
-                + " WHERE " +
+        String selectQuery =  selectall + " WHERE " +
                 Report_metaData.KEY_ID + "=?";// It's a good practice to use parameter ?, instead of concatenate string
 
         int iCount =0;
@@ -129,6 +102,89 @@ public class Report_data {
         }
 
         cursor.close();
+        db.close();
+        return report;
+    }
+
+    public List<String> getList(Cursor cursor)
+    {
+        List<String> report = new ArrayList<String>();
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        /*
+            * 0:id
+            * 1:name
+            * 2:amount
+            * 3:day
+            * 4:month
+            * 5:year
+            * 6:inorout
+            * 7:type*/
+
+        while(!cursor.isAfterLast()) {
+
+            report.add(cursor.getLong(0) + "/" +
+                    cursor.getString(1) + "/" +
+                    cursor.getString(2) + "/" +
+                    cursor.getString(3) + "/" +
+                    cursor.getString(4) + "/" +
+                    cursor.getString(5) + "/" +
+                    cursor.getString(6) + "/" +
+                    cursor.getString(7));
+
+            cursor.moveToNext();
+        }
+        return report;
+
+    }
+    public List<String> getAllIncomeList()
+    {
+        String selectQuery =  selectall+ " WHERE " +
+                Report_metaData.KEY_InorOut + "=?";
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(1)});
+        List<String> report=getList(cursor);
+        db.close();
+        return report;
+    }
+
+    public List<String> getAllOutcomeList(){
+
+        String selectQuery =  selectall + " WHERE " +
+                Report_metaData.KEY_InorOut + "=?";
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(Report_metaData.OUT)});
+        List<String> report=getList(cursor);
+        db.close();
+        return report;
+    }
+    public List<String> getReportListbyDate(int day,int month,int year){
+        String selectQuery =  selectall + " WHERE " +
+                Report_metaData.KEY_Day + "=?"+" AND "+
+                Report_metaData.KEY_Month + "=?"+" AND "+
+                Report_metaData.KEY_Year + "=?";
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String a[]=new String[]{ String.valueOf(day),String.valueOf(month),String.valueOf(year)};
+        Cursor cursor = db.rawQuery(selectQuery, a);
+        List<String> report=getList(cursor);
+        db.close();
+        return report;
+    }
+    public List<String> getIncomeListbyDate(int day,int month,int year){
+        String selectQuery =  selectall + " WHERE " +
+                Report_metaData.KEY_Day + "=?"+" AND "+
+                Report_metaData.KEY_Month + "=?"+" AND "+
+                Report_metaData.KEY_Year + "=?"+" AND "+
+                Report_metaData.KEY_InorOut+"=?";
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String a[]=new String[]{ String.valueOf(day),String.valueOf(month),String.valueOf(year),String.valueOf(Report_metaData.IN)};
+        Cursor cursor = db.rawQuery(selectQuery, a);
+        List<String> report=getList(cursor);
         db.close();
         return report;
     }

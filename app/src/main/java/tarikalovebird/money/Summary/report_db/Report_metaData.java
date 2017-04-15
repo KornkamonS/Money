@@ -12,6 +12,8 @@ public class Report_metaData {
     public static final String KEY_Year = "Year";
     public static final String KEY_InorOut = "InorOut";
     public static final String KEY_Type="Type";
+    public static final int IN =1;
+    public static final int OUT =-1;
 
     // property help us to keep data
     public int report_id;
