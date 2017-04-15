@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity
         {
             if(resultCode == RESULT_OK){
                 //refresh page
-                Toast.makeText(this, "Income",
+                Toast.makeText(this, "tarikalovebird/money/Income",
                         Toast.LENGTH_LONG).show();
                 PrintPage();
             }

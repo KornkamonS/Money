@@ -1,8 +1,6 @@
 package tarikalovebird.money;
 
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -17,11 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.TextView;
-
-import Summary.SummaryDayFragment;
-import Summary.SummaryMonthFragment;
-import Summary.SummaryYearFragment;
+import tarikalovebird.money.Summary.SummaryDayFragment;
+import tarikalovebird.money.Summary.SummaryMonthFragment;
+import tarikalovebird.money.Summary.SummaryYearFragment;
 
 public class Summary_table extends AppCompatActivity {
 

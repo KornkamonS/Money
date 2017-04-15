@@ -16,9 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import Income.IncomeDayFragment;
-import Income.IncomeMonthFragment;
-import Income.IncomeYearFragment;
+import tarikalovebird.money.Income.IncomeDayFragment;
+import tarikalovebird.money.Income.IncomeMonthFragment;
+import tarikalovebird.money.Income.IncomeYearFragment;
+import tarikalovebird.money.Income.editperiod.EditIncomeSchedule;
 
 public class Income_table extends AppCompatActivity {
 

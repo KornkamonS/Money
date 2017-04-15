@@ -3,9 +3,6 @@ package tarikalovebird.money;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -21,8 +18,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import income_db.Income_data;
-import income_db.Income_metaData;
+import tarikalovebird.money.Income.income_db.Income_data;
+import tarikalovebird.money.Income.income_db.Income_metaData;
 
 public class Add_Income extends AppCompatActivity {
 

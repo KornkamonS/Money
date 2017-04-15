@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="tarikalovebird.money.Income_edit_item"
+    tools:context="tarikalovebird.money.Income.editperiod.Income_edit_item"
     tools:showIn="@layout/activity_income_edit_item">
 
     <ScrollView

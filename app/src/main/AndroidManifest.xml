@@ -40,30 +40,33 @@
             android:label="@string/title_activity_add__target"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".Add_Outcome"
+            android:label="@string/title_activity_add__outcome"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".Add_Income"
             android:label="@string/title_activity_add__income"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".myCalendarView"
             android:theme="@style/AppTheme" />
-        <activity android:name=".EditIncomeSchedule" />
+
         <activity
-            android:name=".Income_edit_item"
+            android:name="tarikalovebird.money.Income.editperiod.Income_edit_item"
             android:label="@string/title_activity_income_edit_item"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".Add_Outcome"
+            android:name="tarikalovebird.money.Income.editperiod.EditIncomeSchedule"
+            android:label="@string/title_activity_add__income"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="tarikalovebird.money.Outcome.editperoid.EditOutcomeSchedule"
             android:label="@string/title_activity_add__outcome"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".EditOutcomeSchedule"
+            android:name="tarikalovebird.money.Outcome.editperoid.Outcome_edit_item"
             android:label="@string/title_activity_add__outcome"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".Outcome_edit_item"
-            android:label="@string/title_activity_add__outcome"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
 
     </application>
 

@@ -23,8 +23,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import outcome_db.Outcome_data;
-import outcome_db.Outcome_metaData;
+import tarikalovebird.money.Outcome.outcome_db.Outcome_data;
+import tarikalovebird.money.Outcome.outcome_db.Outcome_metaData;
 
 public class Add_Outcome extends AppCompatActivity{
 
