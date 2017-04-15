@@ -114,8 +114,6 @@ public class Income_edit_item extends AppCompatActivity {
         DeleteBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 builder.setMessage("Are you sure want to DELETE")
                         .setCancelable(false)
                         .setPositiveButton("YES", new DialogInterface.OnClickListener() {

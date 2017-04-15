@@ -8,11 +8,6 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- * Created by Preaw-PC on 25/3/2560.
- */
-
 public class Report_data {
     private Report_table_dbHelper dbHelper;
 
@@ -22,8 +17,8 @@ public class Report_data {
     {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(Report_metaData.KEY_Amount, report.amount);
         values.put(Report_metaData.KEY_Name,report.name);
+        values.put(Report_metaData.KEY_Amount, report.amount);
         values.put(Report_metaData.KEY_Day, report.day);
         values.put(Report_metaData.KEY_Month, report.month);
         values.put(Report_metaData.KEY_Year, report.year);
@@ -58,13 +53,13 @@ public class Report_data {
         values.put(Report_metaData.KEY_Type, report.type);
 
         // It's a good practice to use parameter ?, instead of concatenate string
-        db.update(Report_metaData.TABLE, values, Report_metaData.KEY_ID + "= ?", new String[] { String.valueOf(report.outcome_ID) });
+        db.update(Report_metaData.TABLE, values, Report_metaData.KEY_ID + "= ?", new String[] { String.valueOf(report.report_id) });
         db.close(); // Closing database connection
     }
 
-    public List<String> getOutcomeList() {
+    public List<String> getReportList() {
 
-        List<String> income = new ArrayList<String>();
+        List<String> report = new ArrayList<String>();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.query
                 (Report_metaData.TABLE, null, null, null, null, null, null);
@@ -83,7 +78,7 @@ public class Report_data {
             * 7:type*/
         while(!cursor.isAfterLast()) {
 
-            income.add(cursor.getLong(0) + "/" +
+            report.add(cursor.getLong(0) + "/" +
                     cursor.getString(1) + "/" +
                     cursor.getString(2) + "/" +
                     cursor.getString(3) + "/" +
@@ -96,10 +91,10 @@ public class Report_data {
         }
 
         db.close();
-        return income;
+        return report;
     }
 
-    public Report_metaData getOutcomeById(int Id){
+    public Report_metaData getReportById(int Id){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String selectQuery =  "SELECT  " +
                 Report_metaData.KEY_ID + "," +
@@ -121,7 +116,7 @@ public class Report_data {
 
         if (cursor.moveToFirst()) {
             do {
-                report.outcome_ID =cursor.getInt(cursor.getColumnIndex(Report_metaData.KEY_ID));
+                report.report_id =cursor.getInt(cursor.getColumnIndex(Report_metaData.KEY_ID));
                 report.name =cursor.getString(cursor.getColumnIndex(Report_metaData.KEY_Name));
                 report.amount  =cursor.getFloat(cursor.getColumnIndex(Report_metaData.KEY_Amount));
                 report.day =cursor.getInt(cursor.getColumnIndex(Report_metaData.KEY_Day));

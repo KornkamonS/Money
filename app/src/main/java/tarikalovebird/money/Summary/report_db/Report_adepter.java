@@ -1,40 +1,40 @@
 package tarikalovebird.money.Summary.report_db;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import tarikalovebird.money.R;
 
-
-/**
- * Created by Preaw-PC on 25/3/2560.
- */
 
 public class Report_adepter extends ArrayAdapter<Report_detail> {
     public Report_adepter(Context context, ArrayList<Report_detail> outcome) {
         super(context, 0, outcome);
     }
-  /*  @Override
+   @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        Report_detail outcome = getItem(position);
+        Report_detail report = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.view_outcome_entry, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.report_individual, parent, false);
         }
         // Lookup view for data population
-        TextView tvID = (TextView) convertView.findViewById(R.id.outcome_Id);
-        TextView tvName = (TextView) convertView.findViewById(R.id.outcome_name);
-        TextView tvAmount = (TextView) convertView.findViewById(R.id.outcome_amount);
-        TextView tvPeriod = (TextView) convertView.findViewById(R.id.outcome_period);
-        ImageView tvType = (ImageView) convertView.findViewById(R.id.def2);
+        TextView tvID = (TextView) convertView.findViewById(R.id.IdR);
+        TextView tvName = (TextView) convertView.findViewById(R.id.nameR);
+        TextView tvAmount = (TextView) convertView.findViewById(R.id.amountR);
+        TextView tvDate = (TextView) convertView.findViewById(R.id.dateR);
+        ImageView tvType = (ImageView) convertView.findViewById(R.id.pictypeR);
 
         // Populate the data into the template view using the data object
-        tvName.setText(outcome.name);
-        tvID.setText(outcome.id);
-        tvPeriod.setText(outcome.peroid);
-
-        int typeid=Integer.parseInt(outcome.type);
+        tvName.setText(report.name);
+        tvID.setText(report.id);
+        int typeid=Integer.parseInt(report.type);
         switch (typeid)
         {
             case R.id.gift2: tvType.setImageResource(R.drawable.food1); break;
@@ -46,10 +46,41 @@ public class Report_adepter extends ArrayAdapter<Report_detail> {
             case R.id.pen:  tvType.setImageResource(R.drawable.pen1); break;
             case R.id.study: tvType.setImageResource(R.drawable.study1); break;
             case R.id.add2: tvType.setImageResource(R.drawable.addd1); break;
+            case R.id.gift: tvType.setImageResource(R.drawable.gifts1); break;
+            case R.id.salary: tvType.setImageResource(R.drawable.salary1); break;
+            case R.id.sale:  tvType.setImageResource(R.drawable.sale1); break;
+            case R.id.add: tvType.setImageResource(R.drawable.add1); break;
         }
+        String tvMonth="Jan";
+        int month= Integer.parseInt(report.month);
+       switch (month)
+       {
+           case 1: tvMonth="Jan"; break;
+           case 2:  tvMonth="Feb"; break;
+           case 3:   tvMonth="Mar"; break;
+           case 4:  tvMonth="April"; break;
+           case 5:   tvMonth="May"; break;
+           case 6:  tvMonth="Jun"; break;
+           case 7:   tvMonth="July"; break;
+           case 8:  tvMonth="Aug"; break;
+           case 9:  tvMonth="Sep"; break;
+           case 10:  tvMonth="Oct"; break;
+           case 11:  tvMonth="Nov"; break;
+           case 12:   tvMonth="Dec"; break;
 
-        tvAmount.setText(outcome.amount);
+       }
+        tvDate.setText(report.day+"-"+tvMonth+"-"+report.year);
+       tvAmount.setText(report.amount);
+       if(report.inorout.equals("1"))
+       {tvDate.setTextColor(getContext().getResources().getColor(R.color.in));
+       tvAmount.setTextColor(getContext().getResources().getColor(R.color.in));}
+
+       else
+           {tvDate.setTextColor(getContext().getResources().getColor(R.color.out));
+               tvAmount.setTextColor(getContext().getResources().getColor(R.color.out));}
+
+
         // Return the completed view to render on screen
         return convertView;
-    }*/
+    }
 }

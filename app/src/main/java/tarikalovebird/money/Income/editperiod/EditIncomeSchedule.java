@@ -44,7 +44,6 @@ public class EditIncomeSchedule extends Activity {
             {
                 Income_detial newIncome = new Income_detial(incomeList.get(i));
                 adapter.add(newIncome);
-
             }
 
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -56,16 +55,11 @@ public class EditIncomeSchedule extends Activity {
                     Intent objIndent = new Intent(getApplicationContext(),Income_edit_item.class);
                     objIndent.putExtra("income_Id", Integer.parseInt(incomeId));
                     startActivityForResult(objIndent,1);
-
                 }
             });
 
             lv.setAdapter(adapter);
         }
         lv.setAdapter(adapter);
-        /*else{
-            print();
-        }*/
-
     }
 }

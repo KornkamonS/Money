@@ -25,6 +25,8 @@ import java.util.List;
 
 import tarikalovebird.money.Outcome.outcome_db.Outcome_data;
 import tarikalovebird.money.Outcome.outcome_db.Outcome_metaData;
+import tarikalovebird.money.Summary.report_db.Report_data;
+import tarikalovebird.money.Summary.report_db.Report_metaData;
 
 public class Add_Outcome extends AppCompatActivity{
 
@@ -111,7 +113,7 @@ public class Add_Outcome extends AppCompatActivity{
                     int typeid=typegroup.getCheckedRadioButtonId();
                     switch (typeid)
                     {
-                        case R.id.gift2: Typetext="Gift"; break;
+                        case R.id.gift2: Typetext="Food"; break;
                         case R.id.oil: Typetext="Petrol"; break;
                         case R.id.home:  Typetext="Rents"; break;
                         case R.id.elect: Typetext="Bill"; break;
@@ -134,6 +136,24 @@ public class Add_Outcome extends AppCompatActivity{
                         outcome_data.insert(outcome);
                         Toast.makeText(getApplicationContext(),"insert Expense",Toast.LENGTH_SHORT).show();
                     }
+
+                    Report_data report_data=new Report_data(getApplicationContext());
+                    Report_metaData report=new Report_metaData();
+
+                    if(!ExpenseName.getText().toString().isEmpty()){
+                        report.name=ExpenseName.getText().toString();
+                    }
+                    else { report.name=Typetext;}
+                    report.amount = (Float.parseFloat(ExpensePrice.getText().toString()));
+                    report.type = typeid;
+                    report.inorout=-1;
+                    report.day=mDay;
+                    report.month=mMonth;
+                    report.year=mYear;
+
+                    report_data.insert(report);
+
+                    Toast.makeText(getApplicationContext(),"insert report ",Toast.LENGTH_SHORT).show();
 
                     Intent returnIntent = new Intent();
                     setResult(RESULT_OK, returnIntent);

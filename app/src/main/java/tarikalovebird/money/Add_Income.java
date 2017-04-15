@@ -20,6 +20,8 @@ import java.util.List;
 
 import tarikalovebird.money.Income.income_db.Income_data;
 import tarikalovebird.money.Income.income_db.Income_metaData;
+import tarikalovebird.money.Summary.report_db.Report_data;
+import tarikalovebird.money.Summary.report_db.Report_metaData;
 
 public class Add_Income extends AppCompatActivity {
 
@@ -107,22 +109,46 @@ public class Add_Income extends AppCompatActivity {
                             case R.id.add: Typetext="Other"; break;
                         }
 
+
                         Income_data income_data = new Income_data(getApplicationContext());
                         Income_metaData income = new Income_metaData();
+
                         String spintext=spin.getSelectedItem().toString();
+
 
                         if(spintext!="Day") {
 
-                            if(!IncomeName.getText().toString().isEmpty())
+                            if(!IncomeName.getText().toString().isEmpty()){
                                 income.name = IncomeName.getText().toString();
-                            else income.name=Typetext;
+                            }
+                            else {income.name=Typetext;  }
 
                             income.amount = (Float.parseFloat(IncomePrice.getText().toString()));
                             income.type = typeid;
                             income.period=spintext;
                             income_data.insert(income);
-                            Toast.makeText(getApplicationContext(),"insert income",Toast.LENGTH_SHORT).show();
+
+                            Toast.makeText(getApplicationContext(),"insert income ",Toast.LENGTH_SHORT).show();
                         }
+
+
+                        Report_data report_data=new Report_data(getApplicationContext());
+                        Report_metaData report=new Report_metaData();
+
+                        if(!IncomeName.getText().toString().isEmpty()){
+                            report.name=IncomeName.getText().toString();
+                        }
+                        else { report.name=Typetext;}
+                        report.amount = (Float.parseFloat(IncomePrice.getText().toString()));
+                        report.type = typeid;
+                        report.inorout=1;
+                        report.day=mDay;
+                        report.month=mMonth;
+                        report.year=mYear;
+
+                        report_data.insert(report);
+
+                        Toast.makeText(getApplicationContext(),"insert report ",Toast.LENGTH_SHORT).show();
 
                         Intent returnIntent = new Intent();
                         setResult(RESULT_OK, returnIntent);

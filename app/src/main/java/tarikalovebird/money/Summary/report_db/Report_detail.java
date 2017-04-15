@@ -1,9 +1,5 @@
 package tarikalovebird.money.Summary.report_db;
 
-/**
- * Created by Preaw-PC on 25/3/2560.
- */
-
 public class Report_detail {
     public String id;
     public String name;
