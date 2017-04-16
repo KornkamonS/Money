@@ -16,9 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import tarikalovebird.money.Income.IncomeDayFragment;
-import tarikalovebird.money.Income.IncomeMonthFragment;
-import tarikalovebird.money.Income.IncomeYearFragment;
+import tarikalovebird.money.Summary.IncomeDayFragment;
+import tarikalovebird.money.Summary.IncomeMonthFragment;
+import tarikalovebird.money.Summary.IncomeYearFragment;
 import tarikalovebird.money.Income.editperiod.EditIncomeSchedule;
 
 public class Income_table extends AppCompatActivity {
@@ -30,7 +30,7 @@ public class Income_table extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_income_table);
+        setContentView(R.layout.activity_summary_table);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -84,7 +84,7 @@ public class Income_table extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_income_table, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_table, container, false);
 
             return rootView;
         }

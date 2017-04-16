@@ -3,21 +3,30 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\TunasanG\Documents\Money\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\tunas\StudioProjects\Money\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="845a069bcc76215050acdda2d479a978ab2d1ebb">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3378d6235633f0efd8cfe9d318939895841eeffd\classes.dex" />
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\tunas\StudioProjects\Money\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_6545d237793d02ce8678c36c64a2beebb23f3eb6\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\TunasanG\Documents\Money\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\tunas\StudioProjects\Money\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\TunasanG\Documents\Money\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_6d20728198763bb731ad21a9ac39290344c1a953\classes.dex" />
+        sha1="ca16236f7b0f3529c12c228411125907b01dca73">
+        <dex dex="C:\Users\tunas\StudioProjects\Money\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_d1c5c1e17f969dd0a371539e1d33aeaa7c9b0c90\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\tunas\.android\build-cache\71713329fb20e177ff33693bc201b7e4aa3f2114\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="987adec819c9a98faf215814f41195da48fc724e">
+        <dex dex="C:\Users\tunas\StudioProjects\Money\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_aeea57fb3af47ded82dc460e48cc7845c46112df\classes.dex" />
     </item>
 
 </items>

@@ -67,6 +67,14 @@
             android:name="tarikalovebird.money.Outcome.editperoid.Outcome_edit_item"
             android:label="@string/title_activity_add__outcome"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="tarikalovebird.money.show_daylist"
+
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="tarikalovebird.money.show_monthlist"
+
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
     </application>
 

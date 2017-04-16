@@ -18,10 +18,8 @@ public class Target
     private final String KEY_STARTMonth = "STARTMonth";
     private final String KEY_STARTYear = "STARTYear";
 
-
       private SharedPreferences dbTarget;
       private SharedPreferences.Editor dbEditTarget;
-
 
         public  Target(Context context) {
             dbTarget = context.getSharedPreferences(KEY_Name, Context.MODE_PRIVATE);

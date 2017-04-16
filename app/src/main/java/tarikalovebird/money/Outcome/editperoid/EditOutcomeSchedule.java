@@ -23,7 +23,7 @@ public class EditOutcomeSchedule extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_outcome_schedule);
+        setContentView(R.layout.activity_list_schedule);
         print();
 
     }
@@ -39,7 +39,7 @@ public class EditOutcomeSchedule extends Activity {
 
         ArrayList<Outcome_detail> arrayOfOutcome = new ArrayList<Outcome_detail>();
         Outcome_adepter adapter = new Outcome_adepter(this, arrayOfOutcome);
-        ListView lv = (ListView) findViewById(R.id.outcomelist);
+        ListView lv = (ListView) findViewById(R.id.list);
         if(outcomeList.size()!=0) {
             for(int i=0;i<outcomeList.size();i++)
             {
@@ -51,7 +51,7 @@ public class EditOutcomeSchedule extends Activity {
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    outcome_id = (TextView) view.findViewById(R.id.outcome_Id);
+                    outcome_id = (TextView) view.findViewById(R.id.list_Id);
                     String outcomeId = outcome_id.getText().toString();
                     Intent objIndent = new Intent(getApplicationContext(), Outcome_edit_item.class);
                     objIndent.putExtra("outcome_Id", Integer.parseInt(outcomeId));

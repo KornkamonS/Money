@@ -27,14 +27,14 @@ public class Outcome_adepter extends ArrayAdapter<Outcome_detail> {
         Outcome_detail outcome = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.view_outcome_entry, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.view_list_entry, parent, false);
         }
         // Lookup view for data population
-        TextView tvID = (TextView) convertView.findViewById(R.id.outcome_Id);
-        TextView tvName = (TextView) convertView.findViewById(R.id.outcome_name);
-        TextView tvAmount = (TextView) convertView.findViewById(R.id.outcome_amount);
-        TextView tvPeriod = (TextView) convertView.findViewById(R.id.outcome_period);
-        ImageView tvType = (ImageView) convertView.findViewById(R.id.def2);
+        TextView tvID = (TextView) convertView.findViewById(R.id.list_Id);
+        TextView tvName = (TextView) convertView.findViewById(R.id.list_name);
+        TextView tvAmount = (TextView) convertView.findViewById(R.id.list_amount);
+        TextView tvPeriod = (TextView) convertView.findViewById(R.id.list_period);
+        ImageView tvType = (ImageView) convertView.findViewById(R.id.def1);
 
         // Populate the data into the template view using the data object
         tvName.setText(outcome.name);
@@ -56,6 +56,8 @@ public class Outcome_adepter extends ArrayAdapter<Outcome_detail> {
         }
 
         tvAmount.setText(outcome.amount);
+        tvPeriod.setTextColor(getContext().getResources().getColor(R.color.out));
+        tvAmount.setTextColor(getContext().getResources().getColor(R.color.out));
         // Return the completed view to render on screen
         return convertView;
     }

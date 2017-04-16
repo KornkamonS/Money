@@ -9,4 +9,5 @@
     <color name="edit">#0ac33b</color>
     <color name="out">#060cbf</color>
     <color name="in">#ec0043</color>
+    <color name="totalGraph">#EAFAF1</color>
 </resources>

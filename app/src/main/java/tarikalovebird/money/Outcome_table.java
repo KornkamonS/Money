@@ -16,9 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import tarikalovebird.money.Outcome.OutcomeDayFragment;
-import tarikalovebird.money.Outcome.OutcomeMonthFragment;
-import tarikalovebird.money.Outcome.OutcomeYearFragment;
+import tarikalovebird.money.Summary.OutcomeDayFragment;
+import tarikalovebird.money.Summary.OutcomeMonthFragment;
+import tarikalovebird.money.Summary.OutcomeYearFragment;
 import tarikalovebird.money.Outcome.editperoid.EditOutcomeSchedule;
 
 public class Outcome_table extends AppCompatActivity {
@@ -29,7 +29,7 @@ public class Outcome_table extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_outcome_table);
+        setContentView(R.layout.activity_summary_table);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -77,7 +77,7 @@ public class Outcome_table extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_outcome_table, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_table, container, false);
 
             return rootView;
         }

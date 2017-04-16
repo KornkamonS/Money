@@ -22,7 +22,7 @@ public class EditIncomeSchedule extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_income_schedule);
+        setContentView(R.layout.activity_list_schedule);
          print();
         }
 
@@ -37,7 +37,7 @@ public class EditIncomeSchedule extends Activity {
 
         ArrayList<Income_detial> arrayOfIncome = new ArrayList<Income_detial>();
         Income_adepter adapter = new Income_adepter(this, arrayOfIncome);
-        ListView lv = (ListView) findViewById(R.id.incomelist);
+        ListView lv = (ListView) findViewById(R.id.list);
 
         if(incomeList.size()!=0) {
             for(int i=0;i<incomeList.size();i++)
@@ -50,7 +50,7 @@ public class EditIncomeSchedule extends Activity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    income_id = (TextView) view.findViewById(R.id.income_Id);
+                    income_id = (TextView) view.findViewById(R.id.list_Id);
                     String incomeId = income_id.getText().toString();
                     Intent objIndent = new Intent(getApplicationContext(),Income_edit_item.class);
                     objIndent.putExtra("income_Id", Integer.parseInt(incomeId));

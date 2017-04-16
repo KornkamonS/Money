@@ -21,5 +21,4 @@ public class Report_detail {
         this.inorout=separated[6];
         this.type = separated[7];
     }
-
 }

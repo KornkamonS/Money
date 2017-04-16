@@ -26,13 +26,13 @@ public class Income_adepter extends ArrayAdapter<Income_detial>{
         Income_detial income = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.view_income_entry, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.view_list_entry, parent, false);
         }
         // Lookup view for data population
-        TextView tvID = (TextView) convertView.findViewById(R.id.income_Id);
-        TextView tvName = (TextView) convertView.findViewById(R.id.income_name);
-        TextView tvAmount = (TextView) convertView.findViewById(R.id.income_amount);
-        TextView tvPeriod = (TextView) convertView.findViewById(R.id.income_period);
+        TextView tvID = (TextView) convertView.findViewById(R.id.list_Id);
+        TextView tvName = (TextView) convertView.findViewById(R.id.list_name);
+        TextView tvAmount = (TextView) convertView.findViewById(R.id.list_amount);
+        TextView tvPeriod = (TextView) convertView.findViewById(R.id.list_period);
         ImageView tvType = (ImageView) convertView.findViewById(R.id.def1);
 
         // Populate the data into the template view using the data object
@@ -49,7 +49,8 @@ public class Income_adepter extends ArrayAdapter<Income_detial>{
             case R.id.add: tvType.setImageResource(R.drawable.add1); break;
         }
 
-
+        tvPeriod.setTextColor(getContext().getResources().getColor(R.color.in));
+        tvAmount.setTextColor(getContext().getResources().getColor(R.color.in));
         tvAmount.setText(income.amount);
         // Return the completed view to render on screen
         return convertView;
