@@ -170,10 +170,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_Summary) {
             Intent i = new Intent(getApplicationContext(), Summary_table.class);
             startActivity(i);
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         } else if (id == R.id.nav_TIPs) {
 
         } else if (id == R.id.nav_Noti) {
