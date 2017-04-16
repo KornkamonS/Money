@@ -32,13 +32,13 @@ import tarikalovebird.money.show_monthlist;
 
 public class SummaryYearFragment extends Fragment  {
 
+    public SummaryYearFragment() {}
+
     private Button dateBut;
     private int mYear;
-
-    public SummaryYearFragment() {
-    }
     private  View myView;
     public TextView Report_id;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -120,9 +120,9 @@ public class SummaryYearFragment extends Fragment  {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Report_id = (TextView) view.findViewById(R.id.list_Id);
                     String incomeId = Report_id.getText().toString();
-                   // Toast.makeText(getActivity(),incomeId,Toast.LENGTH_LONG).show();
                     Intent objIndent = new Intent(getContext(),show_monthlist.class);
                     objIndent.putExtra("list_Id", Integer.parseInt(incomeId));
+                    objIndent.putExtra("_case",0);
                     startActivity(objIndent);
                 }
             });

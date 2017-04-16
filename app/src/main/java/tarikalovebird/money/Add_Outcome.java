@@ -42,7 +42,6 @@ public class Add_Outcome extends AppCompatActivity{
     private int mMonth;
     private int mDay;
     static final int CALENDAR_VIEW_ID = 1;
-    private AlertDialog.Builder Error;
     private Get_datefromCalender aa;
 
     @Override
@@ -61,7 +60,7 @@ public class Add_Outcome extends AppCompatActivity{
                 startActivityForResult(intent,CALENDAR_VIEW_ID);
             }
         });
-        Error = new AlertDialog.Builder(this);
+
         // get the current date
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
@@ -89,9 +88,6 @@ public class Add_Outcome extends AppCompatActivity{
         spin.setAdapter ( dataAdapter );
 
         spin.setSelection(0);
-        Error.setTitle("Error! ");
-        Error.setIcon(android.R.drawable.btn_dialog);
-        Error.setPositiveButton("Close", null);
 
         OkBut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,7 +142,7 @@ public class Add_Outcome extends AppCompatActivity{
                     else { report.name=Typetext;}
                     report.amount = (Float.parseFloat(ExpensePrice.getText().toString()));
                     report.type = typeid;
-                    report.inorout=-1;
+                    report.inorout=Report_metaData.OUT;
                     report.day=mDay;
                     report.month=mMonth;
                     report.year=mYear;

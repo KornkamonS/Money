@@ -75,6 +75,14 @@
             android:name="tarikalovebird.money.show_monthlist"
 
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="tarikalovebird.money.Summary.edit_out_type"
+
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="tarikalovebird.money.Summary.edit_in_type"
+
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
     </application>
 

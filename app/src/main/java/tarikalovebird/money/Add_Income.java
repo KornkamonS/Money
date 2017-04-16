@@ -36,7 +36,7 @@ public class Add_Income extends AppCompatActivity {
     private int mYear;
     private int mMonth;
     private int mDay;
-    private AlertDialog.Builder Error;
+
     static final int CALENDAR_VIEW_ID = 1;
     private Get_datefromCalender aa;
 
@@ -56,13 +56,13 @@ public class Add_Income extends AppCompatActivity {
                     startActivityForResult(intent,CALENDAR_VIEW_ID);
                 }
             });
-            Error = new AlertDialog.Builder(this);
+
             // get the current date
             final Calendar c = Calendar.getInstance();
             mYear = c.get(Calendar.YEAR);
             mMonth = c.get(Calendar.MONTH)+1;
             mDay = c.get(Calendar.DAY_OF_MONTH);
-
+            aa=new Get_datefromCalender(this);
             // display the current date
             updateCurrentDate();
 
@@ -80,13 +80,11 @@ public class Add_Income extends AppCompatActivity {
             spin = ( Spinner ) this.findViewById ( R.id.incomeSpin );
             spin.setAdapter ( dataAdapter );
 
-            aa=new Get_datefromCalender(this);
+
 
 
             spin.setSelection(0);
-            Error.setTitle("Error! ");
-            Error.setIcon(android.R.drawable.btn_dialog);
-            Error.setPositiveButton("Close", null);
+
 
             OkBut.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -141,7 +139,7 @@ public class Add_Income extends AppCompatActivity {
                         else { report.name=Typetext;}
                         report.amount = (Float.parseFloat(IncomePrice.getText().toString()));
                         report.type = typeid;
-                        report.inorout=1;
+                        report.inorout=Report_metaData.IN;
                         report.day=mDay;
                         report.month=mMonth;
                         report.year=mYear;

@@ -33,15 +33,16 @@ import widget.SimpleDatePickerDialogFragment;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class SummaryMonthFragment extends Fragment implements SimpleDatePickerDialog.OnDateSetListener, View.OnClickListener {
+public class SummaryMonthFragment extends Fragment
+        implements SimpleDatePickerDialog.OnDateSetListener, View.OnClickListener {
+
+    public SummaryMonthFragment() {}
 
     private Button mPickDateButton;
     private int mYear;
     private int mMonth;
     public TextView Report_id;
     View myView;
-    public SummaryMonthFragment() {
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,12 +58,6 @@ public class SummaryMonthFragment extends Fragment implements SimpleDatePickerDi
         print_all(mMonth+1,mYear);
         return myView;
     }
-
-    /*@Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-    }*/
 
     @Override
     public void onDateSet(int year, int monthOfYear) {
@@ -109,9 +104,9 @@ public class SummaryMonthFragment extends Fragment implements SimpleDatePickerDi
 
                     Report_id = (TextView) view.findViewById(R.id.list_Id);
                     String incomeId = Report_id.getText().toString();
-                    //Toast.makeText(getActivity(),incomeId,Toast.LENGTH_LONG).show();
                     Intent objIndent = new Intent(getContext(),show_daylist.class);
                     objIndent.putExtra("list_Id", Integer.parseInt(incomeId));
+                    objIndent.putExtra("_case",0);
                     startActivity(objIndent);
                 }
             });

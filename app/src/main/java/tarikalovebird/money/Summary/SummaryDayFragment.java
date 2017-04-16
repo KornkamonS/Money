@@ -1,6 +1,7 @@
 package tarikalovebird.money.Summary;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -26,8 +27,11 @@ import tarikalovebird.money.R;
 import tarikalovebird.money.Summary.report_db.Report_adepter;
 import tarikalovebird.money.Summary.report_db.Report_data;
 import tarikalovebird.money.Summary.report_db.Report_detail;
+import tarikalovebird.money.Summary.report_db.Report_metaData;
 
 public class SummaryDayFragment extends Fragment {
+
+    public SummaryDayFragment(){}
 
     private Button dateBut;
     private int mYear;
@@ -36,9 +40,6 @@ public class SummaryDayFragment extends Fragment {
     DatePickerDialog datePickerDialog;
     private  View myView;
     public TextView Report_id;
-
-    public SummaryDayFragment(){}
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -93,9 +94,20 @@ public class SummaryDayFragment extends Fragment {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Report_id = (TextView) view.findViewById(R.id.list_Id);
                     String incomeId = Report_id.getText().toString();
-                    //Intent objIndent = new Intent(getContext(),Income_edit_item.class);
-                    // objIndent.putExtra("income_Id", Integer.parseInt(incomeId));
-                    // startActivityForResult(objIndent,1);
+                    Report_data search=new Report_data(getActivity());
+                    Report_metaData a= search.getReportById(Integer.parseInt(incomeId));
+                    if(a.inorout==Report_metaData.IN)
+                    {
+                        Intent objIndent = new Intent(getContext(),edit_in_type.class);
+                        objIndent.putExtra("income_Id", Integer.parseInt(incomeId));
+                        startActivityForResult(objIndent,1);
+                    }
+                    else if(a.inorout==Report_metaData.OUT)
+                    {
+                        Intent objIndent = new Intent(getContext(),edit_out_type.class);
+                        objIndent.putExtra("income_Id", Integer.parseInt(incomeId));
+                        startActivityForResult(objIndent,1);
+                    }
                 }
             });
             lv.setAdapter(adapter);
@@ -167,5 +179,9 @@ public class SummaryDayFragment extends Fragment {
                         .append(mDay).append("-")
                         .append(mMonth).append("-")
                         .append(mYear).append(" "));
+    }
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+       print_all();
     }
 }

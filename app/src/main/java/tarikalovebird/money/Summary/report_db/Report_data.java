@@ -24,8 +24,7 @@ public class Report_data {
 
     public Report_data(Context context){dbHelper = new Report_table_dbHelper(context);}
 
-    public int insert(Report_metaData report)
-    {
+    public int insert(Report_metaData report){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(Report_metaData.KEY_Name,report.name);
@@ -41,7 +40,6 @@ public class Report_data {
         db.close(); // Closing database connection
         return (int) report_id;
     }
-
     public void delete(int report_id) {
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -49,8 +47,7 @@ public class Report_data {
         db.delete(Report_metaData.TABLE, Report_metaData.KEY_ID + "= ?", new String[] { String.valueOf(report_id) });
         db.close(); // Closing database connection
     }
-
-    public void update(Report_metaData report) {
+    public void update(Report_metaData report){
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -66,15 +63,6 @@ public class Report_data {
         // It's a good practice to use parameter ?, instead of concatenate string
         db.update(Report_metaData.TABLE, values, Report_metaData.KEY_ID + "= ?", new String[] { String.valueOf(report.report_id) });
         db.close(); // Closing database connection
-    }
-
-    public List<String> getReportList() {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.query
-                (Report_metaData.TABLE, null, null, null, null, null, null);
-        List<String> report=getList(cursor);
-        db.close();
-        return report;
     }
 
     public Report_metaData getReportById(int Id){
@@ -106,8 +94,7 @@ public class Report_data {
         return report;
     }
 
-    public List<String> getList(Cursor cursor)
-    {
+    public List<String> getList(Cursor cursor){
         List<String> report = new ArrayList<String>();
         if (cursor != null) {
             cursor.moveToFirst();
@@ -138,8 +125,7 @@ public class Report_data {
         return report;
 
     }
-    public List<String> getList_month(Cursor cursor)
-    {
+    public List<String> getList_month(Cursor cursor){
         List<String> report = new ArrayList<String>();
         if (cursor != null) {
             cursor.moveToFirst();
@@ -162,8 +148,7 @@ public class Report_data {
         return report;
 
     }
-    public List<String> getList_year(Cursor cursor)
-    {
+    public List<String> getList_year(Cursor cursor){
         List<String> report = new ArrayList<String>();
         if (cursor != null) {
             cursor.moveToFirst();
@@ -184,8 +169,8 @@ public class Report_data {
         return report;
 
     }
-    public List<String> getAllIncomeList()
-    {
+
+    public List<String> getAllIncomeList(){
         String selectQuery =  selectall+ " WHERE " +
                 Report_metaData.KEY_InorOut + "=?";
 
@@ -195,7 +180,6 @@ public class Report_data {
         db.close();
         return report;
     }
-
     public List<String> getAllOutcomeList(){
 
         String selectQuery =  selectall + " WHERE " +
@@ -207,25 +191,15 @@ public class Report_data {
         db.close();
         return report;
     }
-    public List<String> getTotalListbyMonth(int month,int year){
-
-        String selectQuery = "SELECT  " +
-                Report_metaData.KEY_ID + "," +
-                Report_metaData.KEY_Day + "," +
-                Report_metaData.KEY_Month + "," +
-                Report_metaData.KEY_Year + "," +
-                "SUM( "+ Report_metaData.KEY_Amount + "*" + Report_metaData.KEY_InorOut +")" +
-                " FROM " + Report_metaData.TABLE+
-                " WHERE " + Report_metaData.KEY_Month + "=?"+ " AND "+
-                Report_metaData.KEY_Year + "=?"+
-                "GROUP BY "+Report_metaData.KEY_Day;
-
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(month),String.valueOf(year)});
-        List<String> report= getList_month(cursor);
+    public List<String> getReportList() {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.query
+                (Report_metaData.TABLE, null, null, null, null, null, null);
+        List<String> report=getList(cursor);
         db.close();
         return report;
     }
+
 
     public List<String> getReportListbyDate(int day,int month,int year){
         String selectQuery =  selectall + " WHERE " +
@@ -254,6 +228,83 @@ public class Report_data {
         db.close();
         return report;
     }
+    public List<String> getOutcomeListbyDate(int day,int month,int year){
+        String selectQuery =  selectall + " WHERE " +
+                Report_metaData.KEY_Day + "=?"+" AND "+
+                Report_metaData.KEY_Month + "=?"+" AND "+
+                Report_metaData.KEY_Year + "=?"+" AND "+
+                Report_metaData.KEY_InorOut+"=?";
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String a[]=new String[]{ String.valueOf(day),String.valueOf(month),String.valueOf(year),String.valueOf(Report_metaData.OUT)};
+        Cursor cursor = db.rawQuery(selectQuery, a);
+        List<String> report=getList(cursor);
+        db.close();
+        return report;
+    }
+
+
+    public List<String> getTotalListbyMonth(int month,int year){
+
+        String selectQuery = "SELECT  " +
+                Report_metaData.KEY_ID + "," +
+                Report_metaData.KEY_Day + "," +
+                Report_metaData.KEY_Month + "," +
+                Report_metaData.KEY_Year + "," +
+                "SUM( "+ Report_metaData.KEY_Amount + "*" + Report_metaData.KEY_InorOut +")" +
+                " FROM " + Report_metaData.TABLE+
+                " WHERE " + Report_metaData.KEY_Month + "=?"+ " AND "+
+                Report_metaData.KEY_Year + "=?"+
+                "GROUP BY "+Report_metaData.KEY_Day;
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(month),String.valueOf(year)});
+        List<String> report= getList_month(cursor);
+        db.close();
+        return report;
+    }
+    public List<String> getIncomeListbyMonth(int month,int year){
+
+        String selectQuery = "SELECT  " +
+                Report_metaData.KEY_ID + "," +
+                Report_metaData.KEY_Day + "," +
+                Report_metaData.KEY_Month + "," +
+                Report_metaData.KEY_Year + "," +
+                "SUM( "+ Report_metaData.KEY_Amount +")" +
+                " FROM " + Report_metaData.TABLE+
+                " WHERE " + Report_metaData.KEY_Month + "=?"+ " AND "+
+                Report_metaData.KEY_Year + "=?"+ " AND "+
+                Report_metaData.KEY_InorOut+"=?"+
+                " GROUP BY "+Report_metaData.KEY_Day;
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(month),String.valueOf(year),String.valueOf(Report_metaData.IN)});
+        List<String> report= getList_month(cursor);
+        db.close();
+        return report;
+    }
+    public List<String> getOutcomeListbyMonth(int month,int year){
+
+        String selectQuery = "SELECT  " +
+                Report_metaData.KEY_ID + "," +
+                Report_metaData.KEY_Day + "," +
+                Report_metaData.KEY_Month + "," +
+                Report_metaData.KEY_Year + "," +
+                "SUM( "+ Report_metaData.KEY_Amount +")" +
+                " FROM " + Report_metaData.TABLE+
+                " WHERE " + Report_metaData.KEY_Month + "=?"+ " AND "+
+                Report_metaData.KEY_Year + "=?"+ " AND "+
+                Report_metaData.KEY_InorOut+"=?"+
+                " GROUP BY "+Report_metaData.KEY_Day;
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,
+                new String[]{String.valueOf(month),String.valueOf(year),String.valueOf(Report_metaData.OUT)});
+        List<String> report= getList_month(cursor);
+        db.close();
+        return report;
+    }
+
 
     public List<String> getTotalListbyYear(int year){
 
@@ -268,6 +319,42 @@ public class Report_data {
 
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(year)});
+        List<String> report= getList_year(cursor);
+        db.close();
+        return report;
+    }
+    public List<String> getIncomeListbyYear(int year){
+
+        String selectQuery = "SELECT  " +
+                Report_metaData.KEY_ID + "," +
+                Report_metaData.KEY_Month + "," +
+                Report_metaData.KEY_Year + "," +
+                " SUM( "+ Report_metaData.KEY_Amount +")" +
+                " FROM " + Report_metaData.TABLE+
+                " WHERE " + Report_metaData.KEY_Year + "=?"+ " AND "+
+                Report_metaData.KEY_InorOut+"=?"+
+                " GROUP BY "+Report_metaData.KEY_Month;
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(year),String.valueOf(Report_metaData.IN)});
+        List<String> report= getList_year(cursor);
+        db.close();
+        return report;
+    }
+    public List<String> getOutcomeListbyYear(int year){
+
+        String selectQuery = "SELECT  " +
+                Report_metaData.KEY_ID + "," +
+                Report_metaData.KEY_Month + "," +
+                Report_metaData.KEY_Year + "," +
+                " SUM( "+ Report_metaData.KEY_Amount +")" +
+                " FROM " + Report_metaData.TABLE+
+                " WHERE " + Report_metaData.KEY_Year + "=?"+ " AND "+
+                Report_metaData.KEY_InorOut+"=?"+
+                " GROUP BY "+Report_metaData.KEY_Month;
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{String.valueOf(year),String.valueOf(Report_metaData.OUT)});
         List<String> report= getList_year(cursor);
         db.close();
         return report;

@@ -10,4 +10,6 @@
     <color name="out">#060cbf</color>
     <color name="in">#ec0043</color>
     <color name="totalGraph">#EAFAF1</color>
+    <color name="InGraph">#FEFFEE</color>
+    <color name="OutGraph">#EDF6FF</color>
 </resources>

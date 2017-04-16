@@ -74,7 +74,7 @@ public class Report_adepter extends ArrayAdapter<Report_detail> {
        }
         tvDate.setText(report.day+"-"+tvMonth+"-"+report.year);
        tvAmount.setText(report.amount);
-       if(report.inorout.equals("1"))
+       if(report.inorout.equals(String.valueOf(Report_metaData.IN)))
        {tvDate.setTextColor(getContext().getResources().getColor(R.color.in));
        tvAmount.setTextColor(getContext().getResources().getColor(R.color.in));}
 
