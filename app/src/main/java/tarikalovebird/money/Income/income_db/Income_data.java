@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
+import tarikalovebird.money.Summary.report_db.Report_metaData;
+
 /**
  * Created by TunasanG on 25/3/2560.
  */
@@ -118,5 +120,82 @@ public class Income_data {
         db.close();
         return income;
     }
+    public List<String> getIncomeMonthList() {
 
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selectQuery =  "SELECT  " +
+                Income_metaData.KEY_ID + "," +
+                Income_metaData.KEY_Name + "," +
+                Income_metaData.KEY_Amount + "," +
+                Income_metaData.KEY_Period + "," +
+                Income_metaData.KEY_Type +
+                " FROM " + Income_metaData.TABLE
+                + " WHERE " +
+                Income_metaData.KEY_Period + "=?";
+
+        List<String> income = new ArrayList<String>();
+        Cursor cursor = db.rawQuery(selectQuery, new String[] { "Month" } );
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+            /*
+            * 0:id
+            * 1:name
+            * 2:amount
+            * 3:period
+            * 4:type*/
+        while(!cursor.isAfterLast()) {
+
+            income.add(cursor.getLong(0) + "/" +
+                    cursor.getString(1) + "/" +
+                    cursor.getString(2) + "/" +
+                    cursor.getString(3) + "/" +
+                    cursor.getString(4));
+
+            cursor.moveToNext();
+        }
+
+        db.close();
+        return income;
+    }
+    public List<String> getIncomeYearList() {
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selectQuery =  "SELECT  " +
+                Income_metaData.KEY_ID + "," +
+                Income_metaData.KEY_Name + "," +
+                Income_metaData.KEY_Amount + "," +
+                Income_metaData.KEY_Period + "," +
+                Income_metaData.KEY_Type +
+                " FROM " + Income_metaData.TABLE
+                + " WHERE " +
+                Income_metaData.KEY_Period + "=?";
+
+        List<String> income = new ArrayList<String>();
+        Cursor cursor = db.rawQuery(selectQuery, new String[] { "Year" } );
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+            /*
+            * 0:id
+            * 1:name
+            * 2:amount
+            * 3:period
+            * 4:type*/
+        while(!cursor.isAfterLast()) {
+
+            income.add(cursor.getLong(0) + "/" +
+                    cursor.getString(1) + "/" +
+                    cursor.getString(2) + "/" +
+                    cursor.getString(3) + "/" +
+                    cursor.getString(4));
+
+            cursor.moveToNext();
+        }
+
+        db.close();
+        return income;
+    }
 }

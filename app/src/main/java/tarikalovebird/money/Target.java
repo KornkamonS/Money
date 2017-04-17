@@ -82,8 +82,7 @@ public class Target
         else {dbEditTarget.putInt(KEY_STARTYear, d);
             return dbEditTarget.commit();}
         }
-        public boolean setHAVE(float have)
-        {
+        public boolean setHAVE(float have){
             dbEditTarget.putFloat(KEY_HAVE,have);
             return dbEditTarget.commit();
         }
@@ -110,8 +109,7 @@ public class Target
             return flag;
 
         }
-        public boolean setFindate(int year,int month,int day)
-        {
+        public boolean setFindate(int year,int month,int day){
             dbEditTarget.putInt(KEY_FinishTargetYear,year );
             dbEditTarget.putInt(KEY_FinishTargetMonth, month );
             dbEditTarget.putInt(KEY_FinishTargetDay, day);
@@ -123,23 +121,20 @@ public class Target
                 return KEY_MISSIONFAIL;
             return "CountDown: "+String.valueOf(d)+" Days";
         }
-        public long getDelay()
-        {
+        public long getDelay(){
             long d=getDiffDay();
             if(d<0)
                 return d*-1;
             else return 0;
         }
-        public long getDiffDay()
-        {
+        public long getDiffDay(){
             Calendar c = Calendar.getInstance();
             c.set(getFyear(), getFmonth()-1, getFday(), 0, 0);
             long msDiff =  c.getTimeInMillis()-Calendar.getInstance().getTimeInMillis();
             long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
             return daysDiff;
         }
-        public float CanuseToday()
-        {
+        public float CanuseToday(){
             float c=0;
 
 
@@ -157,10 +152,8 @@ public class Target
         {
             return dbTarget.getFloat(KEY_Price,0);
         }
-        public int getTargetType(){
-            return dbTarget.getInt(KEY_Type,0);}
-        public String getSTARTdate() {
-        return String.valueOf(getSTARTday()) + "-" + String.valueOf(getSTARTmonth()) + "-" + String.valueOf(getSTARTyear());
+        public int getTargetType(){return dbTarget.getInt(KEY_Type,0);}
+        public String getSTARTdate() {return String.valueOf(getSTARTday()) + "-" + String.valueOf(getSTARTmonth()) + "-" + String.valueOf(getSTARTyear());
     }
         public int getSTARTyear() {
         return dbTarget.getInt(KEY_STARTYear, 0);

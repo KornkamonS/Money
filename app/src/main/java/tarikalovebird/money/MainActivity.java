@@ -17,11 +17,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import tarikalovebird.money.Income.income_db.Income_data;
+import tarikalovebird.money.Income.income_db.Income_detial;
+import tarikalovebird.money.Outcome.outcome_db.Outcome_data;
+import tarikalovebird.money.Outcome.outcome_db.Outcome_detail;
 import tarikalovebird.money.Summary.report_db.Report_data;
+import tarikalovebird.money.Summary.report_db.Report_metaData;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private int cday;
+    private int cmonth;
+    private int cyear;
+    private Calendar c;
 
     private static final int ADDTARGATRESULT=1;
     private static final int INCOMERESULT=2;
@@ -42,6 +57,10 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         target = new Target(this);
+
+        Timer tt = new Timer();
+
+        tt.scheduleAtFixedRate(timer,0,1000*60*60*24*1);
 
         t=(TextView) findViewById(R.id.nameTarget);
         day=(TextView) findViewById(R.id.CoundownDay) ;
@@ -84,7 +103,7 @@ public class MainActivity extends AppCompatActivity
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
                 PrintPage();
-                target.setHAVE(a.getTotalmoney());
+
     }
     @Override
     public void onBackPressed() {
@@ -146,6 +165,7 @@ public class MainActivity extends AppCompatActivity
 
     private void PrintPage() {
 
+        target.setHAVE(a.getTotalmoney());
         t.setText(target.getTargetName());
         String d=target.getCountDown();
 
@@ -179,4 +199,99 @@ public class MainActivity extends AppCompatActivity
             default: pic.setImageResource(R.mipmap.ic_launcher_round);
         }
     }
+
+    TimerTask timer= new TimerTask(){
+        @Override
+        public void run() {
+            c = Calendar.getInstance();
+            cday = c.get(Calendar.DAY_OF_MONTH);
+            cmonth = c.get(Calendar.MONTH);
+            cyear = c.get(Calendar.YEAR);
+            if(cday==1)
+            {
+                Income_data a=new Income_data(getApplicationContext());
+                List<String> incomeListMonth=a.getIncomeMonthList();
+
+                Report_metaData add =new Report_metaData();
+                Report_data re=new Report_data(getApplicationContext());
+
+                for(int i=0;i<incomeListMonth.size();i++)
+                {
+                    Income_detial newIncome = new Income_detial(incomeListMonth.get(i));
+                    add.day=cday;
+                    add.month=cmonth+1;
+                    add.year=cyear;
+                    add.amount=Float.parseFloat(newIncome.amount);
+                    add.name=newIncome.name;
+                    add.type=Integer.parseInt(newIncome.type);
+                    add.inorout=Report_metaData.IN;
+                    re.insert(add);
+                }
+
+                Outcome_data o=new Outcome_data(getApplicationContext());
+                List<String> outcomeListMonth=o.getOutcomeMonthList();
+
+                for(int i=0;i<outcomeListMonth.size();i++)
+                {
+                    Outcome_detail newOutcome = new Outcome_detail(outcomeListMonth.get(i));
+                    add.day=cday;
+                    add.month=cmonth+1;
+                    add.year=cyear;
+                    add.amount=Float.parseFloat(newOutcome.amount);
+                    add.name=newOutcome.name;
+                    add.type=Integer.parseInt(newOutcome.type);
+                    add.inorout=Report_metaData.OUT;
+                    re.insert(add);
+                }
+
+
+           }
+            if(cday==1&&cmonth==1)
+            {
+                Income_data a=new Income_data(getApplicationContext());
+                List<String> incomeListYear=a.getIncomeYearList();
+
+                Report_metaData add =new Report_metaData();
+                Report_data re=new Report_data(getApplicationContext());
+
+                for(int i=0;i<incomeListYear.size();i++)
+                {
+                    Income_detial newIncome = new Income_detial(incomeListYear.get(i));
+                    add.day=cday;
+                    add.month=cmonth+1;
+                    add.year=cyear;
+                    add.amount=Float.parseFloat(newIncome.amount);
+                    add.name=newIncome.name;
+                    add.type=Integer.parseInt(newIncome.type);
+                    add.inorout=Report_metaData.IN;
+                    re.insert(add);
+                }
+
+                Outcome_data o=new Outcome_data(getApplicationContext());
+                List<String> outcomeListYear=o.getOutcomeYearList();
+
+                for(int i=0;i<outcomeListYear.size();i++)
+                {
+                    Outcome_detail newOutcome = new Outcome_detail(outcomeListYear.get(i));
+                    add.day=cday;
+                    add.month=cmonth+1;
+                    add.year=cyear;
+                    add.amount=Float.parseFloat(newOutcome.amount);
+                    add.name=newOutcome.name;
+                    add.type=Integer.parseInt(newOutcome.type);
+                    add.inorout=Report_metaData.OUT;
+                    re.insert(add);
+                }
+
+           }
+           runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    PrintPage();
+                }
+            });
+        }
+
+    };
+
 }

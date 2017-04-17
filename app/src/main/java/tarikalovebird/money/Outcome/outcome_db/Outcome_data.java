@@ -119,4 +119,83 @@ public class Outcome_data {
         db.close();
         return outcome;
     }
+
+    public List<String> getOutcomeMonthList() {
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selectQuery =  "SELECT  " +
+                Outcome_metaData.KEY_ID + "," +
+                Outcome_metaData.KEY_Name + "," +
+                Outcome_metaData.KEY_Amount + "," +
+                Outcome_metaData.KEY_Period + "," +
+                Outcome_metaData.KEY_Type +
+                " FROM " +  Outcome_metaData.TABLE
+                + " WHERE " +
+                Outcome_metaData.KEY_Period + "=?";
+
+        List<String> income = new ArrayList<String>();
+        Cursor cursor = db.rawQuery(selectQuery, new String[] { "Month" } );
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+            /*
+            * 0:id
+            * 1:name
+            * 2:amount
+            * 3:period
+            * 4:type*/
+        while(!cursor.isAfterLast()) {
+
+            income.add(cursor.getLong(0) + "/" +
+                    cursor.getString(1) + "/" +
+                    cursor.getString(2) + "/" +
+                    cursor.getString(3) + "/" +
+                    cursor.getString(4));
+
+            cursor.moveToNext();
+        }
+
+        db.close();
+        return income;
+    }
+    public List<String> getOutcomeYearList() {
+
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String selectQuery =  "SELECT  " +
+                Outcome_metaData.KEY_ID + "," +
+                Outcome_metaData.KEY_Name + "," +
+                Outcome_metaData.KEY_Amount + "," +
+                Outcome_metaData.KEY_Period + "," +
+                Outcome_metaData.KEY_Type +
+                " FROM " +  Outcome_metaData.TABLE
+                + " WHERE " +
+                Outcome_metaData.KEY_Period + "=?";
+
+        List<String> income = new ArrayList<String>();
+        Cursor cursor = db.rawQuery(selectQuery, new String[] { "Year" } );
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+            /*
+            * 0:id
+            * 1:name
+            * 2:amount
+            * 3:period
+            * 4:type*/
+        while(!cursor.isAfterLast()) {
+
+            income.add(cursor.getLong(0) + "/" +
+                    cursor.getString(1) + "/" +
+                    cursor.getString(2) + "/" +
+                    cursor.getString(3) + "/" +
+                    cursor.getString(4));
+
+            cursor.moveToNext();
+        }
+
+        db.close();
+        return income;
+    }
 }
