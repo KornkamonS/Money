@@ -45,5 +45,6 @@
     <string name="title_activity_tips">Tips</string>
     <string name="title_activity_save_pay_food">How to save meal costs</string>
     <string name="title_activity_save_pay_petrol">How to save petrol costs</string>
+    <string name="title_activity_save_other_pay">How to save other costs</string>
 
 </resources>

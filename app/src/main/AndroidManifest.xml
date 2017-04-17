@@ -89,6 +89,10 @@
         <activity
             android:name=".Save_pay_petrol"
             android:label="@string/title_activity_save_pay_petrol"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Save_other_pay"
+            android:label="@string/title_activity_save_other_pay"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
