@@ -99,6 +99,8 @@ public class TagetDetail extends AppCompatActivity {
 
         percent = ((summary / target.getTargetPrice()) * 100);
         if (percent > 100) percent = 100;
+        if(percent<0) percent=0;
+        if(percent>100) percent=100;
         per=String.valueOf((int)percent)+" %";
 
         targetN.setText(target.getTargetName());

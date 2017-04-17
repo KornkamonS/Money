@@ -57,17 +57,15 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         target = new Target(this);
-
         Timer tt = new Timer();
-
         tt.scheduleAtFixedRate(timer,0,1000*60*60*24*1);
-
         t=(TextView) findViewById(R.id.nameTarget);
         day=(TextView) findViewById(R.id.CoundownDay) ;
         incomeBut = (Button) findViewById(R.id.IncomeBut);
         outcomeBut = (Button) findViewById(R.id.OutcomeBut);
         pic = (ImageView) findViewById(R.id.Hometarget_pic);
         total=(TextView) findViewById(R.id.TodayTotal);
+
         PrintPage();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.imageTargetBut);
@@ -168,6 +166,8 @@ public class MainActivity extends AppCompatActivity
         target.setHAVE(a.getTotalmoney());
         t.setText(target.getTargetName());
         String d=target.getCountDown();
+
+        total.setText(String.valueOf(target.CanuseToday()));
 
         boolean flag=false;
         if(target.getRest()<=0)

@@ -373,7 +373,8 @@ public class Report_data {
         }
         else {cursor.moveToFirst();
             String Shave=cursor.getString(0) ;
-            return Float.parseFloat(Shave);
+            if(Shave!=null)     return Float.parseFloat(Shave);
+            else return 0;
         }
     }
 }

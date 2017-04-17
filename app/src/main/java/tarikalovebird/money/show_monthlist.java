@@ -109,4 +109,8 @@ public class show_monthlist extends Activity {
         print_list(item_list);
 
     }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        print_all(_case);
+
+    }
 }

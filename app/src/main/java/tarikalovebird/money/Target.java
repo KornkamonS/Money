@@ -28,6 +28,7 @@ public class Target
     private final String KEY_FinishTargetYear = "FYear";
     private final String KEY_HAVE="HAVE";
 
+
     public static String KEY_MISSIONFAIL="The mission failed !!";
       private SharedPreferences dbTarget;
       private SharedPreferences.Editor dbEditTarget;
@@ -128,17 +129,25 @@ public class Target
             else return 0;
         }
         public long getDiffDay(){
-            Calendar c = Calendar.getInstance();
-            c.set(getFyear(), getFmonth()-1, getFday(), 0, 0);
-            long msDiff =  c.getTimeInMillis()-Calendar.getInstance().getTimeInMillis();
-            long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
-            return daysDiff;
+            if(getTargetDay()==0) return 0;
+            else{
+                Calendar c = Calendar.getInstance();
+                c.set(getFyear(), getFmonth()-1, getFday(), 0, 0);
+                long msDiff =  c.getTimeInMillis()-Calendar.getInstance().getTimeInMillis();
+                long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
+                return daysDiff;
+            }
         }
         public float CanuseToday(){
-            float c=0;
-
-
-            return c;
+            float c;
+            if(getDiffDay()!=0) {
+                c =(getTargetPrice() - getHAVE()) / getDiffDay();
+                return c*-1;
+            }
+            else {
+                c = getTargetPrice()-getHAVE();
+               return c*-1;
+            }
         }
         public String getTargetName()
         {
@@ -153,7 +162,8 @@ public class Target
             return dbTarget.getFloat(KEY_Price,0);
         }
         public int getTargetType(){return dbTarget.getInt(KEY_Type,0);}
-        public String getSTARTdate() {return String.valueOf(getSTARTday()) + "-" + String.valueOf(getSTARTmonth()) + "-" + String.valueOf(getSTARTyear());
+        public String getSTARTdate() {
+            return String.valueOf(getSTARTday()) + "-" + String.valueOf(getSTARTmonth()) + "-" + String.valueOf(getSTARTyear());
     }
         public int getSTARTyear() {
         return dbTarget.getInt(KEY_STARTYear, 0);
@@ -176,5 +186,7 @@ public class Target
             return  getTargetPrice() - getHAVE();
         }
         public float getHAVE(){ return   dbTarget.getFloat(KEY_HAVE,0); }
+
+
 }
 

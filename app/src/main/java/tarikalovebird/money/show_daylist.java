@@ -65,13 +65,13 @@ public class show_daylist extends Activity {
                     {
                         Intent objIndent = new Intent(getApplication(),edit_in_type.class);
                         objIndent.putExtra("income_Id", Integer.parseInt(outcomeId));
-                        startActivityForResult(objIndent,1);
+                        startActivityForResult(objIndent,_case);
                     }
                     else if(a.inorout==Report_metaData.OUT)
                     {
                         Intent objIndent = new Intent(getApplication(),edit_out_type.class);
                         objIndent.putExtra("income_Id", Integer.parseInt(outcomeId));
-                        startActivityForResult(objIndent,1);
+                        startActivityForResult(objIndent,_case);
                     }
                 }
             });
@@ -91,6 +91,12 @@ public class show_daylist extends Activity {
             default:item_list=null;
         }
         print_list(item_list);
+
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        _case=requestCode;
+
+        print_all(_case);
 
     }
 }
