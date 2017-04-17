@@ -132,6 +132,8 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(getApplicationContext(), Summary_table.class);
             startActivity(i);
         } else if (id == R.id.nav_TIPs) {
+            Intent i = new Intent(getApplicationContext(), Tips.class);
+            startActivity(i);
 
         } else if (id == R.id.nav_Noti) {
 

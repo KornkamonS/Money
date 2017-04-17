@@ -42,7 +42,7 @@
         <activity
             android:name=".Add_Outcome"
             android:label="@string/title_activity_add__outcome"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Add_Income"
             android:label="@string/title_activity_add__income"
@@ -50,40 +50,42 @@
         <activity
             android:name=".myCalendarView"
             android:theme="@style/AppTheme" />
-
         <activity
-            android:name="tarikalovebird.money.Income.editperiod.Income_edit_item"
+            android:name=".Income.editperiod.Income_edit_item"
             android:label="@string/title_activity_income_edit_item"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="tarikalovebird.money.Income.editperiod.EditIncomeSchedule"
+            android:name=".Income.editperiod.EditIncomeSchedule"
             android:label="@string/title_activity_add__income"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="tarikalovebird.money.Outcome.editperoid.EditOutcomeSchedule"
+            android:name=".Outcome.editperoid.EditOutcomeSchedule"
             android:label="@string/title_activity_add__outcome"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="tarikalovebird.money.Outcome.editperoid.Outcome_edit_item"
+            android:name=".Outcome.editperoid.Outcome_edit_item"
             android:label="@string/title_activity_add__outcome"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="tarikalovebird.money.show_daylist"
-
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".show_daylist"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="tarikalovebird.money.show_monthlist"
-
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".show_monthlist"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="tarikalovebird.money.Summary.edit_out_type"
-
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".Summary.edit_out_type"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="tarikalovebird.money.Summary.edit_in_type"
-
+            android:name=".Summary.edit_in_type"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Tips"
+            android:label="@string/title_activity_tips"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Save_pay_food"
+            android:label="@string/title_activity_save_pay_food"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-
     </application>
 
 </manifest>
