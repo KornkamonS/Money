@@ -74,10 +74,7 @@ public class Add_Target extends AppCompatActivity {
 
                     final Calendar c = Calendar.getInstance();
 
-                    Notierror(t.setTargetYear(c.get(Calendar.YEAR)));
-                    Notierror(t.setTargetMonth(c.get(Calendar.MONTH)+1));
-                    Notierror(t.setTargetDay(c.get(Calendar.DAY_OF_MONTH)));
-
+                    Notierror(t.setDate(c.get(Calendar.DAY_OF_MONTH),c.get(Calendar.MONTH)+1,c.get(Calendar.YEAR)));
                     Intent returnIntent = new Intent();
                     setResult(RESULT_OK, returnIntent);
                     finish();

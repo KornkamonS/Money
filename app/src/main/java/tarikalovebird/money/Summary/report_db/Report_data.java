@@ -359,4 +359,21 @@ public class Report_data {
         db.close();
         return report;
     }
+
+    public float getTotalmoney()
+    {
+        String selectQuery = "SELECT  " +
+                " SUM( "+ Report_metaData.KEY_Amount + " * " + Report_metaData.KEY_InorOut +" )" +
+                " FROM " + Report_metaData.TABLE;
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+
+        if (cursor == null) {
+            return  0;
+        }
+        else {cursor.moveToFirst();
+            String Shave=cursor.getString(0) ;
+            return Float.parseFloat(Shave);
+        }
+    }
 }

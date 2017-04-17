@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import tarikalovebird.money.Summary.report_db.Report_data;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,7 +32,8 @@ public class MainActivity extends AppCompatActivity
     private Target target;
     private TextView day;
     private Button incomeBut;
-
+    private TextView total;
+    private Report_data a= new Report_data(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +48,7 @@ public class MainActivity extends AppCompatActivity
         incomeBut = (Button) findViewById(R.id.IncomeBut);
         outcomeBut = (Button) findViewById(R.id.OutcomeBut);
         pic = (ImageView) findViewById(R.id.Hometarget_pic);
-
+        total=(TextView) findViewById(R.id.TodayTotal);
         PrintPage();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.imageTargetBut);
@@ -80,46 +83,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == ADDTARGATRESULT) {
-
-            if(resultCode == RESULT_OK){
-                //Update List
                 PrintPage();
-            }
-            if (resultCode == RESULT_CANCELED) {
-                //Do nothing?
-            }
-        }
-        if (requestCode == INCOMERESULT)
-        {
-            if(resultCode == RESULT_OK){
-                //refresh page
-                Toast.makeText(this, "tarikalovebird/money/Income",
-                        Toast.LENGTH_LONG).show();
-                PrintPage();
-            }
-            if (resultCode == RESULT_CANCELED) {
-                //Do nothing?
-            }
-        }
-        if (requestCode == OUTCOMERESULT)
-        {
-            if(resultCode == RESULT_OK){
-                //refresh page
-            }
-            if (resultCode == RESULT_CANCELED) {
-                //Do nothing?
-            }
-        }
-    }//onActivityResult*/
-
-    /*@Override
-    public void onResume()
-    {  // After a pause OR at startup
-        super.onResume();
-        //Refresh your stuff here
-
-    }*/
+                target.setHAVE(a.getTotalmoney());
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -139,12 +105,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -182,8 +143,23 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void PrintPage() {
+
         t.setText(target.getTargetName());
-        day.setText(target.getCountDown().toString());
+        String d=target.getCountDown();
+
+        boolean flag=false;
+        if(target.getRest()<=0)
+            flag=true;
+        if(d==target.KEY_MISSIONFAIL&&flag==false)
+        {
+            day.setTextColor(getApplication().getResources().getColor(R.color.in));
+            day.setText(target.KEY_MISSIONFAIL);
+        }
+        else {
+            if(flag){ day.setText("Successful !!");
+                day.setTextColor(getApplication().getResources().getColor(R.color.out));}
+            else day.setText(d.toString());
+        }
         switch ( target.getTargetType())
         {
             case R.id.TypeLearning: pic.setImageResource(R.drawable.type_book);

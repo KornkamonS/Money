@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import tarikalovebird.money.Summary.report_db.Report_data;
+
 
 public class TagetDetail extends AppCompatActivity {
 
@@ -29,8 +31,9 @@ public class TagetDetail extends AppCompatActivity {
     private TextView percenttext;
     private TextView unit3;
     private String per;
+    private TextView delay;
     private float percent = 0;
-    private int summary = 70;//Must be decrease with total summary
+    private float summary = 70;//Must be decrease with total summary
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,8 @@ public class TagetDetail extends AppCompatActivity {
         summarytext = (TextView) findViewById(R.id.Detialhave);
         percenttext = (TextView) findViewById(R.id.DetialPercent);
         unit3=(TextView) findViewById(R.id.Detialunit3) ;
+
+        delay=(TextView) findViewById(R.id.Detialdelay) ;
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +89,8 @@ public class TagetDetail extends AppCompatActivity {
     }
     private void printPage()
     {
-        float rest =target.getTargetPrice() - summary;
+        summary=target.getHAVE();
+        float rest =target.getRest();
         String Rest=String.valueOf(rest);
         if(rest<=0)        {
             Rest="Successful!!";
@@ -101,7 +107,7 @@ public class TagetDetail extends AppCompatActivity {
         total.setText(Rest);
         summarytext.setText(String.valueOf(summary));
         percenttext.setText(per);
-
+        delay.setText(""+target.getDelay());
 
         MyAnimation.ProgressBarAnimation anim = new MyAnimation.ProgressBarAnimation(mProgress, 0, percent);
         anim.setDuration(1000);

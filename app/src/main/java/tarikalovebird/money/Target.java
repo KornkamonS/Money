@@ -4,20 +4,31 @@ package tarikalovebird.money;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
+import tarikalovebird.money.Summary.report_db.Report_data;
+
 /**
  * Created by TunasanG on 20/3/2560.
  */
 
 public class Target
 {
-      private final String KEY_Name = "TARGET";
-      private final String KEY_Price = "PRICE";
-      private final String KEY_Day ="DAY";
-      private final String KEY_Type="TYPE";
+    private final String KEY_Name = "TARGET";
+    private final String KEY_Price = "PRICE";
+    private final String KEY_Day ="DAY";
+    private final String KEY_Type="TYPE";
     private final String KEY_STARTDay = "STARTday";
     private final String KEY_STARTMonth = "STARTMonth";
     private final String KEY_STARTYear = "STARTYear";
+    private final String KEY_FinishTargetDay = "Fday";
+    private final String KEY_FinishTargetMonth = "FMonth";
+    private final String KEY_FinishTargetYear = "FYear";
+    private final String KEY_HAVE="HAVE";
 
+    public static String KEY_MISSIONFAIL="The mission failed !!";
       private SharedPreferences dbTarget;
       private SharedPreferences.Editor dbEditTarget;
 
@@ -55,39 +66,84 @@ public class Target
         public boolean setTargetCountDownDay(int d)        {
             if (d == 0)
                 return false;
-            else {
-
-                dbEditTarget.putInt(KEY_Day, d);
+            else {dbEditTarget.putInt(KEY_Day, d);
                 return dbEditTarget.commit();
             }
         }
         public boolean setTargetMonth(int d) {
         if (d == 0)
             return false;
-        else {
-
-            dbEditTarget.putInt(KEY_STARTMonth, d);
-            return dbEditTarget.commit();
+        else {dbEditTarget.putInt(KEY_STARTMonth, d);
+            return dbEditTarget.commit();        }
         }
-    }
         public boolean setTargetYear(int d) {
         if (d == 0)
             return false;
-        else {
-
-            dbEditTarget.putInt(KEY_STARTYear, d);
+        else {dbEditTarget.putInt(KEY_STARTYear, d);
+            return dbEditTarget.commit();}
+        }
+        public boolean setHAVE(float have)
+        {
+            dbEditTarget.putFloat(KEY_HAVE,have);
             return dbEditTarget.commit();
         }
-    }
-        public boolean setStartDate(int year, int month, int day) {
-        dbEditTarget.putInt(KEY_STARTYear, year);
-        dbEditTarget.putInt(KEY_STARTMonth, month);
-        dbEditTarget.putInt(KEY_STARTDay, day);
-        return dbEditTarget.commit();
-    }
 
+        public boolean setDate(int day,int month,int year) {
+            boolean flag=true;
+            flag=setTargetDay(day);
+            if(flag==false)
+                return flag;
+            flag=setTargetMonth(month);
+            if(flag==false)
+                return flag;
+            flag=setTargetYear(year);
+            if(flag==false)
+                return flag;
+
+            Calendar c = Calendar.getInstance();
+            c.set(getSTARTyear(), getSTARTmonth()-1, getSTARTday(), 0, 0);
+            c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + getTargetDay());
+
+            flag=setFindate(c.get(Calendar.YEAR),c.get(Calendar.MONTH)+1, c.get(Calendar.DAY_OF_MONTH));
+            if(flag==false)
+                return flag;
+            return flag;
+
+        }
+        public boolean setFindate(int year,int month,int day)
+        {
+            dbEditTarget.putInt(KEY_FinishTargetYear,year );
+            dbEditTarget.putInt(KEY_FinishTargetMonth, month );
+            dbEditTarget.putInt(KEY_FinishTargetDay, day);
+            return dbEditTarget.commit();
+        }
         public String getCountDown() {
-            return "CountDown: "+String.valueOf(getTargetDay())+" Days";
+            long d=getDiffDay();
+            if(d<0)
+                return KEY_MISSIONFAIL;
+            return "CountDown: "+String.valueOf(d)+" Days";
+        }
+        public long getDelay()
+        {
+            long d=getDiffDay();
+            if(d<0)
+                return d*-1;
+            else return 0;
+        }
+        public long getDiffDay()
+        {
+            Calendar c = Calendar.getInstance();
+            c.set(getFyear(), getFmonth()-1, getFday(), 0, 0);
+            long msDiff =  c.getTimeInMillis()-Calendar.getInstance().getTimeInMillis();
+            long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
+            return daysDiff;
+        }
+        public float CanuseToday()
+        {
+            float c=0;
+
+
+            return c;
         }
         public String getTargetName()
         {
@@ -116,5 +172,16 @@ public class Target
         return dbTarget.getInt(KEY_STARTDay, 0);
     }
 
+        public int getFyear() {
+        return dbTarget.getInt(KEY_FinishTargetYear, 0);
+    }
+        public int getFmonth() {return dbTarget.getInt(KEY_FinishTargetMonth, 0);}
+        public int getFday() {
+        return dbTarget.getInt(KEY_FinishTargetDay, 0);
+    }
+        public float getRest(){
+            return  getTargetPrice() - getHAVE();
+        }
+        public float getHAVE(){ return   dbTarget.getFloat(KEY_HAVE,0); }
 }
 
