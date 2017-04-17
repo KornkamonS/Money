@@ -85,6 +85,10 @@
         <activity
             android:name=".Save_pay_food"
             android:label="@string/title_activity_save_pay_food"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Save_pay_petrol"
+            android:label="@string/title_activity_save_pay_petrol"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

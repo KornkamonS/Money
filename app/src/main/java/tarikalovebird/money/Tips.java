@@ -23,4 +23,10 @@ public class Tips extends AppCompatActivity {
         Intent intent = new Intent(Tips.this,Save_pay_food.class);
         startActivity(intent);
     }
+    public void onClickSave2(View view){
+        Button btn_next = (Button)findViewById(R.id.payoil);
+        Intent intent = new Intent(Tips.this,Save_pay_petrol.class);
+        startActivity(intent);
+    }
+    
 }
