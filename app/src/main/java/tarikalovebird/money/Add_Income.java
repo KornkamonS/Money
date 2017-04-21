@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class Add_Income extends AppCompatActivity {
     private int mYear;
     private int mMonth;
     private int mDay;
+    private Switch SwitchIn;
 
     static final int CALENDAR_VIEW_ID = 1;
     private Get_datefromCalender aa;
@@ -67,7 +69,6 @@ public class Add_Income extends AppCompatActivity {
             updateCurrentDate();
 
             List< String > spinlist = new ArrayList< String >( );
-            spinlist.add ( "Day" );
             spinlist.add ( "Month" );
             spinlist.add ( "Year" );
             ArrayAdapter< String > dataAdapter = new ArrayAdapter < String > ( this, android.R.layout.simple_spinner_item, spinlist );
@@ -79,8 +80,7 @@ public class Add_Income extends AppCompatActivity {
             CancelBut=(Button)findViewById(R.id.incomeCancel);
             spin = ( Spinner ) this.findViewById ( R.id.incomeSpin );
             spin.setAdapter ( dataAdapter );
-
-
+            SwitchIn = (Switch) findViewById(R.id.switchIn);
 
 
             spin.setSelection(0);
