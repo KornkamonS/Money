@@ -82,7 +82,6 @@ public class Add_Income extends AppCompatActivity {
             spin.setAdapter ( dataAdapter );
             SwitchIn = (Switch) findViewById(R.id.switchIn);
 
-
             spin.setSelection(0);
 
 
