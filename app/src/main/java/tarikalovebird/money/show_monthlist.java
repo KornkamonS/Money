@@ -25,7 +25,7 @@ public class show_monthlist extends Activity {
 
     TextView outcome_id;
     int _list_id;
-    int _case;
+    int _case=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +56,7 @@ public class show_monthlist extends Activity {
                         Intent objIndent = new Intent(getApplicationContext(),show_daylist.class);
                         objIndent.putExtra("list_Id", Integer.parseInt(outcomeId));
                         objIndent.putExtra("_case",_case);
-                        startActivity(objIndent);
+                        startActivityForResult(objIndent,_case);
                     }
                 });
 
@@ -84,7 +84,7 @@ public class show_monthlist extends Activity {
                         Intent objIndent = new Intent(getApplicationContext(),show_daylist.class);
                         objIndent.putExtra("list_Id", Integer.parseInt(outcomeId));
                         objIndent.putExtra("_case",_case);
-                        startActivity(objIndent);
+                        startActivityForResult(objIndent,_case);
                     }
                 });
 
@@ -110,6 +110,7 @@ public class show_monthlist extends Activity {
 
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        _case=requestCode;
         print_all(_case);
 
     }

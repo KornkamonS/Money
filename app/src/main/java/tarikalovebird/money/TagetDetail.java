@@ -135,7 +135,7 @@ public class TagetDetail extends AppCompatActivity {
                 targetPic.setImageResource(R.drawable.type_add);
                 break;
             default:
-                targetPic.setImageResource(R.mipmap.ic_launcher_round);
+                targetPic.setImageResource(R.drawable.main);
         }
     }
 

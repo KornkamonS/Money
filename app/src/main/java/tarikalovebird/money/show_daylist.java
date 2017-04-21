@@ -95,7 +95,6 @@ public class show_daylist extends Activity {
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         _case=requestCode;
-
         print_all(_case);
 
     }

@@ -68,14 +68,6 @@ public class MainActivity extends AppCompatActivity
 
         PrintPage();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.imageTargetBut);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), TagetDetail.class);
-                startActivityForResult(i,ADDTARGATRESULT);
-            }
-        });
         incomeBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,7 +134,11 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(getApplicationContext(), Income_table.class);
             startActivity(i);
 
-        } else if (id == R.id.nav_Outcom) {
+        } else if (id == R.id.nav_Target) {
+            Intent i = new Intent(getApplicationContext(), TagetDetail.class);
+            startActivityForResult(i,ADDTARGATRESULT);
+
+        }else if (id == R.id.nav_Outcom) {
             Intent i = new Intent(getApplicationContext(), Outcome_table.class);
             startActivity(i);
         } else if (id == R.id.nav_Summary) {
@@ -174,12 +170,12 @@ public class MainActivity extends AppCompatActivity
             flag=true;
         if(d==target.KEY_MISSIONFAIL&&flag==false)
         {
-            day.setTextColor(getApplication().getResources().getColor(R.color.in));
+            day.setTextColor(getApplication().getResources().getColor(R.color.out));
             day.setText(target.KEY_MISSIONFAIL);
         }
         else {
             if(flag){ day.setText("Successful !!");
-                day.setTextColor(getApplication().getResources().getColor(R.color.out));}
+                day.setTextColor(getApplication().getResources().getColor(R.color.in));}
             else day.setText(d.toString());
         }
         switch ( target.getTargetType())
@@ -196,7 +192,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.AddType: pic.setImageResource(R.drawable.type_add);
                 break;
-            default: pic.setImageResource(R.mipmap.ic_launcher_round);
+            default: pic.setImageResource(R.drawable.main);
         }
     }
 

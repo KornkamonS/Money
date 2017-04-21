@@ -142,11 +142,13 @@ public class Target
             float c;
             if(getDiffDay()!=0) {
                 c =(getTargetPrice() - getHAVE()) / getDiffDay();
+                if (c==0) return 0;
                 return c*-1;
             }
             else {
                 c = getTargetPrice()-getHAVE();
-               return c*-1;
+                if(c==0) return 0;
+                return c*-1;
             }
         }
         public String getTargetName()
