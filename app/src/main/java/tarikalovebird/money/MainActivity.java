@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity
         t.setText(target.getTargetName());
         String d=target.getCountDown();
 
-        total.setText(String.valueOf(target.CanuseToday()));
+        total.setText(String.format("%.2f", target.CanuseToday()));
 
         boolean flag=false;
         if(target.getRest()<=0)
@@ -178,21 +178,27 @@ public class MainActivity extends AppCompatActivity
                 day.setTextColor(getApplication().getResources().getColor(R.color.in));}
             else day.setText(d.toString());
         }
-        switch ( target.getTargetType())
-        {
-            case R.id.TypeLearning: pic.setImageResource(R.drawable.type_book);
+        switch (target.getTargetType()) {
+            case R.id.TypeLearning:
+                pic.setImageResource(R.drawable.learning1);
                 break;
-            case R.id.TypeGift:pic.setImageResource(R.drawable.type_gift);
+            case R.id.TypeGift:
+                pic.setImageResource(R.drawable.gift1);
                 break;
-            case R.id.TypeToy:pic.setImageResource(R.drawable.type_toy);
+            case R.id.TypeToy:
+                pic.setImageResource(R.drawable.toy1);
                 break;
-            case R.id.TypeMusic:pic.setImageResource(R.drawable.type_music);
+            case R.id.TypeMusic:
+                pic.setImageResource(R.drawable.music2);
                 break;
-            case R.id.TypeTechno: pic.setImageResource(R.drawable.type_techno);
+            case R.id.TypeTechno:
+                pic.setImageResource(R.drawable.techno1);
                 break;
-            case R.id.AddType: pic.setImageResource(R.drawable.type_add);
+            case R.id.AddType:
+                pic.setImageResource(R.drawable.add1);
                 break;
-            default: pic.setImageResource(R.drawable.main);
+            default:
+                pic.setImageResource(R.drawable.main);
         }
     }
 

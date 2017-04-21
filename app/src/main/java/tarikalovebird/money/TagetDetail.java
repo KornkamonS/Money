@@ -117,22 +117,22 @@ public class TagetDetail extends AppCompatActivity {
 
         switch (target.getTargetType()) {
             case R.id.TypeLearning:
-                targetPic.setImageResource(R.drawable.type_book);
+                targetPic.setImageResource(R.drawable.learning1);
                 break;
             case R.id.TypeGift:
-                targetPic.setImageResource(R.drawable.type_gift);
+                targetPic.setImageResource(R.drawable.gift1);
                 break;
             case R.id.TypeToy:
-                targetPic.setImageResource(R.drawable.type_toy);
+                targetPic.setImageResource(R.drawable.toy1);
                 break;
             case R.id.TypeMusic:
-                targetPic.setImageResource(R.drawable.type_music);
+                targetPic.setImageResource(R.drawable.music2);
                 break;
             case R.id.TypeTechno:
-                targetPic.setImageResource(R.drawable.type_techno);
+                targetPic.setImageResource(R.drawable.techno1);
                 break;
             case R.id.AddType:
-                targetPic.setImageResource(R.drawable.type_add);
+                targetPic.setImageResource(R.drawable.add1);
                 break;
             default:
                 targetPic.setImageResource(R.drawable.main);
