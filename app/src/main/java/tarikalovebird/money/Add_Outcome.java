@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class Add_Outcome extends AppCompatActivity{
     private Button CancelBut;
     private RadioGroup typegroup;
     private Spinner spin;
-    private Button dateBut;
+    private TextView dateBut;
     private int mYear;
     private int mMonth;
     private int mDay;
@@ -54,7 +55,7 @@ public class Add_Outcome extends AppCompatActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        dateBut = (Button) findViewById(R.id.seldate);
+        dateBut = (TextView) findViewById(R.id.seldate);
 
         // add a click listener to the button
         dateBut.setOnClickListener(new View.OnClickListener() {

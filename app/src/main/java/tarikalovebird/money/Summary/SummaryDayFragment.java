@@ -33,7 +33,7 @@ public class SummaryDayFragment extends Fragment {
 
     public SummaryDayFragment(){}
 
-    private Button dateBut;
+    private TextView dateBut;
     private int mYear;
     private int mMonth;
     private int mDay;
@@ -69,7 +69,7 @@ public class SummaryDayFragment extends Fragment {
         });
     }
     private void setDefault(){
-        dateBut = (Button) myView.findViewById(R.id.seldate);
+        dateBut = (TextView) myView.findViewById(R.id.seldate);
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH)+1;
@@ -152,6 +152,9 @@ public class SummaryDayFragment extends Fragment {
             graph.setTitleColor(getContext().getResources().getColor(R.color.text));
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
             graph.getViewport().setXAxisBoundsManual(true);
+            graph.getViewport().setYAxisBoundsManual(true);
+            graph.getViewport().setMinY(-100);
+            graph.getViewport().setMaxY(100);
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(reportList.size());
             graph.getViewport().setScrollable(true);

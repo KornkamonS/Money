@@ -102,7 +102,7 @@
                             android:layout_gravity="center"
                             android:gravity="center_vertical"
                             android:text="ชื่อ"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
                             android:layout_width="210dp"
@@ -177,7 +177,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="บาท"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
                 </TableRow>
@@ -201,23 +201,28 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="วันที่"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
-                            android:layout_width="120dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <Button
+                            <TextView
                                 android:id="@+id/seldate"
-
-                                android:layout_width="100dp"
-                                android:layout_height="40dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:gravity="center" />
+                                android:text="0-0-0"
+                                android:drawableRight="@drawable/calpic"
+                                android:drawablePadding="20dp"
+                                android:textSize="15sp"
+                                android:layout_margin="10dp"
+                                android:gravity="center"
+                                android:layout_weight="0.03" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -241,7 +246,7 @@
                             android:layout_weight="0.00"
                             android:switchPadding="10dp"
                             android:text="รายรับประจำ"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
 

@@ -43,7 +43,7 @@ public class OutcomeMonthFragment extends Fragment
     public OutcomeMonthFragment() {
         // Required empty public constructor
     }
-    private Button mPickDateButton;
+    private TextView mPickDateButton;
     private int mYear;
     private int mMonth;
     public TextView Report_id;
@@ -57,7 +57,7 @@ public class OutcomeMonthFragment extends Fragment
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
 
-        mPickDateButton = (Button) myView.findViewById(R.id.seldate);
+        mPickDateButton = (TextView) myView.findViewById(R.id.seldate);
         mPickDateButton.setText(DateDisplayUtils.formatMonthYear(mYear,mMonth));
         mPickDateButton.setOnClickListener(this);
         print_all(mMonth+1,mYear);
@@ -151,8 +151,9 @@ public class OutcomeMonthFragment extends Fragment
 
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
             graph.getViewport().setXAxisBoundsManual(true);
+            graph.getViewport().setYAxisBoundsManual(true);
             graph.getViewport().setMaxY(100);
-            graph.getViewport().setMinY(-100);
+            graph.getViewport().setMinY(-10);
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(reportList.size());
             graph.getViewport().setScrollable(true); // enables horizontal scrolling

@@ -23,36 +23,26 @@
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:layout_weight="0.69"
-            android:gravity="end"
+            android:gravity="end|bottom"
             android:orientation="horizontal">
 
-            <Button
+            <TextView
                 android:id="@+id/button2"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/numberPicker1"
-                android:layout_marginBottom="131dp"
-                android:layout_marginLeft="20dp"
-                android:background="@color/colorPrimary"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Cancel"
                 android:textColor="@color/colorAccent"
-                android:layout_marginStart="47dp"
-                android:layout_weight="1"
-                android:text="Cancel" />
+                android:textSize="15dp" />
 
-            <Button
+            <TextView
                 android:id="@+id/button1"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="Set"
                 android:textColor="@color/colorAccent"
-                android:background="@color/colorPrimary"
-                android:layout_height="50dp"
-                android:layout_alignBaseline="@+id/button2"
-                android:layout_alignBottom="@+id/button2"
-                android:layout_alignEnd="@+id/numberPicker1"
-                android:layout_marginEnd="17dp"
-                android:layout_marginRight="16dp"
-                android:layout_weight="1"
-                android:text="Set" />
+                android:textSize="15dp" />
 
         </LinearLayout>
 

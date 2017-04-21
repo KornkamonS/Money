@@ -179,7 +179,6 @@
                     android:layout_weight="1"
                     android:background="@color/in"
                     android:text="@string/Income"
-                    android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -190,7 +189,6 @@
                     android:layout_weight="1"
                     android:background="@color/out"
                     android:text="@string/Outcome"
-                    android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
             </LinearLayout>

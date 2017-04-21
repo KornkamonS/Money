@@ -42,7 +42,7 @@ public class OutcomeYearFragment extends Fragment {
         // Required empty public constructor
     }
 
-    private Button dateBut;
+    private TextView dateBut;
     private int mYear;
     private  View myView;
     public TextView Report_id;
@@ -69,8 +69,8 @@ public class OutcomeYearFragment extends Fragment {
         final Dialog d = new Dialog(getActivity());
         d.setTitle("NumberPicker");
         d.setContentView(R.layout.fragment_year_picker);
-        Button b1 = (Button) d.findViewById(R.id.button1);
-        Button b2 = (Button) d.findViewById(R.id.button2);
+        TextView b1 = (TextView) d.findViewById(R.id.button1);
+        TextView b2 = (TextView) d.findViewById(R.id.button2);
         final NumberPicker np = (NumberPicker) d.findViewById(R.id.numberPicker1);
 
         np.setMaxValue(mYear+50);
@@ -105,7 +105,7 @@ public class OutcomeYearFragment extends Fragment {
 
     }
     private void setDefault(){
-        dateBut = (Button) myView.findViewById(R.id.seldate);
+        dateBut = (TextView) myView.findViewById(R.id.seldate);
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         dateBut.setText(String.valueOf(mYear));
@@ -175,7 +175,7 @@ public class OutcomeYearFragment extends Fragment {
             graph.getViewport().setXAxisBoundsManual(true);
             graph.getViewport().setYAxisBoundsManual(true);
             graph.getViewport().setMaxY(100);
-            graph.getViewport().setMinY(-100);
+            graph.getViewport().setMinY(-10);
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(reportList.size());
             graph.getViewport().setScrollable(true);

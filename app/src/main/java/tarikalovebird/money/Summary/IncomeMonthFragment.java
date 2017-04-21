@@ -36,7 +36,7 @@ public class IncomeMonthFragment extends Fragment implements SimpleDatePickerDia
     public IncomeMonthFragment() {
         // Required empty public constructor
     }
-    private Button mPickDateButton;
+    private TextView mPickDateButton;
     private int mYear;
     private int mMonth;
     public TextView Report_id;
@@ -50,7 +50,7 @@ public class IncomeMonthFragment extends Fragment implements SimpleDatePickerDia
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH);
 
-        mPickDateButton = (Button) myView.findViewById(R.id.seldate);
+        mPickDateButton = (TextView) myView.findViewById(R.id.seldate);
         mPickDateButton.setText(DateDisplayUtils.formatMonthYear(mYear,mMonth));
         mPickDateButton.setOnClickListener(this);
         print_all(mMonth+1,mYear);
@@ -148,8 +148,9 @@ public class IncomeMonthFragment extends Fragment implements SimpleDatePickerDia
 
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
             graph.getViewport().setXAxisBoundsManual(true);
+            graph.getViewport().setYAxisBoundsManual(true);
             graph.getViewport().setMaxY(100);
-            graph.getViewport().setMinY(-100);
+            graph.getViewport().setMinY(-10);
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(reportList.size());
             graph.getViewport().setScrollable(true); // enables horizontal scrolling

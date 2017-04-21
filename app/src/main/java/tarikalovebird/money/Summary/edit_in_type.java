@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import tarikalovebird.money.Get_datefromCalender;
@@ -33,7 +34,7 @@ public class edit_in_type extends AppCompatActivity {
     private Button CancelBut;
     private RadioGroup typegroup;
     private AlertDialog.Builder builder;
-    private Button dateBut;
+    private TextView dateBut;
     private int mYear;
     private int mMonth;
     private int mDay;
@@ -56,7 +57,7 @@ public class edit_in_type extends AppCompatActivity {
         OkBut=(Button)findViewById(R.id.editincomeOk);
         CancelBut=(Button)findViewById(R.id.editincomeCancel);
 
-        dateBut = (Button) findViewById(R.id.seldate);
+        dateBut = (TextView) findViewById(R.id.seldate);
 
         // add a click listener to the button
         dateBut.setOnClickListener(new View.OnClickListener() {

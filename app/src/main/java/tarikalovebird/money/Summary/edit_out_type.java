@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class edit_out_type  extends AppCompatActivity{
     private ActionBar a ;
     private EditText ExpenseName;
     private EditText ExpensePrice;
-    private Button dateBut;
+    private TextView dateBut;
     private int mYear;
     private int mMonth;
     private int mDay;
@@ -71,7 +72,7 @@ public class edit_out_type  extends AppCompatActivity{
         OkBut=(Button)findViewById(R.id.editoutcomeOk);
         CancelBut=(Button)findViewById(R.id.editoutcomeCancel);
 
-        dateBut = (Button) findViewById(R.id.seldate);
+        dateBut = (TextView) findViewById(R.id.seldate);
 
         // add a click listener to the button
         dateBut.setOnClickListener(new View.OnClickListener() {

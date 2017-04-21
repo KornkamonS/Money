@@ -13,9 +13,11 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="8dp"
+        android:background="@color/sub"
         tools:layout_editor_absoluteY="8dp">
 
         <GridLayout
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:layout_editor_absoluteX="8dp"
@@ -26,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
+
                 android:paddingStart="20dp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">

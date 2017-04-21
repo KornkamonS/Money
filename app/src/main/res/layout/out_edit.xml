@@ -127,7 +127,7 @@
                             android:layout_gravity="center"
                             android:gravity="center_vertical|center"
                             android:text="ชื่อ"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
                             android:layout_width="210dp"
@@ -176,7 +176,7 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="จำนวน"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
                             android:layout_width="170dp"
@@ -203,7 +203,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="บาท"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
                 </TableRow>
@@ -221,23 +221,28 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="วันที่"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
-                            android:layout_width="120dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <Button
+                            <TextView
                                 android:id="@+id/seldate"
-
-                                android:layout_width="100dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:gravity="center" />
+                                android:layout_margin="10dp"
+                                android:layout_weight="0.03"
+                                android:drawablePadding="20dp"
+                                android:drawableRight="@drawable/calpic"
+                                android:gravity="center"
+                                android:text="0-0-0"
+                                android:textSize="15sp" />
                         </LinearLayout>
                     </LinearLayout></TableRow>
 

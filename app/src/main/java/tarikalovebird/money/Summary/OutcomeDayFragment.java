@@ -38,7 +38,7 @@ public class OutcomeDayFragment extends Fragment {
     public OutcomeDayFragment() {
         // Required empty public constructor
     }
-    private Button dateBut;
+    private TextView dateBut;
     private int mYear;
     private int mMonth;
     private int mDay;
@@ -74,7 +74,7 @@ public class OutcomeDayFragment extends Fragment {
         });
     }
     private void setDefault(){
-        dateBut = (Button) myView.findViewById(R.id.seldate);
+        dateBut = (TextView) myView.findViewById(R.id.seldate);
         final Calendar c = Calendar.getInstance();
         mYear = c.get(Calendar.YEAR);
         mMonth = c.get(Calendar.MONTH)+1;
@@ -154,9 +154,9 @@ public class OutcomeDayFragment extends Fragment {
 
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
             graph.getViewport().setXAxisBoundsManual(true);
+            graph.getViewport().setYAxisBoundsManual(true);
             graph.getViewport().setMaxY(100);
-            graph.getViewport().setMinY(-100);
-
+            graph.getViewport().setMinY(-10);
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(reportList.size());
             graph.getViewport().setScrollable(true);

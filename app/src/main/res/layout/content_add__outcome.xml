@@ -128,7 +128,7 @@
                             android:layout_gravity="center"
                             android:gravity="center_vertical|center"
                             android:text="ชื่อ"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
                             android:layout_width="210dp"
@@ -177,7 +177,7 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="จำนวน"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
                             android:layout_width="170dp"
@@ -192,7 +192,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"
-                                android:textSize="55px"
+                                android:textSize="15sp"
                                 android:ems="10"
                                 android:gravity="center"
                                 android:inputType="numberDecimal" />
@@ -205,7 +205,7 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="บาท"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
                 </TableRow>
@@ -229,10 +229,10 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="วันที่"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
-                            android:layout_width="120dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:layout_weight="1"
@@ -240,14 +240,18 @@
                             android:orientation="vertical"
                             android:weightSum="1">
 
-                            <Button
+                            <TextView
                                 android:id="@+id/seldate"
-
-                                android:layout_width="100dp"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:text="0-0-0"
+                                android:drawableRight="@drawable/calpic"
+                                android:drawablePadding="20dp"
+                                android:textSize="20sp"
+                                android:layout_margin="10dp"
                                 android:gravity="center"
-                                android:layout_weight="0.07" />
+                                android:layout_weight="0.03" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -270,7 +274,7 @@
                             android:layout_weight="0.00"
                             android:switchPadding="10dp"
                             android:text="รายจ่ายประจำ"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
 
