@@ -9,9 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,6 +33,7 @@ public class Income_edit_item extends AppCompatActivity {
     private Button CancelBut;
     private RadioGroup typegroup;
     private Spinner spin;
+    private Switch SwitchInEdit;
     private AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +56,22 @@ public class Income_edit_item extends AppCompatActivity {
         OkBut=(Button)findViewById(R.id.editincomeOk);
         CancelBut=(Button)findViewById(R.id.editincomeCancel);
         spin = ( Spinner ) this.findViewById ( R.id.editincomeSpin );
+        SwitchInEdit = (Switch) findViewById(R.id.switchInEdit);
+        spin.setVisibility(View.INVISIBLE);
         spin.setAdapter ( dataAdapter );
+        SwitchInEdit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked){
+                    spin.setVisibility(View.VISIBLE);
+                }else{
+                    spin.setVisibility(View.INVISIBLE);
+                }
+
+            }
+        });
         _Income_id=1;
 
         Intent intent = getIntent();
