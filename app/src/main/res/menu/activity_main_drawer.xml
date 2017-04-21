@@ -9,7 +9,7 @@
         <item
             android:id="@+id/nav_Target"
             android:icon="@drawable/home_sel"
-            android:title="รายละเอียดเป้าหมาย" />
+            android:title="Target Detail" />
 
         <item
             android:id="@+id/nav_TIPs"
@@ -26,7 +26,8 @@
             <item
                 android:id="@+id/nav_Income"
                 android:icon="@drawable/in"
-                android:title="@string/Income" />
+                android:title="@string/Income"
+                />
             <item
                 android:id="@+id/nav_Outcom"
                 android:icon="@drawable/out"

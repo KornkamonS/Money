@@ -65,6 +65,7 @@
 
                 <TextView
                     android:id="@+id/list_type"
+                    android:textColor="#FFFFFF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -89,6 +90,7 @@
 
                         <TextView
                             android:id="@+id/list_name"
+                            android:textColor="#FFFFFF"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
                             android:layout_weight="1"
@@ -117,6 +119,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="20dp"
+                            android:textColor="#FFFFFF"
                             android:layout_weight="0.29"
                             android:gravity="center_vertical"
                             android:text="AMOUNT: "
@@ -166,6 +169,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="20dp"
                             android:layout_weight="0.29"
+                            android:textColor="#FFFFFF"
                             android:gravity="center_vertical"
                             android:text="PERIOD: "
                             android:textSize="50px" />
@@ -176,6 +180,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.29"
+
                         android:orientation="vertical">
 
                         <TextView

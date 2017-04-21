@@ -149,7 +149,7 @@ public class SummaryMonthFragment extends Fragment
                     else return getContext().getResources().getColor(R.color.out);
                 }
             });
-            graph.setBackgroundColor(getContext().getResources().getColor(R.color.totalGraph));
+
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
             graph.getViewport().setXAxisBoundsManual(true);
             graph.getViewport().setMinX(0);
@@ -160,7 +160,7 @@ public class SummaryMonthFragment extends Fragment
             graph.getViewport().setScalableY(true); // enables vertical zooming and scrolling
             series.setDrawValuesOnTop(true);
             series.setValuesOnTopSize(40);
-            series.setValuesOnTopColor(getContext().getResources().getColor(R.color.colorPrimaryDark));
+            series.setValuesOnTopColor(getContext().getResources().getColor(R.color.text));
             graph.addSeries(series);
 
         }else graph.removeAllSeries();

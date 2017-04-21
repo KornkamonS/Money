@@ -145,7 +145,7 @@ public class IncomeMonthFragment extends Fragment implements SimpleDatePickerDia
                         return getContext().getResources().getColor(R.color.in);
                 }
             });
-            graph.setBackgroundColor(getContext().getResources().getColor(R.color.InGraph));
+
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
             graph.getViewport().setXAxisBoundsManual(true);
             graph.getViewport().setMinX(0);
@@ -156,7 +156,7 @@ public class IncomeMonthFragment extends Fragment implements SimpleDatePickerDia
             graph.getViewport().setScalableY(true); // enables vertical zooming and scrolling
             series.setDrawValuesOnTop(true);
             series.setValuesOnTopSize(40);
-            series.setValuesOnTopColor(getContext().getResources().getColor(R.color.colorPrimaryDark));
+            series.setValuesOnTopColor(getContext().getResources().getColor(R.color.text));
             graph.addSeries(series);
 
         }else graph.removeAllSeries();

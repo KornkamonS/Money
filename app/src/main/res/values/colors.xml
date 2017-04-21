@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2296f3</color>
-    <color name="colorPrimaryDark">#454a6c</color>
+    <color name="colorPrimary">#1f253d</color>
+    <color name="colorPrimaryDark">#151a2b</color>
     <color name="colorAccent">#ff5d55</color>
     <color name="gr">#3bc65b</color>
     <color name="bg">#fafafa</color>
     <color name="del">#ef7728</color>
     <color name="edit">#0ac33b</color>
-    <color name="out">#ec0043</color>
-    <color name="in">#060cbf</color>
-    <color name="totalGraph">#EAFAF1</color>
-    <color name="InGraph">#EDF6FF</color>
-    <color name="OutGraph">#FEFFEE</color>
+    <color name="out">#ec407a</color>
+    <color name="in">#5c6bc0</color>
     <color name="tip">#FFDEE1E3</color>
-    <color name="tip2">#FF7F8182</color>
+    <color name="tip2">#7f8182</color>
+    <color name="list">#fce4ec</color>
+    <color name="text">#FFFFFF</color>
+    <color name="sub">#394263</color>
 </resources>

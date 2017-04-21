@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.ValueDependentColor;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 
@@ -142,6 +143,7 @@ public class IncomeDayFragment extends Fragment {
             //StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
             //staticLabelsFormatter.setHorizontalLabels(xlabel);
             //graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+
             graph.getGridLabelRenderer().setHorizontalLabelsVisible(false);
             graph.getGridLabelRenderer().setNumHorizontalLabels(reportList.size());
             series.setAnimated(true);
@@ -152,10 +154,8 @@ public class IncomeDayFragment extends Fragment {
                 }
             });
 
-            graph.setBackgroundColor(getContext().getResources().getColor(R.color.InGraph));
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
             graph.getViewport().setXAxisBoundsManual(true);
-
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(reportList.size());
             graph.getViewport().setScrollable(true);
@@ -164,7 +164,9 @@ public class IncomeDayFragment extends Fragment {
             graph.getViewport().setScalableY(true);
             series.setDrawValuesOnTop(true);
             series.setValuesOnTopSize(40);
-            series.setValuesOnTopColor(getContext().getResources().getColor(R.color.colorPrimaryDark));
+            series.setValuesOnTopColor(getContext().getResources().getColor(R.color.text));
+
+
             graph.addSeries(series);
 
         }else graph.removeAllSeries();

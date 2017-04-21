@@ -48,6 +48,7 @@
                     android:text="TextView"
                     android:textSize="70px"
                     android:textStyle="bold"
+                    android:textColor="#FFFFFF"
                     tools:layout_editor_absoluteX="8dp"
                     tools:layout_editor_absoluteY="243dp" />
 
@@ -75,6 +76,7 @@
                         android:layout_height="20dp"
                         android:layout_weight="1"
                         android:gravity="start"
+                        android:textColor="#FFFFFF"
                         android:text="AMOUNT: "
                         android:textSize="50px" />
 

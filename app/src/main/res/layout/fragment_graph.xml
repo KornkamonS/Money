@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:background="#1F253D">
 
         <Button
             android:id="@+id/seldate"
@@ -31,7 +32,8 @@
             android:layout_height="150dip"
             android:layout_marginBottom="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp" />
+            android:layout_marginStart="20dp"
+            android:background="#00000000" />
 
         <include
             layout="@layout/list_r"

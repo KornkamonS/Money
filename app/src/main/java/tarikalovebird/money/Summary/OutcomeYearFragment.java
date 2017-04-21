@@ -171,7 +171,6 @@ public class OutcomeYearFragment extends Fragment {
                 }
             });
 
-            graph.setBackgroundColor(getContext().getResources().getColor(R.color.OutGraph));
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
             graph.getViewport().setXAxisBoundsManual(true);
             graph.getViewport().setYAxisBoundsManual(true);
@@ -185,7 +184,7 @@ public class OutcomeYearFragment extends Fragment {
             graph.getViewport().setScalableY(true);
             series.setDrawValuesOnTop(true);
             series.setValuesOnTopSize(40);
-            series.setValuesOnTopColor(getContext().getResources().getColor(R.color.colorPrimaryDark));
+            series.setValuesOnTopColor(getContext().getResources().getColor(R.color.text));
             graph.addSeries(series);
 
         }else graph.removeAllSeries();
