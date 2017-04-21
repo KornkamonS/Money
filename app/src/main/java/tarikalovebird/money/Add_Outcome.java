@@ -14,9 +14,11 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -43,6 +45,7 @@ public class Add_Outcome extends AppCompatActivity{
     private int mDay;
     static final int CALENDAR_VIEW_ID = 1;
     private Get_datefromCalender aa;
+    private Switch SwitchOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +74,6 @@ public class Add_Outcome extends AppCompatActivity{
         updateCurrentDate();
 
         List< String > spinlist = new ArrayList< String >( );
-        spinlist.add ( "Day" );
         spinlist.add ( "Month" );
         spinlist.add ( "Year" );
         ArrayAdapter< String > dataAdapter = new ArrayAdapter < String > ( this, android.R.layout.simple_spinner_item, spinlist );
@@ -82,13 +84,25 @@ public class Add_Outcome extends AppCompatActivity{
         OkBut=(Button)findViewById(R.id.expenseOk);
         CancelBut=(Button)findViewById(R.id.expenseCancel);
         spin = ( Spinner ) this.findViewById ( R.id.expenseSpin );
-
+        SwitchOut = (Switch) findViewById(R.id.switchOut);
         aa=new Get_datefromCalender(this);
-
         spin.setAdapter ( dataAdapter );
-
+        spin.setVisibility(View.INVISIBLE);
         spin.setSelection(0);
 
+        SwitchOut.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if(isChecked){
+                    spin.setVisibility(View.VISIBLE);
+                }else{
+                    spin.setVisibility(View.INVISIBLE);
+                }
+
+            }
+        });
         OkBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

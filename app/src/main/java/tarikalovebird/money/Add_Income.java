@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -81,9 +82,21 @@ public class Add_Income extends AppCompatActivity {
             spin = ( Spinner ) this.findViewById ( R.id.incomeSpin );
             spin.setAdapter ( dataAdapter );
             SwitchIn = (Switch) findViewById(R.id.switchIn);
-
+            spin.setVisibility(View.INVISIBLE);
             spin.setSelection(0);
+            SwitchIn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                    if(isChecked){
+                        spin.setVisibility(View.VISIBLE);
+                    }else{
+                        spin.setVisibility(View.INVISIBLE);
+                    }
+
+                }
+            });
 
             OkBut.setOnClickListener(new View.OnClickListener() {
                 @Override
