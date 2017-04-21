@@ -149,10 +149,9 @@ public class SummaryDayFragment extends Fragment {
                 }
             });
 
-
+            graph.setTitleColor(getContext().getResources().getColor(R.color.text));
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
             graph.getViewport().setXAxisBoundsManual(true);
-
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(reportList.size());
             graph.getViewport().setScrollable(true);

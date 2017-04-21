@@ -66,7 +66,6 @@
                         android:gravity="center"
                         android:paddingTop="5sp"
                         android:text="@string/Target"
-                        android:textColor="#000000"
                         android:textSize="30sp"
                         android:textStyle="bold" />
                 </TableRow>
@@ -106,7 +105,6 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/CountDownDay"
-                        android:textColor="#000000"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </TableRow>
@@ -127,7 +125,6 @@
                         android:layout_marginStart="50dp"
                         android:padding="5dp"
                         android:text="@string/TotaDayUse"
-                        android:textColor="#000000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </TableRow>
@@ -147,7 +144,6 @@
                         android:layout_weight="0.5"
                         android:gravity="end"
                         android:text="0"
-                        android:textColor="#000000"
                         android:textSize="40sp"
                         android:textStyle="bold" />
 
@@ -158,7 +154,6 @@
                         android:layout_weight="0.5"
                         android:gravity="center"
                         android:text="@string/unit"
-                        android:textColor="#000000"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -182,7 +177,7 @@
                     android:layout_width="0sp"
                     android:layout_height="70dp"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/in"
                     android:text="@string/Income"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
@@ -193,7 +188,7 @@
                     android:layout_width="0dp"
                     android:layout_height="70dp"
                     android:layout_weight="1"
-                    android:background="@color/colorAccent"
+                    android:background="@color/out"
                     android:text="@string/Outcome"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"

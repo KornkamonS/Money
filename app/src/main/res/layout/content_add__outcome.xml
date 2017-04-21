@@ -128,12 +128,11 @@
                             android:layout_gravity="center"
                             android:gravity="center_vertical|center"
                             android:text="ชื่อ"
-                            android:textColor="#000000"
                             android:textSize="55px" />
 
                         <LinearLayout
                             android:layout_width="210dp"
-                            android:layout_height="30dp"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1.39"
                             android:gravity="center"
@@ -142,14 +141,13 @@
                             <EditText
                                 android:id="@+id/expenseName"
                                 android:layout_width="200dp"
-                                android:layout_height="30dp"
+                                android:textSize="55px"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"
-                                android:background="@android:drawable/editbox_background"
                                 android:ems="10"
                                 android:gravity="center"
                                 android:inputType="textPersonName"
-                                android:textColor="@color/colorPrimaryDark"
                                 tools:gravity="center" />
                         </LinearLayout>
 
@@ -166,7 +164,7 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:orientation="horizontal">
@@ -179,12 +177,11 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="จำนวน"
-                            android:textColor="#000000"
                             android:textSize="55px" />
 
                         <LinearLayout
                             android:layout_width="170dp"
-                            android:layout_height="30dp"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:orientation="vertical">
@@ -192,14 +189,13 @@
                             <EditText
                                 android:id="@+id/expensePrice"
                                 android:layout_width="160dp"
-                                android:layout_height="30dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"
-                                android:background="@android:drawable/editbox_background"
+                                android:textSize="55px"
                                 android:ems="10"
                                 android:gravity="center"
-                                android:inputType="numberDecimal"
-                                android:textColor="@color/colorPrimaryDark" />
+                                android:inputType="numberDecimal" />
                         </LinearLayout>
 
                         <TextView
@@ -209,7 +205,6 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="บาท"
-                            android:textColor="#000000"
                             android:textSize="55px" />
 
                     </LinearLayout>
@@ -234,7 +229,6 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="วันที่"
-                            android:textColor="#000000"
                             android:textSize="55px" />
 
                         <LinearLayout
@@ -243,17 +237,17 @@
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:weightSum="1">
 
                             <Button
                                 android:id="@+id/seldate"
 
                                 android:layout_width="100dp"
-                                android:layout_height="30dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:background="@color/bg"
                                 android:gravity="center"
-                                android:textColorLink="@color/colorPrimaryDark" />
+                                android:layout_weight="0.07" />
                         </LinearLayout>
                     </LinearLayout>
 

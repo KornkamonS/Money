@@ -156,6 +156,8 @@ public class IncomeDayFragment extends Fragment {
 
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
             graph.getViewport().setXAxisBoundsManual(true);
+            graph.getViewport().setMaxY(100);
+            graph.getViewport().setMinY(-100);
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(reportList.size());
             graph.getViewport().setScrollable(true);

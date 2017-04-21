@@ -104,7 +104,6 @@
                             android:layout_gravity="center"
                             android:gravity="center_vertical|center"
                             android:text="ชื่อ"
-                            android:textColor="#000000"
                             android:textSize="55px" />
 
                         <LinearLayout
@@ -121,7 +120,6 @@
                                 android:layout_height="30dp"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"
-                                android:background="@android:drawable/editbox_background"
                                 android:ems="10"
                                 android:gravity="center"
                                 android:inputType="textPersonName"
@@ -156,7 +154,6 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="จำนวน"
-                            android:textColor="#000000"
                             android:textSize="55px" />
 
                         <LinearLayout
@@ -172,7 +169,6 @@
                                 android:layout_height="30dp"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"
-                                android:background="@android:drawable/editbox_background"
                                 android:ems="10"
                                 android:gravity="center"
                                 android:inputType="numberDecimal"
@@ -186,7 +182,6 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="บาท"
-                            android:textColor="#000000"
                             android:textSize="55px" />
 
                     </LinearLayout>
