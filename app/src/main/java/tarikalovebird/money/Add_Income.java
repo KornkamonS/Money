@@ -130,33 +130,25 @@ public class Add_Income extends AppCompatActivity {
                         if(spintext!="Day") {
 
                             if(!IncomeName.getText().toString().isEmpty()){
-                                income.name = IncomeName.getText().toString();
+                                Typetext = IncomeName.getText().toString();
                             }
                             else {income.name=Typetext;  }
 
-                            income.amount = (Float.parseFloat(IncomePrice.getText().toString()));
-                            income.type = typeid;
-                            income.period=spintext;
+                            income.setValue(-1,Typetext,Float.parseFloat(IncomePrice.getText().toString()),spintext,typeid);
                             income_data.insert(income);
 
                             Toast.makeText(getApplicationContext(),"insert income ",Toast.LENGTH_SHORT).show();
                         }
 
-
                         Report_data report_data=new Report_data(getApplicationContext());
                         Report_metaData report=new Report_metaData();
 
                         if(!IncomeName.getText().toString().isEmpty()){
-                            report.name=IncomeName.getText().toString();
+                            Typetext=IncomeName.getText().toString();
                         }
-                        else { report.name=Typetext;}
-                        report.amount = (Float.parseFloat(IncomePrice.getText().toString()));
-                        report.type = typeid;
-                        report.inorout=Report_metaData.IN;
-                        report.day=mDay;
-                        report.month=mMonth;
-                        report.year=mYear;
 
+                        report.setValue(-1,Typetext,Float.parseFloat(IncomePrice.getText().toString()),
+                                mDay,mMonth,mYear,Report_metaData.IN,typeid);
                         report_data.insert(report);
 
                         Toast.makeText(getApplicationContext(),"insert report ",Toast.LENGTH_SHORT).show();
@@ -178,14 +170,15 @@ public class Add_Income extends AppCompatActivity {
             });
         }
         // updates the date we display in the TextView
-    private void updateCurrentDate() {
-        dateBut.setText(
-                new StringBuilder()
-                        // Month is 0 based so add 1
-                        .append(mDay).append("-")
-                        .append(mMonth).append("-")
-                        .append(mYear).append(" "));
-    }
+        private void updateCurrentDate() {
+            helpcode a=new helpcode();
+            dateBut.setText(
+                    new StringBuilder()
+                            // Month is 0 based so add 1
+                            .append(mDay).append(" ")
+                            .append(a.getMonthtext(mMonth)).append(" ")
+                            .append(mYear).append(" "));
+        }
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         switch(requestCode) {

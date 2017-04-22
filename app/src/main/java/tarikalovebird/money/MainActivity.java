@@ -220,13 +220,8 @@ public class MainActivity extends AppCompatActivity
                 for(int i=0;i<incomeListMonth.size();i++)
                 {
                     Income_detial newIncome = new Income_detial(incomeListMonth.get(i));
-                    add.day=cday;
-                    add.month=cmonth+1;
-                    add.year=cyear;
-                    add.amount=Float.parseFloat(newIncome.amount);
-                    add.name=newIncome.name;
-                    add.type=Integer.parseInt(newIncome.type);
-                    add.inorout=Report_metaData.IN;
+                    add.setValue(-1,newIncome.name,Float.parseFloat(newIncome.amount),
+                            cday,cmonth+1,cyear,Report_metaData.IN,Integer.parseInt(newIncome.type));
                     re.insert(add);
                 }
 
@@ -236,13 +231,9 @@ public class MainActivity extends AppCompatActivity
                 for(int i=0;i<outcomeListMonth.size();i++)
                 {
                     Outcome_detail newOutcome = new Outcome_detail(outcomeListMonth.get(i));
-                    add.day=cday;
-                    add.month=cmonth+1;
-                    add.year=cyear;
-                    add.amount=Float.parseFloat(newOutcome.amount);
-                    add.name=newOutcome.name;
-                    add.type=Integer.parseInt(newOutcome.type);
-                    add.inorout=Report_metaData.OUT;
+                    add.setValue(-1,newOutcome.name,Float.parseFloat(newOutcome.amount),
+                            cday,cmonth+1,cyear,Report_metaData.OUT,Integer.parseInt(newOutcome.type));
+
                     re.insert(add);
                 }
 
@@ -259,13 +250,9 @@ public class MainActivity extends AppCompatActivity
                 for(int i=0;i<incomeListYear.size();i++)
                 {
                     Income_detial newIncome = new Income_detial(incomeListYear.get(i));
-                    add.day=cday;
-                    add.month=cmonth+1;
-                    add.year=cyear;
-                    add.amount=Float.parseFloat(newIncome.amount);
-                    add.name=newIncome.name;
-                    add.type=Integer.parseInt(newIncome.type);
-                    add.inorout=Report_metaData.IN;
+                    add.setValue(-1,newIncome.name,Float.parseFloat(newIncome.amount),
+                            cday,cmonth+1,cyear,Report_metaData.IN,Integer.parseInt(newIncome.type));
+
                     re.insert(add);
                 }
 
@@ -275,13 +262,9 @@ public class MainActivity extends AppCompatActivity
                 for(int i=0;i<outcomeListYear.size();i++)
                 {
                     Outcome_detail newOutcome = new Outcome_detail(outcomeListYear.get(i));
-                    add.day=cday;
-                    add.month=cmonth+1;
-                    add.year=cyear;
-                    add.amount=Float.parseFloat(newOutcome.amount);
-                    add.name=newOutcome.name;
-                    add.type=Integer.parseInt(newOutcome.type);
-                    add.inorout=Report_metaData.OUT;
+                    add.setValue(-1,newOutcome.name,Float.parseFloat(newOutcome.amount),
+                            cday,cmonth+1,cyear,Report_metaData.OUT,Integer.parseInt(newOutcome.type));
+
                     re.insert(add);
                 }
 

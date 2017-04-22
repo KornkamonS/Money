@@ -10,7 +10,7 @@
 
     <ScrollView
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -104,11 +104,11 @@
                             android:layout_gravity="center"
                             android:gravity="center_vertical|center"
                             android:text="ชื่อ"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
                             android:layout_width="210dp"
-                            android:layout_height="30dp"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1.39"
                             android:gravity="center"
@@ -117,13 +117,12 @@
                             <EditText
                                 android:id="@+id/editincomeName"
                                 android:layout_width="200dp"
-                                android:layout_height="30dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"
                                 android:ems="10"
                                 android:gravity="center"
                                 android:inputType="textPersonName"
-                                android:textColor="@color/colorPrimaryDark"
                                 tools:gravity="center" />
                         </LinearLayout>
 
@@ -154,11 +153,11 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="จำนวน"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
                             android:layout_width="170dp"
-                            android:layout_height="30dp"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:orientation="vertical">
@@ -166,13 +165,12 @@
                             <EditText
                                 android:id="@+id/editincomePrice"
                                 android:layout_width="160dp"
-                                android:layout_height="30dp"
+                                android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"
                                 android:ems="10"
                                 android:gravity="center"
-                                android:inputType="numberDecimal"
-                                android:textColor="@color/colorPrimaryDark" />
+                                android:inputType="numberDecimal" />
                         </LinearLayout>
 
                         <TextView
@@ -182,33 +180,11 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="บาท"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
                 </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <Switch
-                            android:id="@+id/switchInEdit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.00"
-                            android:switchPadding="10dp"
-                            android:text="รายรับประจำ"
-                            android:textSize="55px" />
-
-                    </LinearLayout>
-
-                </TableRow>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -225,10 +201,10 @@
                         <Spinner
                             android:id="@+id/editincomeSpin"
                             style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                            android:layout_width="wrap_content"
+                            android:layout_width="200dp"
                             android:layout_height="55dp"
                             android:layout_gravity="center"
-                            android:gravity="center_vertical|center|start"
+                            android:gravity="center_vertical|center"
                             android:visibility="invisible" />
                     </LinearLayout>
 

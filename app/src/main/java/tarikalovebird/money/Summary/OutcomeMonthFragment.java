@@ -120,7 +120,7 @@ public class OutcomeMonthFragment extends Fragment
     {
         GraphView graph = (GraphView) myView.findViewById(R.id.graph);
         DataPoint[] values = new DataPoint[reportList.size()];
-        // String[] xlabel= new String[reportList.size()];
+        float min=0,max=0;
         graph.removeAllSeries();
 
         if(reportList.size()!=0) {
@@ -128,17 +128,15 @@ public class OutcomeMonthFragment extends Fragment
             for(int i=0;i<reportList.size();i++)
             {
                 Report_detail_month newReport = new Report_detail_month(reportList.get(i));
-                float y = Integer.parseInt(newReport.amount);
+                float y = Float.parseFloat(newReport.amount);
                 DataPoint v = new DataPoint(i, y);
-                // xlabel[i]=newReport.day+" / "+newReport.month+" / "+newReport.year;
                 values[i] = v;
+                if(y>max)max=y;
+                if(y<min)min=y;
             }
 
             BarGraphSeries<DataPoint> series = new BarGraphSeries<DataPoint>(values);
             series.setSpacing(50);
-            //StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-            //staticLabelsFormatter.setHorizontalLabels(xlabel);
-            //graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
             graph.getGridLabelRenderer().setHorizontalLabelsVisible(false);
             graph.getGridLabelRenderer().setNumHorizontalLabels(reportList.size());
             series.setAnimated(true);
@@ -152,14 +150,14 @@ public class OutcomeMonthFragment extends Fragment
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
             graph.getViewport().setXAxisBoundsManual(true);
             graph.getViewport().setYAxisBoundsManual(true);
-            graph.getViewport().setMaxY(100);
-            graph.getViewport().setMinY(-10);
+            graph.getViewport().setMaxY(max);
+            graph.getViewport().setMinY(min);
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(reportList.size());
-            graph.getViewport().setScrollable(true); // enables horizontal scrolling
-            graph.getViewport().setScrollableY(true); // enables vertical scrolling
-            graph.getViewport().setScalable(true); // enables horizontal zooming and scrolling
-            graph.getViewport().setScalableY(true); // enables vertical zooming and scrolling
+            /*graph.getViewport().setScrollable(true);
+            graph.getViewport().setScrollableY(true);
+            graph.getViewport().setScalable(true);
+            graph.getViewport().setScalableY(true); */
             series.setDrawValuesOnTop(true);
             series.setValuesOnTopSize(40);
             series.setValuesOnTopColor(getContext().getResources().getColor(R.color.text));

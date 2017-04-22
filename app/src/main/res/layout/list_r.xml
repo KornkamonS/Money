@@ -5,11 +5,28 @@
     android:layout_height="match_parent"
     >
 
-    <ListView
-        android:id="@+id/listR"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/headlinelist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="บันทึกการใช้เงิน"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="30dp"/>
+
+        <ListView
+            android:id="@+id/listR"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp" />
+
+    </LinearLayout>
 
 </RelativeLayout>

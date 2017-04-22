@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import tarikalovebird.money.R;
+import tarikalovebird.money.helpcode;
 
 
 public class Report_adepter extends ArrayAdapter<Report_detail> {
@@ -32,47 +33,17 @@ public class Report_adepter extends ArrayAdapter<Report_detail> {
         TextView tvDate = (TextView) convertView.findViewById(R.id.list_period);
         ImageView tvType = (ImageView) convertView.findViewById(R.id.def1);
 
-        tvSettext.setText("DATE :");
-        // Populate the data into the template view using the data object
+
+       tvSettext.setText("DATE :");
         tvName.setText(report.name);
         tvID.setText(report.id);
-        int typeid=Integer.parseInt(report.type);
-        switch (typeid)
-        {
-            case R.id.gift2: tvType.setImageResource(R.drawable.food1); break;
-            case R.id.oil: tvType.setImageResource(R.drawable.oil1); break;
-            case R.id.home:  tvType.setImageResource(R.drawable.home1); break;
-            case R.id.elect: tvType.setImageResource(R.drawable.elec1); break;
-            case R.id.shop:  tvType.setImageResource(R.drawable.shop1); break;
-            case R.id.entertain: tvType.setImageResource(R.drawable.entertain1); break;
-            case R.id.pen:  tvType.setImageResource(R.drawable.pen1); break;
-            case R.id.study: tvType.setImageResource(R.drawable.study1); break;
-            case R.id.add2: tvType.setImageResource(R.drawable.addd1); break;
 
-            case R.id.gift: tvType.setImageResource(R.drawable.gifts1); break;
-            case R.id.salary: tvType.setImageResource(R.drawable.salary1); break;
-            case R.id.sale:  tvType.setImageResource(R.drawable.sale1); break;
-            case R.id.add: tvType.setImageResource(R.drawable.add1); break;
-        }
-        String tvMonth="Jan";
-        int month= Integer.parseInt(report.month);
-       switch (month)
-       {
-           case 1: tvMonth="Jan"; break;
-           case 2:  tvMonth="Feb"; break;
-           case 3:   tvMonth="Mar"; break;
-           case 4:  tvMonth="April"; break;
-           case 5:   tvMonth="May"; break;
-           case 6:  tvMonth="Jun"; break;
-           case 7:   tvMonth="July"; break;
-           case 8:  tvMonth="Aug"; break;
-           case 9:  tvMonth="Sep"; break;
-           case 10:  tvMonth="Oct"; break;
-           case 11:  tvMonth="Nov"; break;
-           case 12:   tvMonth="Dec"; break;
+       int typeid=Integer.parseInt(report.type);
+       helpcode a=new helpcode();
+       tvType.setImageResource(a.getIdpicType(typeid));
+       int month= Integer.parseInt(report.month);
 
-       }
-        tvDate.setText(report.day+"-"+tvMonth+"-"+report.year);
+        tvDate.setText(report.day+"-"+a.getMonthtext(month)+"-"+report.year);
        tvAmount.setText(report.amount);
        if(report.inorout.equals(String.valueOf(Report_metaData.IN)))
        {tvDate.setTextColor(getContext().getResources().getColor(R.color.in));
@@ -82,8 +53,6 @@ public class Report_adepter extends ArrayAdapter<Report_detail> {
            {tvDate.setTextColor(getContext().getResources().getColor(R.color.out));
                tvAmount.setTextColor(getContext().getResources().getColor(R.color.out));}
 
-
-        // Return the completed view to render on screen
         return convertView;
     }
 }

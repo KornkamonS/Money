@@ -28,11 +28,8 @@ import tarikalovebird.money.Outcome.outcome_db.Outcome_metaData;
 import tarikalovebird.money.R;
 import tarikalovebird.money.Summary.report_db.Report_data;
 import tarikalovebird.money.Summary.report_db.Report_metaData;
+import tarikalovebird.money.helpcode;
 import tarikalovebird.money.myCalendarView;
-
-/**
- * Created by tunas on 17-Apr-17.
- */
 
 public class edit_out_type  extends AppCompatActivity{
 
@@ -62,8 +59,6 @@ public class edit_out_type  extends AppCompatActivity{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
         builder=  new AlertDialog.Builder(this);
         DeleteBut=(Button) findViewById(R.id.deleteoutcome);
         typegroup=(RadioGroup) findViewById(R.id.editTypeExp);
@@ -73,8 +68,6 @@ public class edit_out_type  extends AppCompatActivity{
         CancelBut=(Button)findViewById(R.id.editoutcomeCancel);
 
         dateBut = (TextView) findViewById(R.id.seldate);
-
-        // add a click listener to the button
         dateBut.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), myCalendarView.class);
@@ -113,15 +106,9 @@ public class edit_out_type  extends AppCompatActivity{
                 if(FLAG){
                     Report_data outcome_data = new Report_data(getApplicationContext());
                     Report_metaData outcome = new Report_metaData();
-
-                    outcome.report_id=_Outcome_id;
-                    outcome.name = OutcomeName.getText().toString();
-                    outcome.amount = (Float.parseFloat(OutcomePrice.getText().toString()));
-                    outcome.type = typegroup.getCheckedRadioButtonId();
-                    outcome.day=mDay;
-                    outcome.month=mMonth;
-                    outcome.year=mYear;
-                    outcome.inorout=Report_metaData.OUT;
+                    outcome.setValue(_Outcome_id,OutcomeName.getText().toString(),
+                            Float.parseFloat(OutcomePrice.getText().toString())
+                            ,mDay,mMonth,mYear,Report_metaData.OUT,typegroup.getCheckedRadioButtonId());
                     outcome_data.update(outcome);
                     Toast.makeText(getApplicationContext(),"update outcome",Toast.LENGTH_SHORT).show();
 
@@ -171,11 +158,12 @@ public class edit_out_type  extends AppCompatActivity{
     }
     // updates the date we display in the TextView
     private void updateCurrentDate() {
+        helpcode a=new helpcode();
         dateBut.setText(
                 new StringBuilder()
                         // Month is 0 based so add 1
-                        .append(mDay).append("-")
-                        .append(mMonth).append("-")
+                        .append(mDay).append(" ")
+                        .append(a.getMonthtext(mMonth)).append(" ")
                         .append(mYear).append(" "));
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data)

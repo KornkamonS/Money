@@ -138,12 +138,8 @@ public class Add_Outcome extends AppCompatActivity{
                     if(spintext!="Day") {
 
                         if(!ExpenseName.getText().toString().isEmpty())
-                            outcome.name = ExpenseName.getText().toString();
-                        else outcome.name=Typetext;
-
-                        outcome.amount = (Float.parseFloat(ExpensePrice.getText().toString()));
-                        outcome.type = typeid;
-                        outcome.period=spintext;
+                            Typetext= ExpenseName.getText().toString();
+                        outcome.setValue(-1,Typetext,Float.parseFloat(ExpensePrice.getText().toString()),spintext,typeid);
                         outcome_data.insert(outcome);
                         Toast.makeText(getApplicationContext(),"insert Expense",Toast.LENGTH_SHORT).show();
                     }
@@ -152,16 +148,11 @@ public class Add_Outcome extends AppCompatActivity{
                     Report_metaData report=new Report_metaData();
 
                     if(!ExpenseName.getText().toString().isEmpty()){
-                        report.name=ExpenseName.getText().toString();
+                        Typetext=ExpenseName.getText().toString();
                     }
-                    else { report.name=Typetext;}
-                    report.amount = (Float.parseFloat(ExpensePrice.getText().toString()));
-                    report.type = typeid;
-                    report.inorout=Report_metaData.OUT;
-                    report.day=mDay;
-                    report.month=mMonth;
-                    report.year=mYear;
 
+                    report.setValue(-1,Typetext,(Float.parseFloat(ExpensePrice.getText().toString())),
+                            mDay,mMonth,mYear,Report_metaData.OUT,typeid);
                     report_data.insert(report);
 
                     Toast.makeText(getApplicationContext(),"insert report ",Toast.LENGTH_SHORT).show();
@@ -184,11 +175,12 @@ public class Add_Outcome extends AppCompatActivity{
     }
     // updates the date we display in the TextView
     private void updateCurrentDate() {
+        helpcode a=new helpcode();
         dateBut.setText(
                 new StringBuilder()
                         // Month is 0 based so add 1
-                        .append(mDay).append("-")
-                        .append(mMonth).append("-")
+                        .append(mDay).append(" ")
+                        .append(a.getMonthtext(mMonth)).append(" ")
                         .append(mYear).append(" "));
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data)

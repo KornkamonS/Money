@@ -24,4 +24,16 @@ public class Report_metaData {
     public int year;
     public int inorout;
     public int type;
+
+    public void setValue(int id,String nam,float am,int d,int m ,int y,int i,int t)
+    {
+        if(id!=-1) report_id=id;
+        name=nam;
+        amount=am;
+        day=d;
+        month=m;
+        year=y;
+        inorout=i;
+        type=t;
+    }
 }

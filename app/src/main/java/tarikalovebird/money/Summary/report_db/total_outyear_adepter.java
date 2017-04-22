@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import tarikalovebird.money.R;
+import tarikalovebird.money.helpcode;
 
 
 public class total_outyear_adepter extends ArrayAdapter<Report_detail_year> {
@@ -27,24 +28,10 @@ public class total_outyear_adepter extends ArrayAdapter<Report_detail_year> {
         TextView tvName = (TextView) convertView.findViewById(R.id.nameR);
         TextView tvAmount = (TextView) convertView.findViewById(R.id.amountR);
         tvID.setText(report.id);
-        String tvMonth="Jan";
+
         int month= Integer.parseInt(report.month);
-        switch (month)
-        {
-            case 1: tvMonth="Jan"; break;
-            case 2:  tvMonth="Feb"; break;
-            case 3:   tvMonth="Mar"; break;
-            case 4:  tvMonth="April"; break;
-            case 5:   tvMonth="May"; break;
-            case 6:  tvMonth="Jun"; break;
-            case 7:   tvMonth="July"; break;
-            case 8:  tvMonth="Aug"; break;
-            case 9:  tvMonth="Sep"; break;
-            case 10:  tvMonth="Oct"; break;
-            case 11:  tvMonth="Nov"; break;
-            case 12:   tvMonth="Dec"; break;
-        }
-        tvName.setText( tvMonth +" " +report.year);
+        helpcode a=new helpcode();
+        tvName.setText( a.getMonthtext(month) +" " +report.year);
         tvAmount.setText(report.amount);
         tvAmount.setTextColor(getContext().getResources().getColor(R.color.out));
         return convertView;

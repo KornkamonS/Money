@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import tarikalovebird.money.R;
+import tarikalovebird.money.helpcode;
 
 /**
  * Created by TunasanG on 25/3/2560.
@@ -41,18 +42,13 @@ public class Income_adepter extends ArrayAdapter<Income_detial>{
         tvPeriod.setText(income.peroid);
 
         int typeid=Integer.parseInt(income.type);
-        switch (typeid)
-        {
-            case R.id.gift: tvType.setImageResource(R.drawable.gifts1); break;
-            case R.id.salary: tvType.setImageResource(R.drawable.salary1); break;
-            case R.id.sale:  tvType.setImageResource(R.drawable.sale1); break;
-            case R.id.add: tvType.setImageResource(R.drawable.add1); break;
-        }
+        helpcode a =new helpcode();
+        tvType.setImageResource(a.getIdpicType(typeid));
 
         tvPeriod.setTextColor(getContext().getResources().getColor(R.color.in));
         tvAmount.setTextColor(getContext().getResources().getColor(R.color.in));
         tvAmount.setText(income.amount);
-        // Return the completed view to render on screen
+
         return convertView;
     }
 

@@ -81,6 +81,7 @@
                         android:layout_weight="1"
                         android:paddingTop="10dp"
                         android:text="1.เลิกซื้อของที่ไม่จำเป็น"
+                        android:padding="10dp"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -99,6 +100,7 @@
                         android:id="@+id/textView55"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:padding="10dp"
                         android:layout_weight="1"
                         android:text="          อย่าได้ไปหลงกลกับคารมของพนักงานเชียวล่ะ หรือไม่ก็อย่าได้ไปหลงซื้อเพียงเพราะความน่ารัก ความสวยงามอย่างเดียว คุณควรจะคำนึงถึงความจำเป็นจริงๆด้วยนะ"
                         android:textSize="16sp" />
@@ -120,6 +122,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="2.เลิกทานอาหารนอกบ้าน"
+                        android:padding="10dp"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -139,6 +142,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:padding="10dp"
                         android:text="          ร้านอาหารหรูหราชวนให้หลงใหล แต่บางครั้งราคาของอาหารก็ไม่ได้ทำให้น่าหลงใหลไปด้วย ราคาที่แพงแสนแพงอีกทั้งยังกินไม่อิ่มท้องอีก ถ้าอย่างนั้นลองหันมาทำอาหารกินเองดีกว่าไหม"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -157,6 +161,7 @@
                         android:id="@+id/textView58"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:padding="10dp"
                         android:layout_weight="1"
                         android:text="3.เลิกซื้อเสื้อผ้าเครื่องแต่งกายเกินความจำเป็น"
                         android:textSize="18sp"
@@ -178,6 +183,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:padding="10dp"
                         android:text="4.เปลี่ยนนิสัยการโทร"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -197,6 +203,7 @@
                         android:id="@+id/textView60"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:padding="10dp"
                         android:layout_weight="1"
                         android:text="          หากคุณเป็นคนประเภทชอบเมาท์ ชอบพูดคุยโทรศัพท์เพื่อเป็นการลดค่าโทรศัพท์คุณก็ควรจะสมัครโปรโมชั่นประหยัดค่าโทรไว้หรือไม่ก็เปลี่ยนจากการโทรมาใช้วิธีเล่นเฟสเล่นไลน์แทนก็ได้นะ"
                         android:textSize="16sp" />
@@ -217,6 +224,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:padding="10dp"
                         android:text="5.เลิกนิสัยใช้พลังงานสิ้นเปลือง"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -237,6 +245,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:padding="10dp"
                         android:text="          ปิดไฟเมื่อไม่ได้ใช้ ถอดปลั๊กเมื่อไม่ใช้งาน หันมาใช้พลังงานทดแทนบ้าง"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -257,6 +266,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="6.อย่าซื้อประกันโดยไม่จำเป็น"
+                        android:padding="10dp"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -277,6 +287,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="7.เที่ยวสวนกระแส"
+                        android:padding="10dp"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -294,6 +305,7 @@
 
                     <TextView
                         android:id="@+id/textView65"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -313,6 +325,7 @@
 
                     <TextView
                         android:id="@+id/textView66"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -333,6 +346,7 @@
 
                     <TextView
                         android:id="@+id/textView67"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -352,6 +366,7 @@
 
                     <TextView
                         android:id="@+id/textView68"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -373,6 +388,7 @@
 
                     <TextView
                         android:id="@+id/textView69"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -392,6 +408,7 @@
 
                     <TextView
                         android:id="@+id/textView70"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -412,6 +429,7 @@
 
                     <TextView
                         android:id="@+id/textView71"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

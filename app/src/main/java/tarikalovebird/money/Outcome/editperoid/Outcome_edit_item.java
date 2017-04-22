@@ -33,7 +33,6 @@ public class Outcome_edit_item extends AppCompatActivity {
     private Button CancelBut;
     private RadioGroup typegroup;
     private Spinner spin;
-    private Switch SwitchOutEdit;
     private AlertDialog.Builder builder;
 
     @Override
@@ -56,22 +55,10 @@ public class Outcome_edit_item extends AppCompatActivity {
         OkBut=(Button)findViewById(R.id.editoutcomeOk);
         CancelBut=(Button)findViewById(R.id.editoutcomeCancel);
         spin = ( Spinner ) this.findViewById ( R.id.editexpenseSpin );
-        SwitchOutEdit = (Switch) findViewById(R.id.switchOutEdit);
-        spin.setVisibility(View.INVISIBLE);
+
+        spin.setVisibility(View.VISIBLE);
         spin.setAdapter ( dataAdapter );
-        SwitchOutEdit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                if(isChecked){
-                    spin.setVisibility(View.VISIBLE);
-                }else{
-                    spin.setVisibility(View.INVISIBLE);
-                }
-
-            }
-        });
         _Outcome_id=1;
 
         Intent intent = getIntent();

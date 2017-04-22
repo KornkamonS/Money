@@ -29,6 +29,7 @@ import tarikalovebird.money.Summary.report_db.Report_adepter;
 import tarikalovebird.money.Summary.report_db.Report_data;
 import tarikalovebird.money.Summary.report_db.Report_detail;
 import tarikalovebird.money.Summary.report_db.Report_metaData;
+import tarikalovebird.money.helpcode;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -123,25 +124,23 @@ public class OutcomeDayFragment extends Fragment {
     {
         GraphView graph = (GraphView) myView.findViewById(R.id.graph);
         DataPoint[] values = new DataPoint[reportList.size()];
-        // String[] xlabel= new String[reportList.size()];
-
+        float min=0,max=0;
+        graph.removeAllSeries();
         if(reportList.size()!=0) {
             graph.removeAllSeries();
             for(int i=0;i<reportList.size();i++)
             {
                 Report_detail newReport = new Report_detail(reportList.get(i));
-                float y = Integer.parseInt(newReport.amount);
+                float y = Float.parseFloat(newReport.amount);
                 DataPoint v = new DataPoint(i, y);
-                //xlabel[i]=newReport.name;
                 values[i] = v;
+                if(y>max)max=y;
+                if(y<min)min=y;
             }
 
             BarGraphSeries<DataPoint> series = new BarGraphSeries<DataPoint>(values);
 
             series.setSpacing(50);
-            //StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
-            //staticLabelsFormatter.setHorizontalLabels(xlabel);
-            //graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
             graph.getGridLabelRenderer().setHorizontalLabelsVisible(false);
             graph.getGridLabelRenderer().setNumHorizontalLabels(reportList.size());
             series.setAnimated(true);
@@ -153,16 +152,16 @@ public class OutcomeDayFragment extends Fragment {
             });
 
             graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
-            graph.getViewport().setXAxisBoundsManual(true);
+           graph.getViewport().setXAxisBoundsManual(true);
             graph.getViewport().setYAxisBoundsManual(true);
-            graph.getViewport().setMaxY(100);
-            graph.getViewport().setMinY(-10);
+            graph.getViewport().setMaxY(max);
+            graph.getViewport().setMinY(min);
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(reportList.size());
-            graph.getViewport().setScrollable(true);
+             /*graph.getViewport().setScrollable(true);
             graph.getViewport().setScrollableY(true);
             graph.getViewport().setScalable(true);
-            graph.getViewport().setScalableY(true);
+            graph.getViewport().setScalableY(true);*/
             series.setDrawValuesOnTop(true);
             series.setValuesOnTopSize(40);
             series.setValuesOnTopColor(getContext().getResources().getColor(R.color.text));
@@ -178,10 +177,12 @@ public class OutcomeDayFragment extends Fragment {
         print_graph(reportList);
     }
     private void updateCurrentDate() {
+        helpcode a=new helpcode();
         dateBut.setText(
                 new StringBuilder()
-                        .append(mDay).append("-")
-                        .append(mMonth).append("-")
+                        // Month is 0 based so add 1
+                        .append(mDay).append(" ")
+                        .append(a.getMonthtext(mMonth)).append(" ")
                         .append(mYear).append(" "));
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data)

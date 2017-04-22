@@ -1,5 +1,7 @@
 package tarikalovebird.money.Income.income_db;
 
+import android.support.annotation.Nullable;
+
 /**
  * Created by TunasanG on 25/3/2560.
  */
@@ -21,4 +23,13 @@ public class Income_metaData {
     public float amount;
     public String period;
     public int type;
+
+    public void setValue(int id,String n, float a, String p, int t)
+    {
+        if(id!=-1) income_ID=id;
+        name=n;
+        amount=a;
+        period=p;
+        type=t;
+    }
 }

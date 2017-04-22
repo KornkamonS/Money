@@ -44,8 +44,8 @@ public class myCalendarView extends Activity {
                     a.setDay(mDay);
                     a.setMonth(mMonth+1);
                     a.setYear(mYear);
-
-                    String selectedDate = new StringBuilder().append(mDay).append("-").append(mMonth + 1).append("-")
+                    helpcode aa=new helpcode();
+                    String selectedDate = new StringBuilder().append(mDay).append(" ").append(aa.getMonthtext(mMonth+1)).append(" ")
                             .append(mYear).append(" ").toString();
 
                     Bundle b = new Bundle();

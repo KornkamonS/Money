@@ -2,13 +2,13 @@
 <resources>
     <color name="colorPrimary">#1f253d</color>
     <color name="colorPrimaryDark">#1f253d</color>
-    <color name="colorAccent">#fd4b69</color>
+    <color name="colorAccent">#ff4081</color>
     <color name="gr">#3bc65b</color>
     <color name="del">#ef7728</color>
     <color name="edit">#0ac33b</color>
     <color name="out">#ef4965</color>
     <color name="in">#0091ea</color>
-    <color name="tip">#FFF44336</color>
+    <color name="tip">#f44336</color>
     <color name="tip2">#FFF76B07</color>
     <color name="list">#fce4ec</color>
     <color name="text">#ffffff</color>

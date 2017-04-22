@@ -66,16 +66,11 @@
 
                 <TextView
                     android:id="@+id/list_type"
-                    android:textColor="#FFFFFF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:text="TextView"
-                    android:textSize="45px"
-                    android:visibility="gone"
-                    tools:layout_editor_absoluteX="8dp"
-                    tools:layout_editor_absoluteY="81dp" />
+                    android:visibility="gone" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -85,21 +80,19 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="45dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="0.29"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/list_name"
                             android:layout_width="wrap_content"
-                            android:layout_height="30dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="TextView"
-                            android:textSize="70px"
-                            android:textStyle="bold"
-                            tools:layout_editor_absoluteX="8dp"
-                            tools:layout_editor_absoluteY="243dp" />
+                            android:textSize="25sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -112,17 +105,17 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="0.29"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="20dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="0.29"
                             android:gravity="center_vertical"
                             android:text="AMOUNT: "
-                            android:textSize="50px" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
 
@@ -135,18 +128,15 @@
                         <TextView
                             android:id="@+id/list_amount"
                             android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:layout_gravity="left"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|center_vertical"
                             android:layout_weight="1"
                             android:gravity="center_vertical"
-                            android:paddingLeft="6dip"
-                            android:paddingTop="6dip"
+                            android:text="000"
                             android:textColor="@color/in"
-                            android:textSize="50px"
+                            android:textSize="20sp"
                             android:textStyle="bold"
-                            tools:ignore="RtlSymmetry"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_editor_absoluteY="162dp" />
+                          />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -159,18 +149,18 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="30dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="0.29"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/settext"
                             android:layout_width="wrap_content"
-                            android:layout_height="20dp"
+                            android:layout_height="wrap_content"
                             android:layout_weight="0.29"
                             android:gravity="center_vertical"
                             android:text="PERIOD: "
-                            android:textSize="50px" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
 
@@ -190,9 +180,7 @@
                             android:gravity="center_vertical"
                             android:text="TextView"
                             android:textColor="@color/in"
-                            android:textSize="50px"
-                            tools:layout_editor_absoluteX="8dp"
-                            tools:layout_editor_absoluteY="162dp" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
                 </LinearLayout>

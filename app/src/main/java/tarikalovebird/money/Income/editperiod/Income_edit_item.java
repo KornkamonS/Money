@@ -33,7 +33,6 @@ public class Income_edit_item extends AppCompatActivity {
     private Button CancelBut;
     private RadioGroup typegroup;
     private Spinner spin;
-    private Switch SwitchInEdit;
     private AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,22 +55,9 @@ public class Income_edit_item extends AppCompatActivity {
         OkBut=(Button)findViewById(R.id.editincomeOk);
         CancelBut=(Button)findViewById(R.id.editincomeCancel);
         spin = ( Spinner ) this.findViewById ( R.id.editincomeSpin );
-        SwitchInEdit = (Switch) findViewById(R.id.switchInEdit);
-        spin.setVisibility(View.INVISIBLE);
+        spin.setVisibility(View.VISIBLE);
         spin.setAdapter ( dataAdapter );
-        SwitchInEdit.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                if(isChecked){
-                    spin.setVisibility(View.VISIBLE);
-                }else{
-                    spin.setVisibility(View.INVISIBLE);
-                }
-
-            }
-        });
         _Income_id=1;
 
         Intent intent = getIntent();

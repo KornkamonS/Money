@@ -82,6 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingBottom="10dp"
+                        android:padding="10dp"
                         android:text="          ทุกวันนี้จะเห็นว่าเราใช้จ่ายไปกับค่าอาหารไม่น้อยเลยทีเดียว อีกทั้งสมัยนี้ราคาค่าอาหารแต่ละมื้อก็มีราคาที่สูงขึ้นกว่าแต่ก่อน  เคล็ดลับง่ายๆที่จะมาช่วยคุณลดค่าอาหาร ทำให้เรามีเงินเหลือเก็บไว้ได้อีกด้วยนั้น มีดังนี้"
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
@@ -103,6 +104,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:padding="10dp"
                         android:text="1.ลิสต์รายการอาหารก่อนออกไปซื้อ"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -125,6 +127,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:padding="10dp"
                         android:text="              เพื่อป้องกันไม่ให้ซื้ออาหารเกินความจำเป็น แล้วซื้อของตามลิสต์ที่จดไว้อย่างเคร่งครัด ห้ามนอกลู่นอกทางไปซื้อของที่ไม่มีความจำเป็นต้องกินต้องใช้เด็ดขาดเลย"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -141,6 +144,7 @@
 
                     <TextView
                         android:id="@+id/textView19"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -161,6 +165,7 @@
 
                     <TextView
                         android:id="@+id/textView20"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -181,6 +186,7 @@
 
                     <TextView
                         android:id="@+id/textView21"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -200,6 +206,7 @@
 
                     <TextView
                         android:id="@+id/textView22"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -220,6 +227,7 @@
 
                     <TextView
                         android:id="@+id/textView23"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -239,6 +247,7 @@
 
                     <TextView
                         android:id="@+id/textView24"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -259,6 +268,7 @@
 
                     <TextView
                         android:id="@+id/textView25"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -278,6 +288,7 @@
 
                     <TextView
                         android:id="@+id/textView26"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -298,6 +309,7 @@
 
                     <TextView
                         android:id="@+id/textView27"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -317,6 +329,7 @@
 
                     <TextView
                         android:id="@+id/textView28"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -337,6 +350,7 @@
 
                     <TextView
                         android:id="@+id/textView29"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -356,6 +370,7 @@
 
                     <TextView
                         android:id="@+id/textView30"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -376,6 +391,7 @@
 
                     <TextView
                         android:id="@+id/textView31"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -395,6 +411,7 @@
 
                     <TextView
                         android:id="@+id/textView32"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -415,6 +432,7 @@
 
                     <TextView
                         android:id="@+id/textView33"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -434,6 +452,7 @@
 
                     <TextView
                         android:id="@+id/textView34"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -454,6 +473,7 @@
 
                     <TextView
                         android:id="@+id/textView35"
+                        android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

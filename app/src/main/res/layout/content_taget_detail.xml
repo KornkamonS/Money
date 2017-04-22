@@ -70,11 +70,12 @@
                 android:layout_width="300sp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:background="@android:color/holo_orange_dark"
+                android:background="#00394263"
                 android:indeterminate="false"
                 android:max="100"
-                android:progressBackgroundTint="@color/colorAccent"
-                android:progressTint="@android:color/holo_green_light" />
+                android:progressBackgroundTint="@color/sub"
+                android:progressTint="@android:color/holo_green_dark"
+                android:theme="@style/Base.Widget.AppCompat.ProgressBar.Horizontal" />
 
 
             <TableLayout

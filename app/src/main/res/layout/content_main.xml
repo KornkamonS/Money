@@ -9,191 +9,171 @@
     tools:context="tarikalovebird.money.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-        app:layout_constraintVertical_bias="1.0">
+        <TableLayout
 
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center|bottom"
-            android:orientation="vertical"
-            android:weightSum="1">
+            android:layout_gravity="bottom"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
 
-            <TableLayout
-
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="516dp"
-                android:layout_marginTop="8dp"
-                android:gravity="bottom"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0">
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:gravity="center">
 
-                <TableRow
+                <TextView
+                    android:id="@+id/nameTarget"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.05"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
-                    tools:layout_editor_absoluteX="8dp"
-                    tools:layout_editor_absoluteY="8dp">
+                    android:paddingTop="5sp"
+                    android:text="@string/Target"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+            </TableRow>
 
-                    <TextView
-                        android:id="@+id/nameTarget"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:paddingTop="5sp"
-                        android:text="@string/Target"
-                        android:textSize="30sp"
-                        android:textStyle="bold" />
-                </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:gravity="center">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <RelativeLayout
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
                     android:gravity="center">
 
-                    <RelativeLayout
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:gravity="center">
+                    <ImageView
+                        android:id="@+id/Hometarget_pic"
+                        android:layout_width="175dp"
+                        android:layout_height="175dp"
+                        app:srcCompat="@drawable/main" />
 
-                        <ImageView
-                            android:id="@+id/Hometarget_pic"
-                            android:layout_width="175dp"
-                            android:layout_height="175dp"
-                            app:srcCompat="@drawable/main" />
+                </RelativeLayout>
 
-                    </RelativeLayout>
+            </TableRow>
 
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_margin="10sp"
-                    android:layout_weight="0.05"
-                    android:gravity="center"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="16dp">
-
-                    <TextView
-                        android:id="@+id/CoundownDay"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/CountDownDay"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="0.05"
-                    android:gravity="center"
-                    tools:layout_editor_absoluteX="8dp"
-                    tools:layout_editor_absoluteY="8dp">
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="50dp"
-                        android:padding="5dp"
-                        android:text="@string/TotaDayUse"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="0sp"
-                    android:layout_weight="0.1"
-                    android:padding="20sp"
-                    tools:layout_editor_absoluteX="8dp"
-                    tools:layout_editor_absoluteY="8dp">
-
-                    <TextView
-                        android:id="@+id/TodayTotal"
-                        android:layout_width="0sp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:gravity="end"
-                        android:text="0"
-                        android:textSize="40sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/Unit"
-                        android:layout_width="0sp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:gravity="center"
-                        android:text="@string/unit"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                </TableRow>
-
-
-            </TableLayout>
-
-            <LinearLayout
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="bottom"
-                android:layout_weight="5.18"
-                android:gravity="bottom"
-                android:orientation="horizontal"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:layout_margin="10sp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/CoundownDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/CountDownDay"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:layout_margin="5dp"
+                android:gravity="center"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp">
 
-                <Button
-                    android:id="@+id/IncomeBut"
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:padding="5dp"
+                    android:text="@string/TotaDayUse"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:padding="20sp">
+
+                <TextView
+                    android:id="@+id/TodayTotal"
                     android:layout_width="0sp"
-                    android:layout_height="70dp"
-                    android:layout_weight="1"
-                    android:background="@color/in"
-                    android:text="@string/Income"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="end"
+                    android:text="0"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Unit"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:text="@string/unit"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/OutcomeBut"
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:layout_gravity="bottom">
+
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="1"
-                    android:background="@color/out"
-                    android:text="@string/Outcome"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    android:layout_weight="0.5"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-        </LinearLayout>
-    </ScrollView>
+                    <Button
+                        android:id="@+id/IncomeBut"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/in"
+                        android:text="@string/Income"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="0.5"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/OutcomeBut"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/out"
+                        android:text="@string/Outcome"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

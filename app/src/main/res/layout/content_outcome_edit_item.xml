@@ -127,7 +127,7 @@
                             android:layout_gravity="center"
                             android:gravity="center_vertical|center"
                             android:text="ชื่อ"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
                             android:layout_width="210dp"
@@ -177,7 +177,7 @@
                             android:layout_weight="1"
                             android:gravity="right"
                             android:text="จำนวน"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                         <LinearLayout
                             android:layout_width="170dp"
@@ -205,33 +205,11 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:text="บาท"
-                            android:textSize="55px" />
+                            android:textSize="15sp" />
 
                     </LinearLayout>
                 </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:weightSum="1">
-
-                        <Switch
-                            android:id="@+id/switchOutEdit"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.00"
-                            android:switchPadding="10dp"
-                            android:text="รายจ่ายประจำ"
-                            android:textSize="55px" />
-
-                    </LinearLayout>
-
-                </TableRow>
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -248,10 +226,10 @@
                         <Spinner
                             android:id="@+id/editexpenseSpin"
                             style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                            android:layout_width="wrap_content"
+                            android:layout_width="200dp"
                             android:layout_height="55dp"
                             android:layout_gravity="center"
-                            android:gravity="center_vertical|center|start" />
+                            android:gravity="center_vertical|center" />
                     </LinearLayout>
 
                 </TableRow>

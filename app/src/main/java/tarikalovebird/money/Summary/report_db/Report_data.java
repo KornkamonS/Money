@@ -114,11 +114,11 @@ public class Report_data {
             report.add(cursor.getLong(0) + "/" +
                     cursor.getString(1) + "/" +
                     cursor.getString(2) + "/" +
-                    cursor.getLong(3) + "/" +
-                    cursor.getLong(4) + "/" +
-                    cursor.getLong(5) + "/" +
-                    cursor.getLong(6) + "/" +
-                    cursor.getLong(7));
+                    cursor.getString(3) + "/" +
+                    cursor.getString(4) + "/" +
+                    cursor.getString(5) + "/" +
+                    cursor.getString(6) + "/" +
+                    cursor.getString(7));
 
             cursor.moveToNext();
         }
@@ -139,9 +139,9 @@ public class Report_data {
         while(!cursor.isAfterLast()) {
 
             report.add(cursor.getLong(0) + "/" +
-                    cursor.getLong(1) + "/" +
-                    cursor.getLong(2) + "/" +
-                    cursor.getLong(3) + "/" +
+                    cursor.getString(1) + "/" +
+                    cursor.getString(2) + "/" +
+                    cursor.getString(3) + "/" +
                     cursor.getString(4));
             cursor.moveToNext();
         }
@@ -161,9 +161,9 @@ public class Report_data {
         while(!cursor.isAfterLast()) {
 
             report.add(cursor.getLong(0) + "/" +
-                    cursor.getLong(1) + "/" +
-                    cursor.getLong(2) + "/" +
-                    cursor.getLong(3) );
+                    cursor.getString(1) + "/" +
+                    cursor.getString(2) + "/" +
+                    cursor.getString(3) );
             cursor.moveToNext();
         }
         return report;

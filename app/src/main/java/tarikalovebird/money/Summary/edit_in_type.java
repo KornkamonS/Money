@@ -19,11 +19,8 @@ import tarikalovebird.money.Get_datefromCalender;
 import tarikalovebird.money.R;
 import tarikalovebird.money.Summary.report_db.Report_data;
 import tarikalovebird.money.Summary.report_db.Report_metaData;
+import tarikalovebird.money.helpcode;
 import tarikalovebird.money.myCalendarView;
-
-/**
- * Created by tunas on 17-Apr-17.
- */
 
 public class edit_in_type extends AppCompatActivity {
     private int _Income_id=0;
@@ -59,7 +56,6 @@ public class edit_in_type extends AppCompatActivity {
 
         dateBut = (TextView) findViewById(R.id.seldate);
 
-        // add a click listener to the button
         dateBut.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), myCalendarView.class);
@@ -83,7 +79,6 @@ public class edit_in_type extends AppCompatActivity {
         mMonth =incomeMetaData.month ;
         mDay = incomeMetaData.day;
         aa=new Get_datefromCalender(this);
-        // display the current date
         updateCurrentDate();
 
         typegroup.check(incomeMetaData.type);
@@ -94,7 +89,6 @@ public class edit_in_type extends AppCompatActivity {
 
                 boolean FLAG=true;
                 if(IncomePrice.getText().toString().isEmpty()){
-
                     IncomePrice.setError("Please input Price");
                     FLAG=false;
                 }
@@ -102,14 +96,9 @@ public class edit_in_type extends AppCompatActivity {
                     Report_data income_data = new Report_data(getApplicationContext());
                     Report_metaData income = new Report_metaData();
 
-                    income.report_id=_Income_id;
-                    income.name = IncomeName.getText().toString();
-                    income.amount = (Float.parseFloat(IncomePrice.getText().toString()));
-                    income.type = typegroup.getCheckedRadioButtonId();
-                    income.year=mYear;
-                    income.month=mMonth;
-                    income.day=mDay;
-                    income.inorout=Report_metaData.IN;
+                    income.setValue(_Income_id,IncomeName.getText().toString(),
+                            Float.parseFloat(IncomePrice.getText().toString())
+                            ,mDay,mMonth,mYear,Report_metaData.IN,typegroup.getCheckedRadioButtonId());
 
                     income_data.update(income);
                     Toast.makeText(getApplicationContext(),"update income",Toast.LENGTH_SHORT).show();
@@ -136,7 +125,6 @@ public class edit_in_type extends AppCompatActivity {
                         .setCancelable(false)
                         .setPositiveButton("YES", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                // fire an intent go to your next activity
                                 Report_data repo = new  Report_data(getApplicationContext());
                                 repo.delete(_Income_id);
                                 Toast.makeText(getApplicationContext(), " Record Deleted", Toast.LENGTH_SHORT);
@@ -157,11 +145,12 @@ public class edit_in_type extends AppCompatActivity {
         });
     }
     private void updateCurrentDate() {
+        helpcode a=new helpcode();
         dateBut.setText(
                 new StringBuilder()
                         // Month is 0 based so add 1
-                        .append(mDay).append("-")
-                        .append(mMonth).append("-")
+                        .append(mDay).append(" ")
+                        .append(a.getMonthtext(mMonth)).append(" ")
                         .append(mYear).append(" "));
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
