@@ -1,6 +1,5 @@
 package tarikalovebird.money.Summary;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -145,13 +144,7 @@ public class edit_in_type extends AppCompatActivity {
         });
     }
     private void updateCurrentDate() {
-        helpcode a=new helpcode();
-        dateBut.setText(
-                new StringBuilder()
-                        // Month is 0 based so add 1
-                        .append(mDay).append(" ")
-                        .append(a.getMonthtext(mMonth)).append(" ")
-                        .append(mYear).append(" "));
+        dateBut.setText(helpcode.formatDayMonthYear(mDay,mMonth-1,mYear));
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {

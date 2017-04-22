@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,7 +16,6 @@ import android.widget.TextView;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.ValueDependentColor;
-import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 
@@ -174,13 +172,7 @@ public class IncomeDayFragment extends Fragment {
         print_graph(reportList);
     }
     private void updateCurrentDate() {
-        helpcode a=new helpcode();
-        dateBut.setText(
-                new StringBuilder()
-                        // Month is 0 based so add 1
-                        .append(mDay).append(" ")
-                        .append(a.getMonthtext(mMonth)).append(" ")
-                        .append(mYear).append(" "));
+        dateBut.setText(helpcode.formatDayMonthYear(mDay,mMonth-1,mYear));
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {

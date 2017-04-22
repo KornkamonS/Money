@@ -1,31 +1,16 @@
 package tarikalovebird.money;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
 /**
  * Created by tunas on 22-Apr-17.
  */
 
 public class helpcode {
-    public String getMonthtext(int month)
-    {
-        String tvMonth="jan";
-        switch (month)
-        {
-            case 1: tvMonth="Jan"; break;
-            case 2:  tvMonth="Feb"; break;
-            case 3:   tvMonth="Mar"; break;
-            case 4:  tvMonth="April"; break;
-            case 5:   tvMonth="May"; break;
-            case 6:  tvMonth="Jun"; break;
-            case 7:   tvMonth="July"; break;
-            case 8:  tvMonth="Aug"; break;
-            case 9:  tvMonth="Sep"; break;
-            case 10:  tvMonth="Oct"; break;
-            case 11:  tvMonth="Nov"; break;
-            case 12:   tvMonth="Dec"; break;
-        }
-        return  tvMonth;
-    }
-    public int getIdpicType(int typeid)
+
+    public static int getIdpicType(int typeid)
     {
         switch (typeid)
         {
@@ -45,6 +30,19 @@ public class helpcode {
             case R.id.add: return R.drawable.add1;
             default: return R.drawable.add1;
         }
+    }
+
+    private static final String DAY_MONTH_YEAR_PATT="dd MMMM yyyy";
+    public  static String formatDayMonthYear(int day , int monthOfYear, int year) {
+        Locale locale = Locale.getDefault();
+        Calendar calendar = Calendar.getInstance(locale);
+        calendar.clear();
+        calendar.set(Calendar.DAY_OF_MONTH,day);
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, monthOfYear);
+        SimpleDateFormat format = new SimpleDateFormat(
+                DAY_MONTH_YEAR_PATT, Locale.getDefault());
+        return format.format(calendar.getTime());
     }
 
 }

@@ -1,6 +1,5 @@
 package tarikalovebird.money.Summary;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,21 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-
 import tarikalovebird.money.Get_datefromCalender;
-import tarikalovebird.money.Outcome.outcome_db.Outcome_data;
-import tarikalovebird.money.Outcome.outcome_db.Outcome_metaData;
 import tarikalovebird.money.R;
 import tarikalovebird.money.Summary.report_db.Report_data;
 import tarikalovebird.money.Summary.report_db.Report_metaData;
@@ -158,13 +149,8 @@ public class edit_out_type  extends AppCompatActivity{
     }
     // updates the date we display in the TextView
     private void updateCurrentDate() {
-        helpcode a=new helpcode();
-        dateBut.setText(
-                new StringBuilder()
-                        // Month is 0 based so add 1
-                        .append(mDay).append(" ")
-                        .append(a.getMonthtext(mMonth)).append(" ")
-                        .append(mYear).append(" "));
+
+        dateBut.setText(helpcode.formatDayMonthYear(mDay,mMonth-1,mYear));
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {

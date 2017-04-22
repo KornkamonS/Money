@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import tarikalovebird.money.R;
 import tarikalovebird.money.helpcode;
+import utils.DateDisplayUtils;
 
 
 public class total_year_adepter extends ArrayAdapter<Report_detail_year> {
@@ -32,7 +33,7 @@ public class total_year_adepter extends ArrayAdapter<Report_detail_year> {
         int month= Integer.parseInt(report.month);
         helpcode a=new helpcode();
 
-        tvName.setText( a.getMonthtext(month) +" " +report.year);
+        tvName.setText(DateDisplayUtils.formatMonthYear(Integer.parseInt(report.year),month-1));
         tvAmount.setText(report.amount);
         if(Float.parseFloat(report.amount)<0)
         {

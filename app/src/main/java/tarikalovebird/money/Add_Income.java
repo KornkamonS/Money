@@ -1,6 +1,5 @@
 package tarikalovebird.money;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -171,13 +170,8 @@ public class Add_Income extends AppCompatActivity {
         }
         // updates the date we display in the TextView
         private void updateCurrentDate() {
-            helpcode a=new helpcode();
-            dateBut.setText(
-                    new StringBuilder()
-                            // Month is 0 based so add 1
-                            .append(mDay).append(" ")
-                            .append(a.getMonthtext(mMonth)).append(" ")
-                            .append(mYear).append(" "));
+
+            dateBut.setText(helpcode.formatDayMonthYear(mDay,mMonth-1,mYear));
         }
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {

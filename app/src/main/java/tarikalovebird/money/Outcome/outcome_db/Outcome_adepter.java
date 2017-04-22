@@ -40,9 +40,8 @@ public class Outcome_adepter extends ArrayAdapter<Outcome_detail> {
         tvID.setText(outcome.id);
         tvPeriod.setText(outcome.peroid);
 
-        helpcode a=new helpcode();
         int typeid=Integer.parseInt(outcome.type);
-        tvType.setImageResource(a.getIdpicType(typeid));
+        tvType.setImageResource(helpcode.getIdpicType(typeid));
 
         tvAmount.setText(outcome.amount);
         tvPeriod.setTextColor(getContext().getResources().getColor(R.color.out));

@@ -19,13 +19,13 @@ public class Report_adepter extends ArrayAdapter<Report_detail> {
     }
    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Get the data item for this position
+
         Report_detail report = getItem(position);
-        // Check if an existing view is being reused, otherwise inflate the view
+
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.view_list_entry, parent, false);
         }
-        // Lookup view for data population
+
         TextView tvID = (TextView) convertView.findViewById(R.id.list_Id);
         TextView tvName = (TextView) convertView.findViewById(R.id.list_name);
         TextView tvAmount = (TextView) convertView.findViewById(R.id.list_amount);
@@ -39,11 +39,11 @@ public class Report_adepter extends ArrayAdapter<Report_detail> {
         tvID.setText(report.id);
 
        int typeid=Integer.parseInt(report.type);
-       helpcode a=new helpcode();
-       tvType.setImageResource(a.getIdpicType(typeid));
+       tvType.setImageResource(helpcode.getIdpicType(typeid));
        int month= Integer.parseInt(report.month);
 
-        tvDate.setText(report.day+"-"+a.getMonthtext(month)+"-"+report.year);
+
+       tvDate.setText(helpcode.formatDayMonthYear(Integer.parseInt(report.day),month-1,Integer.parseInt(report.year)));
        tvAmount.setText(report.amount);
        if(report.inorout.equals(String.valueOf(Report_metaData.IN)))
        {tvDate.setTextColor(getContext().getResources().getColor(R.color.in));

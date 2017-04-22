@@ -42,8 +42,7 @@ public class Income_adepter extends ArrayAdapter<Income_detial>{
         tvPeriod.setText(income.peroid);
 
         int typeid=Integer.parseInt(income.type);
-        helpcode a =new helpcode();
-        tvType.setImageResource(a.getIdpicType(typeid));
+        tvType.setImageResource(helpcode.getIdpicType(typeid));
 
         tvPeriod.setTextColor(getContext().getResources().getColor(R.color.in));
         tvAmount.setTextColor(getContext().getResources().getColor(R.color.in));

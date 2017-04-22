@@ -31,7 +31,7 @@ public class total_outmonth_adepter extends ArrayAdapter<Report_detail_month> {
 
         int month= Integer.parseInt(report.month);
         helpcode a=new helpcode();
-        tvName.setText(report.day+" "+ a.getMonthtext(month) +" " +report.year);
+        tvName.setText(a.formatDayMonthYear(Integer.parseInt(report.day),month-1,Integer.parseInt(report.year)));
         tvAmount.setText(report.amount);
         tvAmount.setTextColor(getContext().getResources().getColor(R.color.out));
         return convertView;
