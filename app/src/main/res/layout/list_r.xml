@@ -8,17 +8,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <TextView
             android:id="@+id/headlinelist"
-            android:layout_width="match_parent"
+            android:layout_width="361dp"
             android:layout_height="wrap_content"
-            android:text="บันทึกการใช้เงิน"
+            android:layout_marginStart="30dp"
+            android:background="@color/sub"
             android:padding="10dp"
+            android:text="บันทึกการใช้เงิน"
+            android:textAllCaps="false"
+            android:textIsSelectable="false"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="30dp"/>
+            android:textStyle="bold" />
 
         <ListView
             android:id="@+id/listR"

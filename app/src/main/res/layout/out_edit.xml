@@ -50,6 +50,7 @@
                             android:orientation="vertical">
 
                             <RadioGroup
+                                android:background="@color/sub"
                                 android:id="@+id/editTypeExp"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
