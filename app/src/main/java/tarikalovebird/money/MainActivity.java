@@ -2,7 +2,6 @@ package tarikalovebird.money;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,7 +14,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.List;
@@ -58,7 +56,7 @@ public class MainActivity extends AppCompatActivity
 
         target = new Target(this);
         Timer tt = new Timer();
-        tt.scheduleAtFixedRate(timer,0,1000*60*60*24*1);
+        tt.scheduleAtFixedRate(timeri,0,1000*60*60*24*1);
         t=(TextView) findViewById(R.id.nameTarget);
         day=(TextView) findViewById(R.id.CoundownDay) ;
         incomeBut = (Button) findViewById(R.id.IncomeBut);
@@ -149,6 +147,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
 
         } else if (id == R.id.nav_Noti) {
+            Intent i = new Intent(getApplicationContext(), Notification.class);
+            startActivity(i);
 
         }
 
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    TimerTask timer= new TimerTask(){
+    TimerTask timeri= new TimerTask(){
         @Override
         public void run() {
             c = Calendar.getInstance();

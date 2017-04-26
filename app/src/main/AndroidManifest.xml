@@ -93,6 +93,10 @@
         <activity
             android:name=".Save_other_pay"
             android:label="@string/title_activity_save_other_pay"
+            android:theme="@style/mytheme" />
+        <activity
+            android:name=".Notification"
+            android:label="@string/title_activity_notification"
             android:theme="@style/mytheme"></activity>
     </application>
 
