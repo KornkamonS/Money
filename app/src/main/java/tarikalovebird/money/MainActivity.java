@@ -66,6 +66,13 @@ public class MainActivity extends AppCompatActivity
         total=(TextView) findViewById(R.id.TodayTotal);
 
         PrintPage();
+        pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), TagetDetail.class);
+                startActivityForResult(i,ADDTARGATRESULT);
+            }
+        }) ;
 
         incomeBut.setOnClickListener(new View.OnClickListener() {
             @Override

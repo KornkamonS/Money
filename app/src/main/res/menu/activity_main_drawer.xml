@@ -8,7 +8,7 @@
             android:title="@string/Home" />
         <item
             android:id="@+id/nav_Target"
-            android:icon="@drawable/home_sel"
+            android:icon="@drawable/target_det"
             android:title="Target Detail" />
 
         <item
