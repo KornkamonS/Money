@@ -76,7 +76,7 @@ public class Notification extends AppCompatActivity {
         TimePop.setIs24HourView(true);
 
         Timer tt = new Timer();
-        tt.scheduleAtFixedRate(timer, 0, 1000 * 1);
+        tt.scheduleAtFixedRate(timer, 0, 1000 * 60);
 
 
         final Switch mySwitch_1 = (Switch) findViewById(R.id.switch1);
