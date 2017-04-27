@@ -1,5 +1,7 @@
 package tarikalovebird.money;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -14,6 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 import java.util.List;
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity
     private static final int INCOMERESULT=2;
     private static final int OUTCOMERESULT=3;
     private Button outcomeBut;
+    private TextView totalall;
     private ImageView pic;
     private TextView t;
     private Target target;
@@ -64,6 +69,7 @@ public class MainActivity extends AppCompatActivity
         outcomeBut = (Button) findViewById(R.id.OutcomeBut);
         pic = (ImageView) findViewById(R.id.Hometarget_pic);
         total=(TextView) findViewById(R.id.TodayTotal);
+        totalall=(TextView) findViewById(R.id.total);
 
         PrintPage();
         pic.setOnClickListener(new View.OnClickListener() {
@@ -169,23 +175,24 @@ public class MainActivity extends AppCompatActivity
 
         target.setHAVE(a.getTotalmoney());
         t.setText(target.getTargetName());
-        String d=target.getCountDown();
+        totalall.setText("เงินที่มีอยู่ "+target.getHAVE()+" บาท");
 
-        total.setText(String.format("%.2f", target.CanuseToday()));
-
-        boolean flag=false;
-        if(target.getRest()<=0)
-            flag=true;
-        if(d==target.KEY_MISSIONFAIL&&flag==false)
+        float can=target.CanuseToday();
+        if(can<0)
         {
-            day.setTextColor(getApplication().getResources().getColor(R.color.out));
-            day.setText(target.KEY_MISSIONFAIL);
-        }
-        else {
-            if(flag){ day.setText("Successful !!");
-                day.setTextColor(getApplication().getResources().getColor(R.color.in));}
-            else day.setText(d.toString());
-        }
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            alertDialog.setTitle("Target Fail");
+            alertDialog.setMessage("เป้าหมายเป็นไปไม่ได้");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }else  total.setText(String.format("%.2f", can));
+        day.setText("เงินที่ควรเก็บในแต่ละวัน "+String.format("%.2f",target.getKeep())+" บาท");
+
         switch (target.getTargetType()) {
             case R.id.TypeLearning:
                 pic.setImageResource(R.drawable.learning1);

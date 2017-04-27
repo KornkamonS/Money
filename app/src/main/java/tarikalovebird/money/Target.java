@@ -4,6 +4,7 @@ package tarikalovebird.money;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.provider.CalendarContract;
+import android.support.annotation.DrawableRes;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -17,10 +18,12 @@ import tarikalovebird.money.Summary.report_db.Report_data;
 
 public class Target
 {
+
     private final String KEY_Name = "TARGET";
     private final String KEY_Price = "PRICE";
     private final String KEY_Day ="DAY";
     private final String KEY_Type="TYPE";
+    private final String KEY_Keep="KEEP";
     private final String KEY_STARTDay = "STARTday";
     private final String KEY_STARTMonth = "STARTMonth";
     private final String KEY_STARTYear = "STARTYear";
@@ -28,9 +31,8 @@ public class Target
     private final String KEY_FinishTargetMonth = "FMonth";
     private final String KEY_FinishTargetYear = "FYear";
     private final String KEY_HAVE="HAVE";
+    private final String KEY_Bool="BOOL";
 
-
-    public static String KEY_MISSIONFAIL="The mission failed !!";
       private SharedPreferences dbTarget;
       private SharedPreferences.Editor dbEditTarget;
 
@@ -56,6 +58,26 @@ public class Target
                 dbEditTarget.putFloat(KEY_Price, p);
                 return dbEditTarget.commit();
             }
+        }
+        public boolean setKeep()
+        {
+            if(getTargetDay()==0)  dbEditTarget.putFloat(KEY_Keep,getTargetPrice());
+            else dbEditTarget.putFloat(KEY_Keep,getTargetPrice()/getTargetDay());
+            return dbEditTarget.commit();
+        }
+        public boolean setBool(boolean b)
+        {
+            dbEditTarget.putBoolean(KEY_Bool,b);
+            return dbEditTarget.commit();
+        }
+        public boolean getBool()
+        {
+            return dbTarget.getBoolean(KEY_Bool,false);
+
+        }
+        public float getKeep()
+        {
+            return dbTarget.getFloat(KEY_Keep,0);
         }
         public boolean setTargetDay(int d) {
         if(d==0)
@@ -117,18 +139,7 @@ public class Target
             dbEditTarget.putInt(KEY_FinishTargetDay, day);
             return dbEditTarget.commit();
         }
-        public String getCountDown() {
-            long d=getDiffDay();
-            if(d<0)
-                return KEY_MISSIONFAIL;
-            return "CountDown: "+String.valueOf(d)+" Days";
-        }
-        public long getDelay(){
-            long d=getDiffDay();
-            if(d<0)
-                return d*-1;
-            else return 0;
-        }
+
         public long getDiffDay(){
             if(getTargetDay()==0) return 0;
             else{
@@ -141,29 +152,22 @@ public class Target
         }
         public float CanuseToday(){
             Calendar now = Calendar.getInstance();
-            float cost_in_month=0;
-            int diff_month=getFmonth()-now.get(Calendar.MONTH);
+           // float cost_in_month=0;
             int n_day=0;
-            if(diff_month!=0)
-            {
-                int day_in_month=now.getActualMaximum(Calendar.DAY_OF_MONTH);
-                n_day=day_in_month-now.get(Calendar.DAY_OF_MONTH);
-                cost_in_month=getTargetPrice()/diff_month;
-                if(n_day==0) return getHAVE()-cost_in_month;
-                else return (getHAVE()-cost_in_month)/n_day;
-            }
-            else
-            {
-                if(getDiffDay()!=0) {
-                    cost_in_month =(getHAVE()-getTargetPrice()) / getDiffDay();
-                    return cost_in_month;
-                }
-                else {
-                    cost_in_month = getHAVE()-getTargetPrice();
-                    return cost_in_month;
-                }
-            }
 
+            int day_in_month=now.getActualMaximum(Calendar.DAY_OF_MONTH);
+            n_day=day_in_month-now.get(Calendar.DAY_OF_MONTH);
+            if(n_day!=0)
+            {
+                return (getHAVE()-getTotalkeep())/n_day;
+            }
+            else return (getHAVE()-getTotalkeep());
+        }
+        public float getTotalkeep()
+        {
+            long passDay = getTargetDay()-getDiffDay();
+            if(passDay==0)return 0;
+            else return  getKeep()*passDay;
         }
         public String getTargetName()
         {
@@ -204,10 +208,19 @@ public class Target
         return dbTarget.getInt(KEY_FinishTargetDay, 0);
     }
         public float getRest(){
-            return  getTargetPrice() - getHAVE();
+            return  getTargetPrice() - getTotalkeep();
         }
         public float getHAVE(){ return   dbTarget.getFloat(KEY_HAVE,0); }
 
-
+        public void resetTarget()
+        {
+            setBool(false);
+            setTargetDay(0);
+            setTargetType(0);
+            setTargetPrice(0);
+            setDate(0,0,0);
+            setFindate(0,0,0);
+            setNameTarget("Target");
+        }
 }
 

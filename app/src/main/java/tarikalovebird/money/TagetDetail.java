@@ -92,11 +92,13 @@ public class TagetDetail extends AppCompatActivity {
     }
     private void printPage()
     {
-        summary=target.getHAVE();
+        summary=target.getTotalkeep();
         float rest =target.getRest();
         String Rest=String.valueOf(rest);
-        if(rest<=0)        {
+        if(rest<=0&&target.getBool())
+        {
             Rest="Successful!!";
+            target.resetTarget();
             unit3.setVisibility(View.INVISIBLE);
         }else unit3.setVisibility(View.VISIBLE);
 
@@ -108,13 +110,16 @@ public class TagetDetail extends AppCompatActivity {
 
         targetN.setText(target.getTargetName());
         targetP.setText(String.valueOf(target.getTargetPrice()));
-        startdate.setText(target.getSTARTdate());
-        endDate.setText(target.getFdate());
+        if(target.getBool())
+        { startdate.setText(target.getSTARTdate());
+        endDate.setText(target.getFdate());}
+        else {startdate.setText(" ");
+            endDate.setText(" ");}
         total.setText(Rest);
 
         summarytext.setText(String.valueOf(summary));
         percenttext.setText(per);
-        delay.setText(""+target.getDelay());
+        delay.setText(""+target.getDiffDay());
 
         MyAnimation.ProgressBarAnimation anim = new MyAnimation.ProgressBarAnimation(mProgress, 0, percent);
         anim.setDuration(1000);

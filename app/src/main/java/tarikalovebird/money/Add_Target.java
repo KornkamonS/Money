@@ -110,7 +110,8 @@ public class Add_Target extends AppCompatActivity {
                     Notierror(t.setTargetCountDownDay(Integer.parseInt(targetDay.getText().toString())));
                     Notierror(t.setTargetPrice(Float.parseFloat(targetPrice.getText().toString())));
                     Notierror(t.setTargetType(typegroup.getCheckedRadioButtonId()));
-
+                    Notierror(t.setKeep());
+                    Notierror(t.setBool(true));
                     final Calendar c = Calendar.getInstance();
 
                     Notierror(t.setDate(c.get(Calendar.DAY_OF_MONTH),c.get(Calendar.MONTH),c.get(Calendar.YEAR)));
