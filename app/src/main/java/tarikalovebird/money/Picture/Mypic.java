@@ -1,6 +1,5 @@
 package tarikalovebird.money.Picture;
 
-
 import android.graphics.Bitmap;
 
 /**

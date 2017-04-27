@@ -59,38 +59,47 @@
 
                                 <RadioButton
                                     android:id="@+id/gift2"
+                                    android:text="Food"
                                     style="@style/AddType"
                                     android:background="@drawable/food_type"
                                     android:checked="true" />
 
                                 <RadioButton
                                     android:id="@+id/oil"
+
+                                    android:text="Oil"
                                     style="@style/AddType"
                                     android:background="@drawable/oil_type" />
 
                                 <RadioButton
                                     android:id="@+id/home"
+                                    android:text="Rent"
                                     style="@style/AddType"
                                     android:background="@drawable/home_type" />
 
                                 <RadioButton
                                     android:id="@+id/elect"
+                                    android:text="Electronic"
                                     style="@style/AddType"
                                     android:background="@drawable/elect_type" />
 
                                 <RadioButton
                                     android:id="@+id/shop"
+                                    android:text="Shopping"
                                     style="@style/AddType"
                                     android:background="@drawable/shop_type" />
 
                                 <RadioButton
                                     android:id="@+id/entertain"
                                     style="@style/AddType"
+
+                                    android:text="Entertainment"
                                     android:background="@drawable/entertain_type" />
 
                                 <RadioButton
                                     android:id="@+id/pen"
                                     style="@style/AddType"
+                                    android:text="Learning"
                                     android:background="@drawable/pen_type" />
 
                                 <RadioButton
@@ -100,6 +109,7 @@
 
                                 <RadioButton
                                     android:id="@+id/add2"
+                                    android:text="ect."
                                     style="@style/AddType"
                                     android:background="@drawable/add2_type" />
 

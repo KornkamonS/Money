@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.TypeTechno:
                 pic.setImageResource(R.drawable.techno1);
                 break;
-            case R.id.AddType:
+            case R.id.AddTypeTarget:
                 pic.setImageBitmap(Mypic.bitmap);
                 break;
             default:

@@ -3,6 +3,7 @@ package tarikalovebird.money;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.provider.CalendarContract;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -101,10 +102,10 @@ public class Target
                 return flag;
 
             Calendar c = Calendar.getInstance();
-            c.set(getSTARTyear(), getSTARTmonth()-1, getSTARTday(), 0, 0);
+            c.set(getSTARTyear(), getSTARTmonth(), getSTARTday(), 0, 0);
             c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) + getTargetDay());
 
-            flag=setFindate(c.get(Calendar.YEAR),c.get(Calendar.MONTH)+1, c.get(Calendar.DAY_OF_MONTH));
+            flag=setFindate(c.get(Calendar.YEAR),c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
             if(flag==false)
                 return flag;
             return flag;
@@ -132,24 +133,37 @@ public class Target
             if(getTargetDay()==0) return 0;
             else{
                 Calendar c = Calendar.getInstance();
-                c.set(getFyear(), getFmonth()-1, getFday(), 0, 0);
+                c.set(getFyear(), getFmonth(), getFday(), 0, 0);
                 long msDiff =  c.getTimeInMillis()-Calendar.getInstance().getTimeInMillis();
                 long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
                 return daysDiff;
             }
         }
         public float CanuseToday(){
-            float c;
-            if(getDiffDay()!=0) {
-                c =(getTargetPrice() - getHAVE()) / getDiffDay();
-                if (c==0) return 0;
-                return c*-1;
+            Calendar now = Calendar.getInstance();
+            float cost_in_month=0;
+            int diff_month=getFmonth()-now.get(Calendar.MONTH);
+            int n_day=0;
+            if(diff_month!=0)
+            {
+                int day_in_month=now.getActualMaximum(Calendar.DAY_OF_MONTH);
+                n_day=day_in_month-now.get(Calendar.DAY_OF_MONTH);
+                cost_in_month=getTargetPrice()/diff_month;
+                if(n_day==0) return getHAVE()-cost_in_month;
+                else return (getHAVE()-cost_in_month)/n_day;
             }
-            else {
-                c = getTargetPrice()-getHAVE();
-                if(c==0) return 0;
-                return c*-1;
+            else
+            {
+                if(getDiffDay()!=0) {
+                    cost_in_month =(getHAVE()-getTargetPrice()) / getDiffDay();
+                    return cost_in_month;
+                }
+                else {
+                    cost_in_month = getHAVE()-getTargetPrice();
+                    return cost_in_month;
+                }
             }
+
         }
         public String getTargetName()
         {
@@ -165,8 +179,13 @@ public class Target
         }
         public int getTargetType(){return dbTarget.getInt(KEY_Type,0);}
         public String getSTARTdate() {
-            return String.valueOf(getSTARTday()) + "-" + String.valueOf(getSTARTmonth()) + "-" + String.valueOf(getSTARTyear());
+
+            return helpcode.formatDayMonthYear(getSTARTday(),getSTARTmonth(),getSTARTyear());
     }
+        public String getFdate() {
+
+        return helpcode.formatDayMonthYear(getFday(),getFmonth(),getFyear());
+        }
         public int getSTARTyear() {
         return dbTarget.getInt(KEY_STARTYear, 0);
     }

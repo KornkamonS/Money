@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import tarikalovebird.money.Picture.Mypic;
+import tarikalovebird.money.Summary.report_db.Report_data;
+
+import static tarikalovebird.money.Picture.Mypic.bitmap;
 
 
 public class TagetDetail extends AppCompatActivity {
@@ -29,6 +31,7 @@ public class TagetDetail extends AppCompatActivity {
     private TextView targetN;
     private ImageView targetPic;
     private TextView percenttext;
+    private TextView endDate;
     private TextView unit3;
     private String per;
     private TextView delay;
@@ -52,7 +55,7 @@ public class TagetDetail extends AppCompatActivity {
         summarytext = (TextView) findViewById(R.id.Detialhave);
         percenttext = (TextView) findViewById(R.id.DetialPercent);
         unit3=(TextView) findViewById(R.id.Detialunit3) ;
-
+        endDate=(TextView)findViewById(R.id.DetialFDatetext) ;
         delay=(TextView) findViewById(R.id.Detialdelay) ;
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -106,7 +109,9 @@ public class TagetDetail extends AppCompatActivity {
         targetN.setText(target.getTargetName());
         targetP.setText(String.valueOf(target.getTargetPrice()));
         startdate.setText(target.getSTARTdate());
+        endDate.setText(target.getFdate());
         total.setText(Rest);
+
         summarytext.setText(String.valueOf(summary));
         percenttext.setText(per);
         delay.setText(""+target.getDelay());
@@ -131,20 +136,11 @@ public class TagetDetail extends AppCompatActivity {
             case R.id.TypeTechno:
                 targetPic.setImageResource(R.drawable.techno1);
                 break;
-            case R.id.AddType:
-                targetPic.setImageBitmap(Mypic.bitmap);
+            case R.id.AddTypeTarget:
+                targetPic.setImageBitmap(bitmap);
                 break;
             default:
                 targetPic.setImageResource(R.drawable.main);
         }
     }
-
-    /* @Override
-    public void onResume() {  // After a pause OR at startup
-        super.onResume();
-        //Refresh your stuff here
-        }
-
-
-    }*/
 }
