@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import tarikalovebird.money.Summary.report_db.Report_data;
+import tarikalovebird.money.Picture.Mypic;
 
 
 public class TagetDetail extends AppCompatActivity {
@@ -132,7 +132,7 @@ public class TagetDetail extends AppCompatActivity {
                 targetPic.setImageResource(R.drawable.techno1);
                 break;
             case R.id.AddType:
-                targetPic.setImageResource(R.drawable.add1);
+                targetPic.setImageBitmap(Mypic.bitmap);
                 break;
             default:
                 targetPic.setImageResource(R.drawable.main);

@@ -24,6 +24,7 @@ import tarikalovebird.money.Income.income_db.Income_data;
 import tarikalovebird.money.Income.income_db.Income_detial;
 import tarikalovebird.money.Outcome.outcome_db.Outcome_data;
 import tarikalovebird.money.Outcome.outcome_db.Outcome_detail;
+import tarikalovebird.money.Picture.Mypic;
 import tarikalovebird.money.Summary.report_db.Report_data;
 import tarikalovebird.money.Summary.report_db.Report_metaData;
 
@@ -195,7 +196,7 @@ public class MainActivity extends AppCompatActivity
                 pic.setImageResource(R.drawable.techno1);
                 break;
             case R.id.AddType:
-                pic.setImageResource(R.drawable.add1);
+                pic.setImageBitmap(Mypic.bitmap);
                 break;
             default:
                 pic.setImageResource(R.drawable.main);

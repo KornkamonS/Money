@@ -45,5 +45,8 @@
     <string name="title_activity_save_pay_petrol">How to save petrol costs</string>
     <string name="title_activity_save_other_pay">How to save other costs</string>
     <string name="title_activity_notification">Notification</string>
+    <string name="pick_image_message">Click on the image to pick a new image:</string>
+    <string name="pick_image_intent_text">Choose an image</string>
+    <string name="title_activity_add_picture">Add Picture</string>
 
 </resources>

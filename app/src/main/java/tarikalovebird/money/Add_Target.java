@@ -37,6 +37,7 @@ public class Add_Target extends AppCompatActivity {
         targetName=(EditText) findViewById(R.id.ADDTargetName);
         targetPrice=(EditText)findViewById(R.id.ADDTargetPrice);
         targetDay=(EditText)findViewById(R.id.ADDDayTargey) ;
+        typeselect=(RadioButton)findViewById(R.id.AddType);
         okbut=(Button)findViewById(R.id.OkbuttonTarget);
         cancelbut=(Button)findViewById(R.id.CancelbuttonTarget);
 
@@ -46,6 +47,15 @@ public class Add_Target extends AppCompatActivity {
         Error.setTitle("Error! ");
         Error.setIcon(android.R.drawable.btn_dialog);
         Error.setPositiveButton("Close", null);
+
+        typeselect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Add_Picture.class);
+                startActivity(i);
+
+            }
+        });
 
         okbut.setOnClickListener(new View.OnClickListener() {
             @Override
