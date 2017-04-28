@@ -154,10 +154,10 @@ public class OutcomeMonthFragment extends Fragment
             graph.getViewport().setMinY(min);
             graph.getViewport().setMinX(0);
             graph.getViewport().setMaxX(reportList.size());
-            /*graph.getViewport().setScrollable(true);
+            graph.getViewport().setScrollable(true);
             graph.getViewport().setScrollableY(true);
             graph.getViewport().setScalable(true);
-            graph.getViewport().setScalableY(true); */
+            graph.getViewport().setScalableY(true);
             series.setDrawValuesOnTop(true);
             series.setValuesOnTopSize(40);
             series.setValuesOnTopColor(getContext().getResources().getColor(R.color.text));

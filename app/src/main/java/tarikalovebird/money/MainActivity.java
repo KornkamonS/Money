@@ -190,6 +190,7 @@ public class MainActivity extends AppCompatActivity
                         }
                     });
             alertDialog.show();
+            total.setText("0");
         }else  total.setText(String.format("%.2f", can));
         day.setText("เงินที่ควรเก็บในแต่ละวัน "+String.format("%.2f",target.getKeep())+" บาท");
 
